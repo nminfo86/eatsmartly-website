@@ -1,8 +1,37 @@
-<?php
-$pageTitle = 'eatSmartly | التوثيق';
-include 'includes/head.php';
-include 'includes/header.php';
-?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eatSmartly | التوثيق</title>
+    <link rel="icon" type="image/png" href="images/eatSmartly_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <a href="index.html" class="logo">
+        <img src="images/eatSmartly_logo.png" alt="eatSmartly Logo">
+        <span>eatSmartly</span>
+    </a>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">الرئيسية</a>
+            </li>
+            <li>
+                <a href="scenarios.html">أوضاع التشغيل</a>
+            </li>
+            <li>
+                <a href="documentation.html" class="active-page">التوثيق</a>
+            </li>
+            <li>
+                <a href="index.html#contact">اتصل بنا</a>
+            </li>
+        </ul>
+    </nav>
+    <a href="index.html#download" class="btn">حمل النسخة التجريبية</a>
+</header>
 
 <!-- ══ Page Hero ══════════════════════════════════════════ -->
 <div class="page-hero">
@@ -290,7 +319,7 @@ include 'includes/header.php';
 
                 <div class="doc-tip">
                     📞 للتواصل الفوري مع الدعم الفني:
-                    <a href="index.php#contact" style="color: var(--primary-color);">اضغط هنا للتواصل معنا</a>
+                    <a href="index.html#contact" style="color: var(--primary-color);">اضغط هنا للتواصل معنا</a>
                 </div>
             </div>
 
@@ -298,4 +327,22 @@ include 'includes/header.php';
     </div><!-- /.doc-wrapper -->
 </section>
 
-<?php include 'includes/footer.php'; ?>
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2026 — <span dir="ltr">eatSmartly</span></p>
+</footer>
+
+<script>
+    // Smooth scroll — only for same-page anchor links (href starts with #)
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+            var href = this.getAttribute('href');
+            if (href.length > 1) {
+                e.preventDefault();
+                var target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
