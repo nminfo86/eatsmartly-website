@@ -31,6 +31,9 @@
         </ul>
     </nav>
     <a href="index.html#download" class="btn">حمل النسخة التجريبية</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
 </header>
 
 <!-- ══ Page Hero ══════════════════════════════════════════ -->
@@ -569,6 +572,26 @@
 </footer>
 
 <script>
+    // Hamburger menu
+    (function () {
+        var toggle = document.getElementById('menuToggle');
+        var nav = toggle && toggle.closest('header').querySelector('nav');
+        if (toggle && nav) {
+            toggle.addEventListener('click', function () {
+                var open = nav.classList.toggle('open');
+                toggle.classList.toggle('open', open);
+                toggle.setAttribute('aria-expanded', open);
+            });
+            nav.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    nav.classList.remove('open');
+                    toggle.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    })();
+
     // Smooth scroll — only for same-page anchor links (href starts with #)
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
