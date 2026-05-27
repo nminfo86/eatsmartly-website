@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
                 <a href="scenarios.html" class="active-page">أوضاع التشغيل</a>
             </li>
             <li>
-                <a href="documentation.html">التوثيق</a>
+                <a href="documentation.html">دليل الاستخدام</a>
             </li>
             <li>
                 <a href="index.html#contact">اتصل بنا</a>
@@ -47,17 +47,82 @@
 <section style="background-color: var(--secondary-color); padding: 20px 20px 80px;">
     <div class="scenarios-page">
 
-        <!-- Scenario 1 -->
+        <!-- ── Scenario 1 ─────────────────────────────────── -->
         <div class="scenario-block">
             <div class="scenario-icon">🖥️</div>
             <div class="scenario-body">
-                <span class="scenario-number">السيناريو 1</span>
+                <div class="scenario-header-row">
+                    <span class="scenario-number">السيناريو 1</span>
+                    <span class="license-badge regular">Regular License</span>
+                </div>
                 <h3>نظام نقاط البيع (POS) مع طابعة واحدة عبر USB</h3>
                 <p>
                     الحل الأمثل للمقاهي الصغيرة والمطاعم الناشئة التي تبحث عن نظام بسيط وفعال.
-                    يعمل الكاشير على جهاز واحد متصل بطابعة واحدة مباشرة عبر USB، مما يُبسّط
-                    الإعداد ويُقلل التكاليف إلى الحد الأدنى.
+                    طابعة <span dir="ltr">USB</span> واحدة تُستخدم لطباعة تذاكر المطبخ وفواتير
+                    الزبائن معاً — إعداد سريع وتكلفة في حدودها الدنيا.
                 </p>
+
+                <!-- Diagram -->
+                <div class="scenario-diagram">
+                    <img src="images/scenarios/Scenarios_1.jpg"
+                         alt="Scenario 1 – POS with one USB Printer">
+                </div>
+
+                <!-- Workflow -->
+                <div class="workflow-section">
+                    <h4>سير العمل</h4>
+                    <div class="workflow-steps">
+
+                        <div class="workflow-step">
+                            <div class="step-circle">1</div>
+                            <div class="step-content">
+                                <strong>استقبال الطلب</strong>
+                                <p>يأخذ النادل الطلب من الطاولة، أو يقوم الزبون بتقديم طلبه مباشرةً عند الكاشير.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">2</div>
+                            <div class="step-content">
+                                <strong>إدخال الطلب</strong>
+                                <p>يُدخل الكاشير الطلب في EatSmartly ويضغط على <em>تحقق</em>. عند هذه النقطة، يختار الكاشير بين خيارين:</p>
+                                <ul>
+                                    <li><strong>طباعة تذكرة المطبخ فقط</strong> ← إذا كان الزبون سيدفع لاحقاً (بعد الخدمة).</li>
+                                    <li><strong>طباعة تذكرة المطبخ + فاتورة الزبون</strong> ← إذا كان الزبون يدفع فوراً عند تقديم الطلب.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">3</div>
+                            <div class="step-content">
+                                <strong>تحضير المطبخ</strong>
+                                <p>تطبع الطابعة USB تذكرة المطبخ. يتم توزيع التذاكر <em>يدوياً</em> على الطباخ/الطباخين. يقوم طاقم المطبخ بتحضير الطلب وفقاً للتذكرة المطبوعة.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">4</div>
+                            <div class="step-content">
+                                <strong>تقديم الطلب</strong>
+                                <p>بمجرد أن يكون الطعام جاهزاً، يقدمه النادل للزبون. إذا لم يتم تحصيل الدفع في الخطوة 2، يدفع الزبون في هذه المرحلة ويطبع الكاشير الفاتورة.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Key Points -->
+                <div class="key-points-box">
+                    <h4>💡 نقاط رئيسية</h4>
+                    <ul>
+                        <li>مطلوب طابعة <strong>USB واحدة</strong> فقط.</li>
+                        <li>مناسب للمطاعم الصغيرة والمقاهي ومحلات الوجبات الخفيفة.</li>
+                        <li>سير عمل بسيط، أجهزة بحد أدنى.</li>
+                        <li>سهل الإدارة من قِبل كاشير واحد وفريق مطبخ صغير.</li>
+                    </ul>
+                </div>
+
                 <ul>
                     <li>جهاز كاشير واحد (كمبيوتر أو تابلت)</li>
                     <li>طابعة حرارية واحدة متصلة عبر <span dir="ltr">USB</span></li>
@@ -73,24 +138,107 @@
             </div>
         </div>
 
-        <!-- Scenario 2 -->
+        <!-- ── Scenario 2 ─────────────────────────────────── -->
         <div class="scenario-block">
             <div class="scenario-icon">🖨️</div>
             <div class="scenario-body">
-                <span class="scenario-number">السيناريو 2</span>
-                <h3>نظام POS مع عدة طابعات (شبكة محلية)</h3>
+                <div class="scenario-header-row">
+                    <span class="scenario-number">السيناريو 2</span>
+                    <span class="license-badge regular">Regular License</span>
+                </div>
+                <h3>نظام POS مع عدة طابعات + إشعارات التلفاز</h3>
                 <p>
-                    مصمم للمطاعم المتوسطة التي تضم أكثر من مطبخ أو محطة تحضير.
-                    يتم توزيع الطلبات تلقائيًا على كل طابعة حسب نوع الصنف أو الفئة،
-                    مما يُسرّع الإعداد ويُقلل الأخطاء بين القاعة والمطبخ.
+                    مصمم للمطاعم المتوسطة التي تضم أكثر من محطة تحضير. تُوزَّع الطلبات
+                    تلقائيًا عبر الشبكة المحلية على كل طابعة حسب القسم، مع إشعارات فورية
+                    على شاشة التلفاز عند اكتمال كل طلب.
                 </p>
+
+                <!-- Diagram -->
+                <div class="scenario-diagram">
+                    <img src="images/scenarios/Scenarios_2.jpg"
+                         alt="Scenario 2 – POS with Multi Printers and TV Notifications">
+                </div>
+
+                <!-- Workflow -->
+                <div class="workflow-section">
+                    <h4>سير العمل</h4>
+                    <div class="workflow-steps">
+
+                        <div class="workflow-step">
+                            <div class="step-circle">1</div>
+                            <div class="step-content">
+                                <strong>استقبال الطلب</strong>
+                                <p>يأخذ النادل الطلب من الطاولة، أو يضعه الزبون مباشرةً عند الكاشير.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">2</div>
+                            <div class="step-content">
+                                <strong>إدخال الطلب</strong>
+                                <p>يُدخل الكاشير الطلب في EatSmartly ويتحقق منه. فوراً:</p>
+                                <ul>
+                                    <li>تطبع طابعة USB فاتورة الزبون (إذا كان يدفع الآن).</li>
+                                    <li>تطبع طابعات المطبخ الشبكية <strong>تلقائياً</strong> تذاكر المطبخ، كل واحدة موجهة للقسم الصحيح (مثل: الشواء ← طابعة الشواء، المشروبات ← طابعة المشروبات).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">3</div>
+                            <div class="step-content">
+                                <strong>تحضير المطبخ</strong>
+                                <p>يستلم كل طباخ التذكرة على طابعته الشبكية المخصصة. بدلاً من ذلك، تتولى طابعة شبكية مشتركة واحدة معالجة جميع تذاكر المطبخ.</p>
+                                <ul>
+                                    <li><strong>متطلب الشبكة:</strong> إذا كان عدد الطابعات أكثر من اثنتين، يلزم وجود مفتاح شبكة (switch) لربط جميع الأجهزة.</li>
+                                    <li>يجب تعيين <strong>عناوين IP ثابتة</strong> لجميع الطابعات لضمان اتصال مستقر.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">4</div>
+                            <div class="step-content">
+                                <strong>مساعد الطباخ والإشعارات</strong>
+                                <p>يستخدم طاقم المطبخ محطة مساعد الطباخ (كمبيوتر شاشة لمس أو تابلت) للتحقق من جاهزية الطلب. بمجرد التحقق، يظهر إشعار على شاشة التلفاز:</p>
+                                <ul>
+                                    <li><strong>داخل المطبخ/منطقة الخدمة</strong> ← ليعلم النادلون بجاهزية الطلبات.</li>
+                                    <li><strong>في منطقة الزبائن</strong> ← يستلم الزبائن طلباتهم مباشرةً (وضع الخدمة الذاتية).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">5</div>
+                            <div class="step-content">
+                                <strong>تقديم الطلب</strong>
+                                <p>في مطاعم الخدمة على الطاولة، يأخذ النادلون الطلب الجاهز عندما يظهر على شاشة التلفاز. في الإعدادات ذاتية الخدمة، يستلم الزبائن طلباتهم عندما يظهر رقمهم. تُطبع الفاتورة من طابعة USB عند دفع الزبون.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Key Advantages -->
+                <div class="key-points-box">
+                    <h4>💡 المزايا الرئيسية</h4>
+                    <ul>
+                        <li><strong>الأتمتة</strong> – تُرسَل الطلبات للقسم الصحيح في المطبخ دون توزيع يدوي للتذاكر.</li>
+                        <li><strong>خدمة أسرع</strong> – يعرف النادلون والزبائن فوراً متى تكون الطلبات جاهزة عبر إشعارات التلفاز.</li>
+                        <li><strong>تقليل الأخطاء</strong> – لا تذاكر مطبخ مفقودة أو غائبة.</li>
+                        <li><strong>أوضاع مرنة</strong> – يعمل في خدمة النادل والخدمة الذاتية/الوجبات السريعة.</li>
+                        <li><strong>قابلية التوسع</strong> – يدعم طابعة مطبخ مشتركة واحدة أو طابعات متعددة لكل قسم.</li>
+                        <li><strong>شبكة مستقرة</strong> – مع مفتاح الشبكة، يتعامل بسلاسة مع طابعات Ethernet متعددة وشاشات التلفاز.</li>
+                    </ul>
+                </div>
+
                 <ul>
                     <li>جهاز كاشير واحد أو أكثر على الشبكة المحلية</li>
-                    <li>طابعات متعددة (مطبخ، بار، حلويات...)</li>
+                    <li>طابعات شبكية متعددة (مطبخ، بار، حلويات...)</li>
                     <li>توجيه ذكي للطباعة حسب الفئة أو الصنف</li>
                     <li>كل مطبخ يستقبل فقط الطلبات التي تخصه</li>
                     <li>دعم طابعات <span dir="ltr">USB</span> والطابعات الشبكية <span dir="ltr">IP</span></li>
-                    <li>تذاكر مطبخ واضحة مع رقم الطاولة والكمية</li>
+                    <li>إشعارات التلفاز للنادل والزبون عند جاهزية الطلب</li>
                     <li>العمل 100٪ بدون إنترنت — الشبكة المحلية فقط</li>
                 </ul>
                 <div class="scenario-ideal">
@@ -99,23 +247,119 @@
             </div>
         </div>
 
-        <!-- Scenario 3 -->
+        <!-- ── Scenario 3 ─────────────────────────────────── -->
         <div class="scenario-block">
             <div class="scenario-icon">📱</div>
             <div class="scenario-body">
-                <span class="scenario-number">السيناريو 3</span>
-                <h3>POS متعدد + قائمة QR مع طلبات الزبائن</h3>
+                <div class="scenario-header-row">
+                    <span class="scenario-number">السيناريو 3</span>
+                    <span class="license-badge regular">Regular License</span>
+                </div>
+                <h3>POS متعدد + قائمة QR الرقمية + طلبات الزبائن</h3>
                 <p>
-                    الحل الكامل للمطاعم العصرية. يجمع بين كفاءة نظام نقاط البيع التقليدي
-                    وسهولة القائمة الرقمية عبر QR، مما يتيح للزبائن الطلب مباشرة من هواتفهم
-                    بينما يتولى الكاشير إدارة طلبات الكاونتر — كل ذلك في نظام واحد متكامل.
+                    يمتد هذا السيناريو على إعداد الطابعات المتعددة بإضافة قوائم
+                    <span dir="ltr">QR</span> الرقمية وإمكانية الطلب الذاتي للزبائن.
+                    يتصل الزبائن بشبكة <span dir="ltr">Wi-Fi</span> المحلية للمطعم — دون حاجة
+                    للإنترنت — ويفحصون الكود للاطلاع على القائمة التفاعلية.
+                    جميع الطلبات تُراجَع وتُصادَق من النادل أو الكاشير قبل إرسالها للمطبخ.
                 </p>
+
+                <!-- Diagram -->
+                <div class="scenario-diagram">
+                    <img src="images/scenarios/Scenarios_3.jpg"
+                         alt="Scenario 3 – POS with Multi Printers + QR Digital Menu + Order">
+                </div>
+
+                <!-- Workflow -->
+                <div class="workflow-section">
+                    <h4>سير العمل</h4>
+                    <div class="workflow-steps">
+
+                        <div class="workflow-step">
+                            <div class="step-circle">1</div>
+                            <div class="step-content">
+                                <strong>الوصول إلى القائمة الرقمية QR وطلب الزبائن (اختياري)</strong>
+                                <ul>
+                                    <li>يتصل الزبائن بشبكة Wi-Fi غير المتصلة بالإنترنت للمطعم.</li>
+                                    <li>يوضع رمز QR على كل طاولة (مع اسم الطاولة ورمزها الفريد) أو كرمز استلام للطلبات خارج المطعم.</li>
+                                    <li>يفتح مسح رمز QR القائمة الرقمية على هاتف الزبون الذكي.</li>
+                                    <li><strong>اللغة والعملة:</strong> يحددهما المسؤول في إعدادات النظام — ولا يختارهما الزبون.</li>
+                                    <li>تُسجَّل طلبات الزبائن مع رمز الطاولة وتُحدَّد كـ<em>"في انتظار التحقق"</em> — ولا تذهب مباشرةً إلى المطبخ.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">2</div>
+                            <div class="step-content">
+                                <strong>تحقق النادل (إلزامي)</strong>
+                                <p>يراجع النادل أو الكاشير جميع الطلبات المقدمة من الزبائن على تابلت أو جهاز محمول أو طرفية POS. يتحقق من توفر الأصناف، ويعدلّها إذا لزم الأمر، ويتحقق من الطلب. فقط بعد تحقق الموظف يصبح الطلب <em>"نشطاً"</em> وينتقل إلى سير عمل المطبخ.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">3</div>
+                            <div class="step-content">
+                                <strong>تحضير المطبخ</strong>
+                                <p>بمجرد التحقق، تُرسَل الطلبات تلقائياً:</p>
+                                <ul>
+                                    <li>يمكن لطابعة USB طباعة فاتورة الزبون (إذا كان الدفع فورياً).</li>
+                                    <li>تطبع الطابعات الشبكية تذاكر المطبخ مباشرةً للقسم الصحيح (الشواء، البيتزا، المشروبات، إلخ).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">4</div>
+                            <div class="step-content">
+                                <strong>مساعد الطباخ والإشعارات</strong>
+                                <p>يستخدم طاقم المطبخ محطة مساعد الطباخ للتحقق من جاهزية الأصناف. تتحدث حالة الطلب في الوقت الفعلي وتظهر على:</p>
+                                <ul>
+                                    <li><strong>شاشة إشعارات التلفاز</strong> للنادلين و/أو الزبائن.</li>
+                                    <li><strong>شاشة القائمة الرقمية</strong> للزبون (إذا كانت خاصية الطلب مفعّلة).</li>
+                                </ul>
+                                <p style="margin-top:10px;"><strong>تتبع طلب الزبون</strong> — يتتبع الزبائن طلبهم في تبويب "التتبع" في قائمة QR:</p>
+                                <ul>
+                                    <li><strong>تم الإنشاء</strong> ← قدّم الزبون الطلب.</li>
+                                    <li><strong>تم التحقق</strong> ← أكده النادل/الكاشير.</li>
+                                    <li><strong>جاهز</strong> ← جاهز للاستلام/التقديم.</li>
+                                </ul>
+                                <p style="margin-top:6px;">يمكن للزبائن أيضاً تفعيل إشعارات الهاتف للتنبيه عند جاهزية طلبهم.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">5</div>
+                            <div class="step-content">
+                                <strong>التقديم أو الاستلام</strong>
+                                <ul>
+                                    <li>في مطاعم <strong>الخدمة على الطاولة</strong>، يوصّل النادلون الطلب إلى الزبون.</li>
+                                    <li>في إعدادات <strong>الخدمة الذاتية/الوجبات السريعة</strong>، يستلم الزبائن طلبهم عندما تُظهر شاشة التلفاز أو إشعار الهاتف "جاهز".</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Key Advantages -->
+                <div class="key-points-box">
+                    <h4>💡 المزايا الرئيسية</h4>
+                    <ul>
+                        <li><strong>Wi-Fi مستقر مطلوب</strong> – مصمّم للمطاعم التي تمتلك شبكات لاسلكية قوية لدعم عدد كبير من الزبائن في آنٍ واحد.</li>
+                        <li><strong>سير عمل منضبط</strong> – يجب التحقق من جميع طلبات الزبائن من قِبل الموظفين قبل وصولها إلى المطبخ.</li>
+                        <li><strong>إعداد بسيط</strong> – يحدد المسؤول لغة القائمة والعملة، وليس الزبون.</li>
+                        <li><strong>تتبع في الوقت الفعلي</strong> – يمكن للزبائن تتبع حالة طلبهم واستلام إشعارات فورية.</li>
+                        <li><strong>خدمة مرنة</strong> – يدعم نموذجي مطاعم الخدمة بالنادل والخدمة الذاتية.</li>
+                    </ul>
+                </div>
+
                 <ul>
                     <li>أجهزة كاشير متعددة على الشبكة المحلية</li>
-                    <li>قائمة رقمية عبر QR للزبائن (على هواتفهم)</li>
-                    <li>طلبات الزبائن تصل مباشرة إلى الكاشير والمطبخ</li>
-                    <li>كل طاولة لها رمز QR فريد مع رقمها</li>
-                    <li>إشعارات فورية للنادل عند إرسال الطلب</li>
+                    <li>قائمة رقمية عبر <span dir="ltr">QR</span> للزبائن (على هواتفهم)</li>
+                    <li>طلبات الزبائن تُراجَع وتُصادَق قبل إرسالها للمطبخ</li>
+                    <li>كل طاولة لها رمز <span dir="ltr">QR</span> فريد مع رقمها</li>
+                    <li>تتبع حالة الطلب لحظياً + إشعارات على هاتف الزبون</li>
                     <li>طباعة موزعة للمطابخ المختلفة</li>
                     <li>عرض الصور ومقاطع الفيديو للأطباق في القائمة الرقمية</li>
                     <li>العمل 100٪ عبر الشبكة المحلية — بدون إنترنت</li>
@@ -126,17 +370,168 @@
             </div>
         </div>
 
-        <!-- Scenario 4 -->
-        <div class="scenario-block">
+        <!-- ── Scenario 4 (Extended License) ──────────────── -->
+        <div class="scenario-block scenario-block-extended">
             <div class="scenario-icon">🏢</div>
             <div class="scenario-body">
-                <span class="scenario-number">السيناريو 4</span>
-                <h3>وضع مجمع المطاعم (Food Court) — مطاعم متعددة</h3>
+                <div class="scenario-header-row">
+                    <span class="scenario-number">السيناريو 4</span>
+                    <span class="license-badge extended">⚡ Extended License</span>
+                </div>
+                <h3>eatSmartly — مجمع مطاعم متعدد + قائمة QR + طلبات الزبائن</h3>
                 <p>
-                    الحل الأشمل لإدارة مجمعات الطعام الكبيرة. يعمل كمنصة مركزية تجمع
-                    مطاعم متعددة تحت إدارة واحدة، مع الحفاظ على استقلالية كل مطعم في طلباته
-                    وتقاريره وعملياته اليومية.
+                    هذا السيناريو مُصمَّم لمجمعات الطعام والمولات التجارية حيث تتشارك مطاعم
+                    متعددة نفس المساحة. يتصل الزبائن بشبكة <span dir="ltr">Wi-Fi</span> المحلية
+                    للمول، يفحصون كود <span dir="ltr">QR</span> المشترك أو يستخدمون أكشاك الشاشات
+                    التفاعلية للوصول إلى قائمة رقمية موحدة تضم جميع المطاعم المشاركة.
+                    يمكن للزبائن تصفح الأصناف، وضع الطلبات، وتتبع حالة طلباتهم لحظياً.
                 </p>
+
+                <!-- Diagram -->
+                <div class="scenario-diagram">
+                    <img src="images/scenarios/Scenarios_4.jpg"
+                         alt="Scenario 4 – Extended License Multi-Restaurants Food Court">
+                </div>
+
+                <!-- Workflow -->
+                <div class="workflow-section">
+                    <h4>سير العمل</h4>
+                    <div class="workflow-steps">
+
+                        <div class="workflow-step">
+                            <div class="step-circle">1</div>
+                            <div class="step-content">
+                                <strong>الوصول إلى القائمة الرقمية</strong>
+                                <ul>
+                                    <li>يتصل الزبائن بشبكة Wi-Fi المحلية للمول.</li>
+                                    <li>يمسحون رمز QR المشترك على الطاولات أو يستخدمون شاشات الكشك اللمسية في مجمع الطعام.</li>
+                                    <li>تعرض القائمة الرقمية جميع المطاعم المتاحة بأصنافها وفئاتها.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">2</div>
+                            <div class="step-content">
+                                <strong>طلب الزبائن (اختياري)</strong>
+                                <ul>
+                                    <li>يمكن للزبائن إضافة أصناف من مطعم واحد أو أكثر إلى سلة واحدة.</li>
+                                    <li>عند الانتهاء، يرسلون طلبهم.</li>
+                                    <li>يُحدَّد الطلب كـ<em>في انتظار التحقق</em> من قِبل موظفي مجمع الطعام لضمان السيطرة.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">3</div>
+                            <div class="step-content">
+                                <strong>تحقق النادل/الكاشير في مجمع الطعام (إلزامي)</strong>
+                                <p>يستلم موظفو مجمع الطعام (وليس موظفو المطعم) جميع الطلبات المقدمة من الزبائن. يراجعون ويتحققون من كل طلب — التحقق من التوفر، منع الطلبات الوهمية، وتعديل الكميات إذا لزم الأمر. بمجرد التحقق، يقوم النظام <strong>تلقائياً بتقسيم الطلب لكل مطعم</strong>. يستلم كل مطعم تذاكره المخصصة عبر طابعات POS/المطبخ.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">4</div>
+                            <div class="step-content">
+                                <strong>تحضير المطبخ</strong>
+                                <p>يبدأ كل مطعم في تحضير طلباته المتحقق منها. تُرسَل تذاكر المطبخ إلى طابعات المطبخ الشبكية. يحضّر الطباخون بناءً على تذاكرهم، مشابهاً للسيناريوهات السابقة.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">5</div>
+                            <div class="step-content">
+                                <strong>تتبع الطلب والإشعارات</strong>
+                                <p>يتابع الزبائن تقدم الطلب عبر الهواتف الذكية أو أكشاك الطلب:</p>
+                                <ul>
+                                    <li><strong>تم الإنشاء</strong> ← قدّمه الزبون.</li>
+                                    <li><strong>تم التحقق</strong> ← وافق عليه موظفو مجمع الطعام.</li>
+                                    <li><strong>جاهز</strong> ← أشار الكاشير/مساعد الطباخ بالمطعم إلى اكتمال الطلب.</li>
+                                </ul>
+                                <p style="margin-top:6px;">تُعرَض الحالة أيضاً على شاشات التلفاز في جميع أنحاء مجمع الطعام. يمكن للزبائن تفعيل إشعارات الهاتف عند جاهزية طلبهم.</p>
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <div class="step-circle">6</div>
+                            <div class="step-content">
+                                <strong>معالجة الدفع</strong>
+                                <p>في نهاية الوجبة، يدفع الزبائن لكل مطعم على حدة مقابل طلباتهم الخاصة. هذا هو سير العمل المرجعي الحالي — يمكن تحديد نماذج دفع مركزية بديلة بالتنسيق مع إدارة المول.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Technical Requirements -->
+                <div class="tech-requirements">
+                    <h4>⚙️ المتطلبات التقنية</h4>
+                    <div class="tech-req-grid">
+                        <div class="tech-req-item">
+                            <h5>🖥️ خادم مخصص</h5>
+                            <ul>
+                                <li>مُنشَر على خادم محلي داخل مجمع الطعام أو البنية التحتية لتقنية المعلومات في المول</li>
+                                <li>معالج وذاكرة وصول عشوائي عالية الأداء</li>
+                                <li>تخزين SSD مع احتياط</li>
+                                <li>تهيئة عالية التوفر</li>
+                            </ul>
+                        </div>
+                        <div class="tech-req-item">
+                            <h5>🌐 البنية التحتية للشبكة</h5>
+                            <ul>
+                                <li>شبكة محلية سلكية ولاسلكية مستقرة</li>
+                                <li>مفاتيح وراوترات ونقاط وصول من الدرجة التجارية</li>
+                                <li>Wi-Fi قادر على دعم مئات أجهزة الزبائن المتزامنة</li>
+                            </ul>
+                        </div>
+                        <div class="tech-req-item">
+                            <h5>🔄 النسخ الاحتياطي والاسترداد</h5>
+                            <ul>
+                                <li>نسخ احتياطية يومية تلقائية لقاعدة البيانات</li>
+                                <li>النسخ الاحتياطي مخزّن في مكان آمن منفصل</li>
+                                <li>إجراءات استرداد مُختَبَرة لتقليل وقت التوقف</li>
+                            </ul>
+                        </div>
+                        <div class="tech-req-item">
+                            <h5>📈 قابلية التوسع</h5>
+                            <ul>
+                                <li>يتعامل مع مطاعم متعددة في آنٍ واحد دون تدهور في الأداء</li>
+                                <li>يدعم حركة زبائن كبيرة خلال ساعات الذروة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Important Notes -->
+                <div class="important-notes">
+                    <h4>⚠️ ملاحظات مهمة</h4>
+                    <ul>
+                        <li><strong>مرحلة تجريبية:</strong> لم يُنشَر هذا السيناريو بعد في بيئة مجمع طعام/مول حقيقية. نوصي بالبدء بـ<em>قائمة QR الرقمية فقط</em> (بدون طلبات) كمرحلة أولى، ثم تفعيل الطلبات بعد الاختبار.</li>
+                        <li><strong>المرونة:</strong> يمكن تكييف نموذج الدفع (لكل مطعم أو مركزي) بالتنسيق مع مالك المول.</li>
+                        <li><strong>القيمة المضافة:</strong> يحوّل هذا السيناريو مجمعات الطعام إلى مراكز رقمية حديثة، مما يمنح الزبائن تجربة سلسة ويساعد أصحاب المولات على تمييز خدمتهم.</li>
+                    </ul>
+                </div>
+
+                <!-- Benefits -->
+                <div class="key-points-box">
+                    <h4>💡 مزايا السيناريو 4</h4>
+                    <ul>
+                        <li>قائمة QR واحدة لجميع مطاعم مجمع الطعام.</li>
+                        <li>طلب ذاتي اختياري مع تحقق إلزامي من الموظفين لسير عمل سلس.</li>
+                        <li>تتبع الطلبات في الوقت الفعلي وإشعارات الهاتف للزبائن.</li>
+                        <li>البنية التحتية التقنية القوية تضمن الاستقرار وقابلية التوسع.</li>
+                        <li>يمكن طرحه خطوة بخطوة: عرض QR ← الطلب ← تكامل الدفع المتقدم.</li>
+                    </ul>
+                </div>
+
+                <!-- Premium Banner -->
+                <div class="premium-banner">
+                    ⚡ <strong>السيناريو 4 (الترخيص الموسّع)</strong> هو حل متميز مخصص للمولات ومجمعات الطعام الساعية إلى تقديم تجربة طعام رقمية متطورة — مدعومة ببنية تحتية خادم مخصص وإعداد احترافي لتقنية المعلومات.
+                </div>
+
                 <ul>
                     <li>دعم عدد غير محدود من المطاعم في نفس المجمع</li>
                     <li>قائمة رقمية موحدة تعرض مطاعم المجمع كاملاً</li>
