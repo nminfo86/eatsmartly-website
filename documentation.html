@@ -1,12 +1,134 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eatSmartly | التوثيق</title>
+    <title>eatSmartly | دليل الاستخدام</title>
     <link rel="icon" type="image/png" href="images/eatSmartly_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { background: #f4f6f9; }
+
+        /* ── Page Hero ────────────────── */
+        .doc-page-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a6b3a 100%);
+            color: #fff; padding: 50px 30px 38px; text-align: center;
+        }
+        .doc-page-hero h1 { font-size: 34px; margin-bottom: 10px; }
+        .doc-page-hero p  { font-size: 17px; opacity: .85; max-width: 580px; margin: 0 auto; }
+        .doc-hero-meta { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 22px; }
+        .doc-hero-meta span { font-size: 14px; opacity: .88; }
+
+        /* ── Layout ────────────────────── */
+        #documentation { padding: 0; }
+        .doc-layout { display: grid; grid-template-columns: 295px 1fr; min-height: calc(100vh - 200px); max-width: 1380px; margin: 0 auto; }
+
+        /* ── Sidebar ────────────────────── */
+        .doc-sidebar {
+            background: #fff; border-left: 1px solid #e4e7ec;
+            position: sticky; top: 72px; height: calc(100vh - 72px);
+            overflow-y: auto; scrollbar-width: thin; scrollbar-color: #d1d5db #f9f9f9;
+        }
+        .sidebar-top { padding: 16px 15px 13px; border-bottom: 1px solid #e4e7ec; background: #fafbfc; }
+        .sidebar-top h3 { font-size: 13.5px; font-weight: 700; color: #374151; margin: 0 0 9px; }
+        .progress-bar { background: #e5e7eb; border-radius: 99px; height: 5px; overflow: hidden; }
+        .progress-fill { background: var(--primary-color); height: 100%; width: 0%; transition: width .35s; border-radius: 99px; }
+        .progress-label { font-size: 11px; color: #9ca3af; margin-top: 5px; }
+
+        /* Chapter */
+        .doc-chapter { border-bottom: 1px solid #f3f4f6; }
+        .chapter-header { display: flex; align-items: center; gap: 9px; padding: 12px 13px; cursor: pointer; background: #fafbfc; transition: background .15s; user-select: none; }
+        .chapter-header:hover { background: #f0f9f4; }
+        .chapter-icon { font-size: 17px; flex-shrink: 0; }
+        .chapter-info { flex: 1; min-width: 0; }
+        .chapter-title { font-size: 13px; font-weight: 700; color: #1f2937; line-height: 1.3; }
+        .chapter-meta  { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+        .chapter-arrow { font-size: 11px; color: #9ca3af; transition: transform .25s; flex-shrink: 0; }
+        .doc-chapter.open .chapter-arrow { transform: rotate(180deg); }
+        .chapter-lessons { display: none; }
+        .doc-chapter.open .chapter-lessons { display: block; }
+
+        /* Lesson item */
+        .doc-lesson { display: flex; align-items: center; gap: 9px; padding: 9px 12px 9px 9px; cursor: pointer; transition: background .12s; border-right: 3px solid transparent; color: #4b5563; }
+        .doc-lesson:hover { background: #f9fafb; }
+        .doc-lesson.active { background: #f0fdf4; border-right-color: var(--primary-color); color: var(--primary-color); font-weight: 700; }
+        .lesson-num  { font-size: 10px; color: #d1d5db; width: 17px; text-align: center; flex-shrink: 0; }
+        .lesson-ico  { font-size: 13px; flex-shrink: 0; }
+        .lesson-text { font-size: 12.5px; flex: 1; line-height: 1.4; }
+        .lesson-dur  { font-size: 10.5px; color: #9ca3af; flex-shrink: 0; white-space: nowrap; }
+        .doc-lesson.active .lesson-num { color: var(--primary-color); }
+
+        /* ── Main ──────────────────────── */
+        .doc-main { padding: 30px 40px; background: #f4f6f9; }
+        .doc-section { display: none; }
+        .doc-section.active { display: block; animation: sIn .28s ease; }
+        @keyframes sIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+        /* Breadcrumb */
+        .doc-breadcrumb { font-size: 12.5px; color: #9ca3af; margin-bottom: 18px; }
+        .doc-breadcrumb b { color: #6b7280; }
+
+        /* Video */
+        .doc-video { background: #111827; border-radius: 14px; overflow: hidden; margin-bottom: 26px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,.18); cursor: pointer; }
+        .doc-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+        .video-thumb { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: linear-gradient(160deg,#0f2027,#203a43,#2c5364); color: #fff; }
+        .play-btn { width: 70px; height: 70px; background: rgba(255,255,255,.12); border: 2.5px solid rgba(255,255,255,.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; transition: all .2s; backdrop-filter: blur(6px); }
+        .doc-video:hover .play-btn { background: var(--primary-color); border-color: var(--primary-color); transform: scale(1.1); }
+        .video-thumb h3 { font-size: 17px; text-align: center; padding: 0 28px; font-weight: 700; }
+        .video-thumb p  { font-size: 12.5px; opacity: .5; }
+        .video-badge { position: absolute; top: 13px; right: 15px; background: rgba(0,0,0,.55); color: #fff; font-size: 11px; padding: 3px 9px; border-radius: 6px; backdrop-filter: blur(4px); }
+
+        /* Section header */
+        .section-head { margin-bottom: 20px; }
+        .section-head h2 { font-size: 25px; color: #111827; margin-bottom: 7px; line-height: 1.35; }
+        .section-head p  { color: #6b7280; font-size: 15px; line-height: 1.78; }
+        .section-tag { display: inline-flex; align-items: center; gap: 5px; background: #dcfce7; color: #166534; border-radius: 20px; padding: 3px 12px; font-size: 12px; font-weight: 700; margin-bottom: 11px; }
+
+        /* Steps block */
+        .steps-block { background: #fff; border-radius: 12px; padding: 22px; margin: 18px 0; box-shadow: 0 1px 5px rgba(0,0,0,.06); }
+        .steps-block h3 { font-size: 15.5px; font-weight: 700; color: #1f2937; margin: 0 0 16px; padding-bottom: 11px; border-bottom: 1px solid #f3f4f6; }
+        .step-list { list-style: none; padding: 0; margin: 0; }
+        .step-list li { display: flex; gap: 13px; padding: 11px 0; border-bottom: 1px solid #f9fafb; align-items: flex-start; }
+        .step-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        .snum { width: 26px; height: 26px; min-width: 26px; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 1px; }
+        .sbody { flex: 1; }
+        .sbody strong { display: block; font-size: 14px; color: #1f2937; margin-bottom: 3px; }
+        .sbody span   { font-size: 13px; color: #6b7280; line-height: 1.65; }
+
+        /* Info boxes */
+        .ibox { display: flex; gap: 11px; align-items: flex-start; padding: 14px 15px; border-radius: 10px; margin: 16px 0; font-size: 13.5px; line-height: 1.72; }
+        .ibox-tip  { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+        .ibox-warn { background: #fffbeb; border: 1px solid #fde68a; color: #b45309; }
+        .ibox-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; }
+        .ibox-ico  { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+
+        /* Code */
+        .doc-code { background: #1e293b; color: #e2e8f0; border-radius: 10px; padding: 15px 17px; font-family: 'Courier New',monospace; font-size: 13px; white-space: pre; direction: ltr; text-align: left; overflow-x: auto; margin: 13px 0; }
+
+        /* Info grid */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin: 18px 0; }
+        .info-card { background: #fff; border-radius: 10px; padding: 15px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+        .info-card h4 { font-size: 13.5px; font-weight: 700; color: #1f2937; margin: 0 0 9px; }
+        .info-card ul { list-style: none; padding: 0; margin: 0; }
+        .info-card ul li { font-size: 12.5px; color: #6b7280; padding: 3px 0; }
+        .info-card ul li::before { content: "✔ "; color: var(--primary-color); font-size: 11px; }
+
+        /* Nav */
+        .doc-nav { display: flex; justify-content: space-between; margin-top: 34px; padding-top: 20px; border-top: 1px solid #e5e7eb; gap: 12px; }
+        .nav-btn { display: flex; align-items: center; gap: 8px; padding: 11px 19px; border-radius: 9px; border: 1.5px solid #d1d5db; background: #fff; color: #374151; font-family: 'Tajawal',sans-serif; font-size: 13.5px; cursor: pointer; transition: all .18s; text-decoration: none; }
+        .nav-btn:hover { border-color: var(--primary-color); color: var(--primary-color); }
+        .nav-btn.primary { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+        .nav-btn.primary:hover { background: #166534; }
+        .nav-btn:disabled { opacity: .4; pointer-events: none; }
+
+        @media (max-width: 860px) {
+            .doc-layout { grid-template-columns: 1fr; }
+            .doc-sidebar { position: static; height: auto; }
+            .doc-main { padding: 20px 16px; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -23,7 +145,7 @@
                 <a href="scenarios.html">أوضاع التشغيل</a>
             </li>
             <li>
-                <a href="documentation.html" class="active-page">التوثيق</a>
+                <a href="documentation.html" class="active-page">دليل الاستخدام</a>
             </li>
             <li>
                 <a href="index.html#contact">اتصل بنا</a>
@@ -33,298 +155,1118 @@
     <a href="index.html#download" class="btn">حمل النسخة التجريبية</a>
 </header>
 
-<!-- ══ Page Hero ══════════════════════════════════════════ -->
-<div class="page-hero">
-    <h1>توثيق النظام</h1>
-    <p>دليل شامل لإعداد واستخدام نظام <span dir="ltr">eatSmartly</span> — من التثبيت حتى التشغيل اليومي.</p>
+<!-- ══ Page Hero ════════════════════════════════════════ -->
+<div class="doc-page-hero">
+    <h1>📚 دليل الاستخدام</h1>
+    <p>دورة تدريبية متكاملة لإعداد وإدارة نظام <span dir="ltr">eatSmartly</span> — من الصفر حتى الاحتراف.</p>
+    <div class="doc-hero-meta">
+        <span>🎬 21 درس تعليمي</span>
+        <span>⏱ 8 فصول تدريبية</span>
+        <span>🌐 عربي · فرنسي · إنجليزي</span>
+        <span>🔄 محدّث باستمرار</span>
+    </div>
 </div>
 
 <!-- ══ Documentation Body ════════════════════════════════ -->
 <section id="documentation">
-    <div class="doc-wrapper">
+    <div class="doc-layout">
 
-        <!-- ── Sidebar ─────────────────────────────────── -->
+        <!-- ═══ SIDEBAR ═══════════════════════════════════ -->
         <aside class="doc-sidebar">
-            <h3>المحتويات</h3>
-            <ul>
-                <li><a href="#doc-overview">نظرة عامة</a></li>
-                <li><a href="#doc-requirements">متطلبات النظام</a></li>
-                <li><a href="#doc-installation">التثبيت والإعداد</a></li>
-                <li><a href="#doc-pos">نظام نقاط البيع POS</a></li>
-                <li><a href="#doc-qr">القائمة الرقمية QR</a></li>
-                <li><a href="#doc-printers">إعداد الطابعات</a></li>
-                <li><a href="#doc-menu">إدارة القوائم</a></li>
-                <li><a href="#doc-reports">التقارير والإحصائيات</a></li>
-                <li><a href="#doc-settings">إعدادات النظام</a></li>
-                <li><a href="#doc-faq">الأسئلة الشائعة</a></li>
-            </ul>
-        </aside>
-
-        <!-- ── Content ─────────────────────────────────── -->
-        <div class="doc-content">
-
-            <!-- Overview -->
-            <div class="doc-section" id="doc-overview">
-                <h2>نظرة عامة</h2>
-                <p>
-                    <span dir="ltr">eatSmartly</span> هو نظام متكامل لإدارة المطاعم والمقاهي، مصمم للعمل بالكامل
-                    عبر الشبكة المحلية دون الحاجة إلى اتصال بالإنترنت. يجمع النظام بين واجهة نقاط البيع (POS)،
-                    القائمة الرقمية عبر QR، وإدارة الطباعة الموزعة في منصة واحدة.
-                </p>
-                <p>
-                    تم تطوير النظام بعمق لمعرفة احتياجات السوق الجزائري، مع مراعاة المعايير العالمية
-                    في هذا القطاع، ليكون حلاً شاملاً يناسب المطاعم من جميع الأحجام.
-                </p>
-                <div class="doc-tip">
-                    💡 <strong>ابدأ من هنا:</strong> إذا كنت تثبّت النظام لأول مرة، اتبع قسم
-                    <a href="#doc-installation">التثبيت والإعداد</a> ثم
-                    <a href="#doc-pos">إعداد نقاط البيع</a>.
-                </div>
-                <h3>المميزات الرئيسية</h3>
-                <ul>
-                    <li>عمل كامل بدون إنترنت — الشبكة المحلية فقط</li>
-                    <li>دعم اللغة العربية الكاملة بنمط RTL</li>
-                    <li>قائمة رقمية تفاعلية عبر مسح رمز QR</li>
-                    <li>طباعة موزعة لمطابخ متعددة</li>
-                    <li>دعم أوضاع تشغيل متعددة (POS، QR، Food Court)</li>
-                    <li>لوحة تحكم تحليلية وتقارير مفصلة</li>
-                    <li>ترخيص مدى الحياة بدفعة واحدة</li>
-                </ul>
+            <div class="sidebar-top">
+                <h3>محتوى الدورة</h3>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <p class="progress-label" id="progressLabel">الدرس 1 من 21</p>
             </div>
 
-            <!-- Requirements -->
-            <div class="doc-section" id="doc-requirements">
-                <h2>متطلبات النظام</h2>
-                <h3>الحد الأدنى للأجهزة</h3>
-                <ul>
-                    <li>معالج: Intel Core i3 أو ما يعادله (جيل 6 فأعلى)</li>
-                    <li>ذاكرة RAM: 4 GB كحد أدنى، يُنصح بـ 8 GB</li>
-                    <li>مساحة التخزين: 10 GB فارغة كحد أدنى</li>
-                    <li>الشاشة: 1280×720 أو أعلى، يُفضل شاشة لمس</li>
-                    <li>نظام التشغيل: Windows 10 (64-bit) أو أحدث</li>
-                </ul>
-                <h3>متطلبات الشبكة (للأوضاع المتعددة)</h3>
-                <ul>
-                    <li>راوتر أو سويتش يدعم الشبكة المحلية LAN</li>
-                    <li>أجهزة الزبائن (موبايل أو تابلت) متصلة بنفس شبكة Wi-Fi</li>
-                    <li>طابعات شبكية تدعم بروتوكول TCP/IP</li>
-                </ul>
-                <div class="doc-tip">
-                    💡 يعمل النظام بكفاءة عالية حتى على الأجهزة القديمة — لا حاجة لأجهزة مرتفعة الثمن.
+            <!-- Chapter 1 -->
+            <div class="doc-chapter open">
+                <div class="chapter-header">
+                    <span class="chapter-icon">🚀</span>
+                    <div class="chapter-info">
+                        <div class="chapter-title">البداية والمتطلبات</div>
+                        <div class="chapter-meta">2 دروس</div>
+                    </div>
+                    <span class="chapter-arrow">▼</span>
+                </div>
+                <div class="chapter-lessons">
+                    <div class="doc-lesson active" data-target="l-1-1">
+                        <span class="lesson-num">01</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">نظرة عامة على النظام</span>
+                        <span class="lesson-dur">5 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-1-2">
+                        <span class="lesson-num">02</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">متطلبات النظام والأجهزة</span>
+                        <span class="lesson-dur">4 د</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Installation -->
-            <div class="doc-section" id="doc-installation">
-                <h2>التثبيت والإعداد</h2>
-                <h3>خطوات التثبيت</h3>
-                <ul>
-                    <li>تحميل ملف الإعداد من الرابط المرسل عند الشراء</li>
-                    <li>تشغيل ملف <span dir="ltr">eatSmartly_Setup.exe</span> كمدير (Run as Administrator)</li>
-                    <li>اتباع معالج الإعداد واختيار مجلد التثبيت</li>
-                    <li>إدخال مفتاح الترخيص الذي تلقيته عبر البريد</li>
-                    <li>إعداد قاعدة البيانات (تلقائي في معظم الحالات)</li>
-                    <li>تشغيل البرنامج وإدخال معلومات المطعم</li>
-                </ul>
-                <h3>الإعداد الأولي</h3>
-                <p>
-                    عند تشغيل النظام لأول مرة، سيطلب منك إدخال معلومات المطعم الأساسية:
-                    الاسم، العنوان، رقم الهاتف، والشعار. هذه المعلومات ستظهر على الفواتير المطبوعة.
-                </p>
-                <div class="doc-warning">
-                    ⚠️ <strong>تنبيه:</strong> احتفظ بنسخة احتياطية من مفتاح الترخيص في مكان آمن.
-                    في حال إعادة تثبيت النظام ستحتاجه مجددًا.
+            <!-- Chapter 2 -->
+            <div class="doc-chapter">
+                <div class="chapter-header">
+                    <span class="chapter-icon">💿</span>
+                    <div class="chapter-info">
+                        <div class="chapter-title">التثبيت (Installation)</div>
+                        <div class="chapter-meta">2 دروس</div>
+                    </div>
+                    <span class="chapter-arrow">▼</span>
                 </div>
-                <h3>أول تسجيل دخول</h3>
-                <p>
-                    بيانات المدير الافتراضية عند الإعداد الأول:
-                </p>
-                <div class="doc-code">اسم المستخدم: admin
-كلمة المرور: admin123</div>
-                <div class="doc-warning">
-                    ⚠️ يُرجى تغيير كلمة مرور المدير فور أول تسجيل دخول من قسم الإعدادات.
+                <div class="chapter-lessons">
+                    <div class="doc-lesson" data-target="l-2-1">
+                        <span class="lesson-num">03</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">تحميل وتثبيت البرنامج</span>
+                        <span class="lesson-dur">8 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-2-2">
+                        <span class="lesson-num">04</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">الإعداد الأولي وأول دخول</span>
+                        <span class="lesson-dur">6 د</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- POS -->
-            <div class="doc-section" id="doc-pos">
-                <h2>نظام نقاط البيع POS</h2>
-                <p>
-                    واجهة نقاط البيع هي قلب النظام. تم تصميمها لتكون سريعة وبديهية،
-                    تُمكّن الكاشير من إضافة الأصناف وتعديل الكميات وإنهاء الفاتورة في ثوانٍ.
-                </p>
-                <h3>إنشاء طلب جديد</h3>
-                <ul>
-                    <li>افتح واجهة POS واختر رقم الطاولة أو الطلب للخارج</li>
-                    <li>اضغط على الفئة المطلوبة من الشريط العلوي لتصفية الأصناف</li>
-                    <li>اضغط على الصنف لإضافته للطلب — يمكن الضغط مرات لزيادة الكمية</li>
-                    <li>لتعديل الكمية أو الحذف: اضغط على الصنف في قائمة الطلب</li>
-                    <li>لتطبيق سمة (مثلاً: بدون ثوم) اضغط على السمة من القائمة المنبثقة</li>
-                    <li>اضغط "إرسال للمطبخ" لإرسال الطلب مع الطباعة التلقائية</li>
-                    <li>لإنهاء الفاتورة اضغط "دفع" واختر طريقة الدفع</li>
-                </ul>
-                <div class="doc-tip">
-                    💡 يمكنك الاحتفاظ بطلبات مفتوحة لعدة طاولات في نفس الوقت — كل طاولة مستقلة.
+            <!-- Chapter 3 -->
+            <div class="doc-chapter">
+                <div class="chapter-header">
+                    <span class="chapter-icon">⚙️</span>
+                    <div class="chapter-info">
+                        <div class="chapter-title">الإعدادات (Configurations)</div>
+                        <div class="chapter-meta">3 دروس</div>
+                    </div>
+                    <span class="chapter-arrow">▼</span>
+                </div>
+                <div class="chapter-lessons">
+                    <div class="doc-lesson" data-target="l-3-1">
+                        <span class="lesson-num">05</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">بيانات المطعم والشركة</span>
+                        <span class="lesson-dur">5 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-3-2">
+                        <span class="lesson-num">06</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">المستخدمون والصلاحيات</span>
+                        <span class="lesson-dur">7 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-3-3">
+                        <span class="lesson-num">07</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">اللغة والعملة والتنسيق</span>
+                        <span class="lesson-dur">4 د</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- QR Menu -->
-            <div class="doc-section" id="doc-qr">
-                <h2>القائمة الرقمية QR</h2>
-                <p>
-                    يُتيح هذا النظام للزبائن تصفح القائمة وتقديم طلباتهم مباشرة من هواتفهم
-                    عبر مسح رمز QR الخاص بطاولتهم، دون الحاجة لأي تطبيق.
-                </p>
-                <h3>إعداد رموز QR للطاولات</h3>
-                <ul>
-                    <li>افتح قسم "إدارة الطاولات" في إعدادات النظام</li>
-                    <li>أضف عدد الطاولات واسم أو رقم كل طاولة</li>
-                    <li>اضغط "طباعة رموز QR" لطباعة ملصقات QR لكل طاولة</li>
-                    <li>ضع الملصق على الطاولة المناسبة</li>
-                </ul>
-                <h3>كيف يعمل من جانب الزبون</h3>
-                <ul>
-                    <li>يمسح الزبون رمز QR بكاميرا هاتفه</li>
-                    <li>يفتح المتصفح تلقائيًا على قائمة المطعم الرقمية</li>
-                    <li>يختار الأصناف ويضغط "إرسال الطلب"</li>
-                    <li>يتلقى الكاشير إشعاراً فورياً بالطلب مع رقم الطاولة</li>
-                </ul>
-                <div class="doc-tip">
-                    💡 القائمة الرقمية تعمل عبر الشبكة المحلية فقط — تأكد أن هاتف الزبون متصل بنفس الـ Wi-Fi.
+            <!-- Chapter 4 -->
+            <div class="doc-chapter">
+                <div class="chapter-header">
+                    <span class="chapter-icon">📋</span>
+                    <div class="chapter-info">
+                        <div class="chapter-title">إنشاء القائمة (Menu)</div>
+                        <div class="chapter-meta">3 دروس</div>
+                    </div>
+                    <span class="chapter-arrow">▼</span>
+                </div>
+                <div class="chapter-lessons">
+                    <div class="doc-lesson" data-target="l-4-1">
+                        <span class="lesson-num">08</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">إضافة الفئات والألوان</span>
+                        <span class="lesson-dur">6 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-4-2">
+                        <span class="lesson-num">09</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">إضافة الأصناف والمتغيرات</span>
+                        <span class="lesson-dur">9 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-4-3">
+                        <span class="lesson-num">10</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">إضافة الصور ومقاطع الفيديو</span>
+                        <span class="lesson-dur">5 د</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Printers -->
-            <div class="doc-section" id="doc-printers">
-                <h2>إعداد الطابعات</h2>
-                <p>
-                    يدعم النظام طابعات متعددة من أنواع مختلفة. يمكن توجيه كل فئة أصناف
-                    إلى طابعة محددة (مثلاً: المشروبات → بار، الوجبات → مطبخ رئيسي).
-                </p>
-                <h3>إضافة طابعة USB</h3>
-                <ul>
-                    <li>وصّل الطابعة بمنفذ USB وثبّت التعريف (Driver)</li>
-                    <li>افتح "إعدادات النظام" &larr; "الطابعات"</li>
-                    <li>اضغط "إضافة طابعة" &larr; اختر "USB"</li>
-                    <li>حدد الطابعة من القائمة واضغط "اختبار الطباعة"</li>
-                </ul>
-                <h3>إضافة طابعة شبكية</h3>
-                <ul>
-                    <li>تأكد أن الطابعة متصلة بنفس الشبكة المحلية</li>
-                    <li>اعرف عنوان IP الخاص بالطابعة (عادة يظهر من لوحة الطابعة)</li>
-                    <li>في إعدادات النظام، أضف طابعة جديدة من نوع "شبكية"</li>
-                    <li>أدخل عنوان IP والمنفذ (Port) الافتراضي هو 9100</li>
-                    <li>اضغط "اختبار الطباعة" للتحقق من الاتصال</li>
-                </ul>
-                <div class="doc-tip">
-                    💡 <strong>أنواع الطابعات المدعومة:</strong> ESC/POS (80mm) للفواتير — EZPL/TSPL لتذاكر المطبخ.
+            <!-- Chapter 5 -->
+            <div class="doc-chapter">
+                <div class="chapter-header">
+                    <span class="chapter-icon">🖨️</span>
+                    <div class="chapter-info">
+                        <div class="chapter-title">إعداد الطابعات (Printers)</div>
+                        <div class="chapter-meta">3 دروس</div>
+                    </div>
+                    <span class="chapter-arrow">▼</span>
+                </div>
+                <div class="chapter-lessons">
+                    <div class="doc-lesson" data-target="l-5-1">
+                        <span class="lesson-num">11</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">إعداد طابعة USB</span>
+                        <span class="lesson-dur">5 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-5-2">
+                        <span class="lesson-num">12</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">إعداد طابعة الشبكة (IP)</span>
+                        <span class="lesson-dur">7 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-5-3">
+                        <span class="lesson-num">13</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">توجيه الطباعة للمطابخ</span>
+                        <span class="lesson-dur">6 د</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Menu Management -->
-            <div class="doc-section" id="doc-menu">
-                <h2>إدارة القوائم</h2>
-                <p>
-                    يوفر النظام نظام إدارة قوائم متكامل يدعم الفئات والأصناف والسمات والأسعار
-                    مع إمكانية إرفاق الصور ومقاطع الفيديو لكل صنف.
-                </p>
-                <h3>إضافة فئة جديدة</h3>
-                <ul>
-                    <li>انتقل لـ "إدارة القائمة" &larr; "الفئات"</li>
-                    <li>اضغط "إضافة فئة" وأدخل الاسم (عربي وفرنسي وإنجليزي)</li>
-                    <li>اختر لون الفئة وأيقونة أو صورة لها</li>
-                    <li>اختر الطابعة المرتبطة بهذه الفئة (للتوجيه التلقائي)</li>
-                    <li>اضغط "حفظ" — الفئة تظهر فوراً في واجهة POS</li>
-                </ul>
-                <h3>إضافة صنف جديد</h3>
-                <ul>
-                    <li>من قسم "الأصناف" اضغط "إضافة صنف"</li>
-                    <li>أدخل الاسم بالغات المطلوبة والسعر والتكلفة</li>
-                    <li>أرفق صورة أو مقطع فيديو للصنف (اختياري)</li>
-                    <li>أضف السمات (مثل: حجم الكوب، درجة النضج) مع أسعارها</li>
-                    <li>حدد مدى التوفر وقابلية الطلب من القائمة الرقمية</li>
-                </ul>
-            </div>
-
-            <!-- Reports -->
-            <div class="doc-section" id="doc-reports">
-                <h2>التقارير والإحصائيات</h2>
-                <p>
-                    يوفر النظام لوحة تحليلية متكاملة مع تقارير قابلة للتخصيص تُساعدك
-                    على اتخاذ قرارات مبنية على البيانات الحقيقية لمطعمك.
-                </p>
-                <h3>أنواع التقارير المتوفرة</h3>
-                <ul>
-                    <li>تقرير المبيعات اليومي / الأسبوعي / الشهري / السنوي</li>
-                    <li>أفضل الأصناف مبيعاً وأقلها طلباً</li>
-                    <li>إيرادات كل فئة من الفئات</li>
-                    <li>تقرير الإلغاءات والمرتجعات</li>
-                    <li>تقرير أداء الكاشيرين</li>
-                    <li>تقرير أوقات الذروة (أكثر الأوقات ازدحاماً)</li>
-                    <li>تقارير منفصلة لكل مطعم في وضع Food Court</li>
-                </ul>
-                <div class="doc-tip">
-                    💡 يمكن تصدير جميع التقارير بصيغة PDF أو Excel للأرشفة والمراجعة.
+            <!-- Chapter 6 -->
+            <div class="doc-chapter">
+                <div class="chapter-header">
+                    <span class="chapter-icon">🧾</span>
+                    <div class="chapter-info">
+                        <div class="chapter-title">التشغيل اليومي</div>
+                        <div class="chapter-meta">3 دروس</div>
+                    </div>
+                    <span class="chapter-arrow">▼</span>
+                </div>
+                <div class="chapter-lessons">
+                    <div class="doc-lesson" data-target="l-6-1">
+                        <span class="lesson-num">14</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">واجهة نقاط البيع POS</span>
+                        <span class="lesson-dur">10 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-6-2">
+                        <span class="lesson-num">15</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">القائمة الرقمية QR</span>
+                        <span class="lesson-dur">7 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-6-3">
+                        <span class="lesson-num">16</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">إدارة الطاولات</span>
+                        <span class="lesson-dur">5 د</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Settings -->
-            <div class="doc-section" id="doc-settings">
-                <h2>إعدادات النظام</h2>
-                <h3>الإعدادات العامة</h3>
-                <ul>
-                    <li><strong>معلومات المطعم:</strong> الاسم، الشعار، العنوان، رقم الهاتف</li>
-                    <li><strong>اللغة:</strong> العربية، الفرنسية، الإنجليزية</li>
-                    <li><strong>العملة:</strong> رمز العملة وموضعه وتنسيق الأرقام</li>
-                    <li><strong>المستخدمون:</strong> إضافة كاشيرين ومدراء وتحديد صلاحياتهم</li>
-                    <li><strong>الضريبة:</strong> نسبة الضريبة وطريقة عرضها في الفاتورة</li>
-                </ul>
-                <h3>النسخ الاحتياطي</h3>
-                <p>
-                    يُنصح بعمل نسخة احتياطية يومية من قاعدة البيانات. يمكن إعداد نسخ
-                    احتياطية تلقائية على مجلد محدد أو على قرص خارجي USB.
-                </p>
-                <div class="doc-warning">
-                    ⚠️ لا تنس عمل نسخة احتياطية قبل أي تحديث للنظام أو تغيير في الإعدادات الجوهرية.
+            <!-- Chapter 7 -->
+            <div class="doc-chapter">
+                <div class="chapter-header">
+                    <span class="chapter-icon">📊</span>
+                    <div class="chapter-info">
+                        <div class="chapter-title">Dashboard &amp; Analytics</div>
+                        <div class="chapter-meta">3 دروس</div>
+                    </div>
+                    <span class="chapter-arrow">▼</span>
+                </div>
+                <div class="chapter-lessons">
+                    <div class="doc-lesson" data-target="l-7-1">
+                        <span class="lesson-num">17</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">لوحة التحكم الرئيسية</span>
+                        <span class="lesson-dur">6 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-7-2">
+                        <span class="lesson-num">18</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">تقارير المبيعات</span>
+                        <span class="lesson-dur">8 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-7-3">
+                        <span class="lesson-num">19</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">الأرباح والمصروفات</span>
+                        <span class="lesson-dur">6 د</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- FAQ -->
-            <div class="doc-section" id="doc-faq">
-                <h2>الأسئلة الشائعة</h2>
-
-                <h3>هل يعمل النظام بدون إنترنت؟</h3>
-                <p>
-                    نعم، يعمل النظام بالكامل عبر الشبكة المحلية فقط دون الحاجة لأي اتصال بالإنترنت.
-                    الإنترنت مطلوب فقط عند التحديثات أو التواصل مع الدعم الفني.
-                </p>
-
-                <h3>كم عدد الأجهزة التي يمكن ربطها؟</h3>
-                <p>
-                    لا يوجد حد محدد لعدد الأجهزة — تعتمد الكفاءة على قوة الشبكة المحلية
-                    وإمكانيات الجهاز المركزي (الخادم). في الغالب 5-10 أجهزة تعمل بسلاسة تامة.
-                </p>
-
-                <h3>ما الفرق بين الباقة الأساسية وباقة Food Court؟</h3>
-                <p>
-                    الباقة الأساسية مصممة لمطعم أو مقهى واحد بمطابخ متعددة.
-                    باقة Food Court تدعم عدة مطاعم مستقلة في نفس المجمع مع إدارة مركزية موحدة.
-                </p>
-
-                <h3>كيف أحصل على الدعم الفني؟</h3>
-                <p>
-                    يشمل الترخيص 3 أشهر دعم فني مجاني عبر الهاتف والواتساب والبريد الإلكتروني.
-                    بعد انتهاء الفترة المجانية يمكن تجديد الدعم بأسعار رمزية.
-                </p>
-
-                <div class="doc-tip">
-                    📞 للتواصل الفوري مع الدعم الفني:
-                    <a href="index.html#contact" style="color: var(--primary-color);">اضغط هنا للتواصل معنا</a>
+            <!-- Chapter 8 -->
+            <div class="doc-chapter">
+                <div class="chapter-header">
+                    <span class="chapter-icon">🏪</span>
+                    <div class="chapter-info">
+                        <div class="chapter-title">أوضاع متقدمة</div>
+                        <div class="chapter-meta">2 دروس</div>
+                    </div>
+                    <span class="chapter-arrow">▼</span>
+                </div>
+                <div class="chapter-lessons">
+                    <div class="doc-lesson" data-target="l-8-1">
+                        <span class="lesson-num">20</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">وضع Food Court</span>
+                        <span class="lesson-dur">9 د</span>
+                    </div>
+                    <div class="doc-lesson" data-target="l-8-2">
+                        <span class="lesson-num">21</span>
+                        <span class="lesson-ico">▶</span>
+                        <span class="lesson-text">النسخ الاحتياطي والأسئلة الشائعة</span>
+                        <span class="lesson-dur">5 د</span>
+                    </div>
                 </div>
             </div>
 
-        </div><!-- /.doc-content -->
-    </div><!-- /.doc-wrapper -->
+        </aside><!-- /.doc-sidebar -->
+
+        <!-- ═══ MAIN CONTENT ══════════════════════════════ -->
+        <main class="doc-main">
+
+            <!-- ── LESSON 1-1: Overview ─────────────────── -->
+            <div class="doc-section active" id="l-1-1">
+                <div class="doc-breadcrumb">🚀 البداية &rsaquo; <b>نظرة عامة على النظام</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>نظرة عامة على نظام eatSmartly</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 01 · 5 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🚀 الفصل 1</span>
+                    <h2>نظرة عامة على النظام</h2>
+                    <p><span dir="ltr">eatSmartly</span> هو نظام متكامل لإدارة المطاعم والمقاهي، يعمل بالكامل عبر الشبكة المحلية دون أي اتصال بالإنترنت. يجمع بين واجهة نقاط البيع، القائمة الرقمية QR، وإدارة الطباعة الموزعة في منصة واحدة.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🎯 ما يوفره النظام</h4>
+                        <ul>
+                            <li>نظام POS سريع وبديهي</li>
+                            <li>قائمة رقمية تفاعلية QR</li>
+                            <li>طباعة موزعة لمطابخ متعددة</li>
+                            <li>لوحة تحليلية وتقارير مفصلة</li>
+                            <li>دعم أوضاع Food Court</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>✅ مميزات تقنية</h4>
+                        <ul>
+                            <li>عمل 100٪ بدون إنترنت</li>
+                            <li>دعم كامل للعربية RTL</li>
+                            <li>ترخيص مدى الحياة</li>
+                            <li>6 أشهر دعم فني مجاني</li>
+                            <li>مصمم للسوق الجزائري</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span><strong>ابدأ من هنا:</strong> إذا كنت تثبّت النظام لأول مرة، انتقل للدرس التالي "متطلبات النظام".</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" disabled>&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 1-2: Requirements ─────────────── -->
+            <div class="doc-section" id="l-1-2">
+                <div class="doc-breadcrumb">🚀 البداية &rsaquo; <b>متطلبات النظام والأجهزة</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>متطلبات النظام والأجهزة</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 02 · 4 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🚀 الفصل 1</span>
+                    <h2>متطلبات النظام والأجهزة</h2>
+                    <p>قبل التثبيت، تأكد أن أجهزتك وشبكتك تستوفي المتطلبات الدنيا لضمان أداء مثالي.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🖥️ متطلبات الجهاز</h4>
+                        <ul>
+                            <li>نظام التشغيل: <span dir="ltr">Windows 10 (64-bit)</span></li>
+                            <li>المعالج: <span dir="ltr">Intel Core i3</span> أو أعلى</li>
+                            <li>الذاكرة: 4 GB RAM كحد أدنى</li>
+                            <li>التخزين: 128 GB SSD كحد أدنى</li>
+                            <li>الشاشة: شاشة تاتش (يُنصح بها)</li>
+                            <li>ملاحظة: يتطلب قسم <span dir="ltr">D:</span> بمساحة 15 GB+</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>📡 متطلبات الشبكة</h4>
+                        <ul>
+                            <li>شبكة محلية LAN أو Wi-Fi</li>
+                            <li>Wi-Fi للزبائن (لقائمة QR)</li>
+                            <li>طابعات ESC/POS بعرض 80مم</li>
+                            <li>سويتش شبكي (عند استخدام طابعتين+)</li>
+                            <li>لا حاجة للإنترنت أثناء التشغيل</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span>يعمل النظام بكفاءة عالية حتى على الأجهزة القديمة — لا حاجة لأجهزة باهظة الثمن.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 2-1: Installation ─────────────── -->
+            <div class="doc-section" id="l-2-1">
+                <div class="doc-breadcrumb">💿 التثبيت &rsaquo; <b>تحميل وتثبيت البرنامج</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>تحميل وتثبيت البرنامج خطوة بخطوة</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 03 · 8 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">💿 الفصل 2 · التثبيت</span>
+                    <h2>تثبيت البرنامج — 3 خطوات</h2>
+                    <p>يتكون التثبيت من ثلاثة مثبّتات متتالية تُشغَّل بالترتيب. كامل العملية لا تتجاوز 15 دقيقة.</p>
+                </div>
+                <div class="ibox ibox-warn"><span class="ibox-ico">⚠️</span><span><strong>قبل البدء:</strong> تأكد من وجود قسم <span dir="ltr">D:</span> على جهازك مع مساحة فارغة لا تقل عن <strong>15 GB</strong>. يجب تشغيل كل مثبّت كمسؤول (Run as Administrator).</span></div>
+                <div class="steps-block">
+                    <h3>الخطوة 1 — تثبيت المتطلبات</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>افتح الملف <span dir="ltr">Step_1_eatSmartly_Dependencies.exe</span></strong><span>كليك يمين → "تشغيل كمسؤول" (Run as Administrator)</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>انتظر اكتمال التثبيت</strong><span>سيُثبّت جميع مكوّنات Windows المطلوبة تلقائياً، بما فيها أداة الدعم عن بُعد AnyDesk</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>انتقل للخطوة 2 بعد الانتهاء</strong><span>لا تُشغّل eatSmartly قبل إتمام الخطوات الثلاث</span></div></li>
+                    </ol>
+                </div>
+                <div class="steps-block">
+                    <h3>الخطوة 2 — تثبيت WampServer</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>افتح الملف <span dir="ltr">Step_2_wampserver3.3.0_x64.exe</span></strong><span>ثبّته في المسار <span dir="ltr">D:\wamp64</span> واترك بقية الإعدادات افتراضية</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>شغّل WampServer</strong><span>انقر على أيقونة الـ "W" الوردية على سطح المكتب وانتظر حتى يتحوّل لون الأيقونة في شريط المهام إلى <strong>أخضر</strong></span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>غيّر إصدار PHP إلى 8.1.13</strong><span>انقر على الأيقونة الخضراء ← <span dir="ltr">PHP → Version → 8.1.13</span>، ثم انتظر حتى يعود اللون أخضر مجدداً</span></div></li>
+                    </ol>
+                </div>
+                <div class="steps-block">
+                    <h3>الخطوة 3 — تثبيت eatSmartly</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>افتح الملف <span dir="ltr">Step_3_eatSmartly_Configuration.exe</span></strong><span>كليك يمين → "تشغيل كمسؤول" (Run as Administrator)</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>انتظر اكتمال الإعداد</strong><span>سيُنشئ تلقائياً: قاعدة البيانات، نسخ الملفات إلى <span dir="ltr">D:\wamp64\www\eatSmartly\</span>، الاختصارات على سطح المكتب</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>افتح eatSmartly من الاختصار</strong><span>انتظر قليلاً حتى يُهيّئ النظام إعداداته لأول مرة — ستظهر صفحة تفعيل الترخيص</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span>بعد التثبيت، يبدأ WampServer تلقائياً مع Windows — لا تحتاج لتشغيله يدوياً في كل مرة.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 2-2: First Login ──────────────── -->
+            <div class="doc-section" id="l-2-2">
+                <div class="doc-breadcrumb">💿 التثبيت &rsaquo; <b>الإعداد الأولي وأول دخول</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>الإعداد الأولي وأول تسجيل دخول</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 04 · 6 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">💿 الفصل 2 · التثبيت</span>
+                    <h2>تفعيل الترخيص والإعداد الأولي</h2>
+                    <p>بعد التثبيت، يجب تفعيل الترخيص مرة واحدة فقط — بعدها يعمل النظام بالكامل بدون إنترنت.</p>
+                </div>
+                <div class="steps-block">
+                    <h3>تفعيل الترخيص (مرة واحدة فقط)</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>افتح البرنامج من اختصار سطح المكتب</strong><span>ستظهر صفحة التفعيل مع <strong>رمز توليد الترخيص</strong> الخاص بجهازك</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>أرسل الرمز مع معلومات شركتك للدعم الفني</strong><span>عبر البريد الإلكتروني: <span dir="ltr">s.eatsmartly@gmail.com</span> أو واتساب: <span dir="ltr">+213 (0)561 69 87 16</span> — أرسل: اسم الشركة، رمز الشراء، نوع النشاط، العنوان، رقم الهاتف</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>انتظر رمز التفعيل (خلال ساعتين)</strong><span>ستستقبل <strong>Activation Code</strong> من فريق الدعم</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>أدخل رمز التفعيل واضغط Activate</strong><span>التفعيل فوري ودائم — يعمل النظام بعدها بالكامل بدون إنترنت</span></div></li>
+                    </ol>
+                </div>
+                <div class="steps-block">
+                    <h3>أول دخول — بيانات افتراضية</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>المدير (Admin)</strong><span>اسم المستخدم: <code>admin</code> &nbsp;|&nbsp; كلمة المرور: <code>1234</code></span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>الكاشير</strong><span>اسم المستخدم: <code>cashier</code> &nbsp;|&nbsp; كلمة المرور: <code>123</code></span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>النادل (Waiter)</strong><span>اسم المستخدم: <code>waiter</code> &nbsp;|&nbsp; كلمة المرور: <code>123</code></span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>الطاهي (كل الأقسام)</strong><span>اسم المستخدم: <code>chef-all</code> &nbsp;|&nbsp; كلمة المرور: <code>123</code></span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span>الإعداد الأولي: اذهب إلى <strong>الإعدادات ← الشركة</strong> لتحديث بيانات المطعم وتغيير كلمة مرور المدير الافتراضية.</span></div>
+                <div class="ibox ibox-warn"><span class="ibox-ico">⚠️</span><span>إذا أدخلت كلمة المرور بشكل خاطئ <strong>5 مرات متتالية</strong>، سيُغلق الدخول لمدة <strong>دقيقتين</strong> تلقائياً.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 3-1: Restaurant Data ─────────── -->
+            <div class="doc-section" id="l-3-1">
+                <div class="doc-breadcrumb">⚙️ الإعدادات &rsaquo; <b>بيانات المطعم والشركة</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إعداد بيانات المطعم والشركة</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 05 · 5 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">⚙️ الفصل 3 · الإعدادات</span>
+                    <h2>بيانات المطعم والشركة</h2>
+                    <p>أدخل المعلومات الأساسية لمطعمك. هذه البيانات تظهر على جميع الفواتير والتقارير المطبوعة.</p>
+                </div>
+                <div class="steps-block">
+                    <h3>الحقول الأساسية</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>اسم المطعم / الشركة</strong><span>يظهر في أعلى كل فاتورة ورأس التقارير</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>العنوان التفصيلي</strong><span>الولاية، البلدية، الشارع — يظهر أسفل الفاتورة</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>رقم الهاتف / الواتساب</strong><span>للتواصل مع الزبائن والمورّدين</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>شعار المطعم</strong><span>صورة PNG بخلفية شفافة — تظهر على الفاتورة والقائمة الرقمية</span></div></li>
+                        <li><span class="snum">5</span><div class="sbody"><strong>نص تذييل الفاتورة</strong><span>مثلاً: "شكراً لزيارتكم — نراكم قريباً"</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-info"><span class="ibox-ico">ℹ️</span><span>تُحفظ الإعدادات فوراً. أعد طباعة فاتورة تجريبية للتحقق من ظهور المعلومات بشكل صحيح.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 3-2: Users & Roles ────────────── -->
+            <div class="doc-section" id="l-3-2">
+                <div class="doc-breadcrumb">⚙️ الإعدادات &rsaquo; <b>المستخدمون والأدوار والصلاحيات</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إدارة المستخدمين والأدوار والصلاحيات</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 06 · 7 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">⚙️ الفصل 3 · الإعدادات</span>
+                    <h2>المستخدمون والأدوار والصلاحيات</h2>
+                    <p>أنشئ حسابات لفريقك مع تحديد صلاحيات كل شخص بدقة حسب دوره في المطعم.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>👤 الأدوار المتاحة</h4>
+                        <ul>
+                            <li>المدير (صلاحيات كاملة)</li>
+                            <li>المشرف العام</li>
+                            <li>أمين الصندوق (كاشير)</li>
+                            <li>النادل (Waiter)</li>
+                            <li>الطاهي (Chef)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>🔐 نظام الصلاحيات</h4>
+                        <ul>
+                            <li>تحكم في الوصول لكل صفحة</li>
+                            <li>تقييد عرض التقارير</li>
+                            <li>منع التعديل على القائمة</li>
+                            <li>تخصيص الطابعات لكل مستخدم</li>
+                            <li>تتبع سجلات الدخول</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="steps-block">
+                    <h3>إضافة مستخدم جديد</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>افتح الإعدادات ← المستخدمون</strong><span>ستجد قائمة بجميع المستخدمين الحاليين</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>اضغط "إضافة مستخدم"</strong><span>أدخل الاسم الكامل واسم المستخدم وكلمة المرور</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>اختر الدور المناسب</strong><span>كل دور له مجموعة صلاحيات افتراضية قابلة للتعديل</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>ربط الطابعة</strong><span>حدد الطابعة الافتراضية لهذا المستخدم (اختياري)</span></div></li>
+                    </ol>
+                </div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 3-3: Language & Currency ─────── -->
+            <div class="doc-section" id="l-3-3">
+                <div class="doc-breadcrumb">⚙️ الإعدادات &rsaquo; <b>اللغة والعملة والتنسيق</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>ضبط اللغة والعملة والتنسيق</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 07 · 4 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">⚙️ الفصل 3 · الإعدادات</span>
+                    <h2>اللغة والعملة والتنسيق</h2>
+                    <p>النظام يدعم 3 لغات مع إمكانية ضبط العملة المحلية وتنسيق الأرقام.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🌐 اللغات المدعومة</h4>
+                        <ul>
+                            <li>العربية (RTL — من اليمين)</li>
+                            <li>الفرنسية (LTR)</li>
+                            <li>الإنجليزية (LTR)</li>
+                            <li>تبديل فوري بدون إعادة تشغيل</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>💰 إعدادات العملة</h4>
+                        <ul>
+                            <li>رمز العملة (دج / DA / DZD)</li>
+                            <li>موضع الرمز (قبل / بعد الرقم)</li>
+                            <li>فاصل الأرقام (. أو ,)</li>
+                            <li>عدد المنازل العشرية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 4-1: Categories ───────────────── -->
+            <div class="doc-section" id="l-4-1">
+                <div class="doc-breadcrumb">📋 إنشاء القائمة &rsaquo; <b>إضافة الفئات والألوان</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إنشاء وإدارة فئات قائمة الطعام</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 08 · 6 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">📋 الفصل 4 · القائمة</span>
+                    <h2>إضافة الفئات والألوان</h2>
+                    <p>الفئات هي الأقسام الرئيسية (مشروبات، وجبات، حلويات…). أنشئها أولاً قبل إضافة الأصناف.</p>
+                </div>
+                <div class="steps-block">
+                    <h3>إنشاء فئة جديدة</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>افتح إدارة القائمة ← الفئات</strong><span>ستجد قائمة بجميع الفئات الحالية</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>اضغط "إضافة فئة"</strong><span>أدخل الاسم بالعربية والفرنسية والإنجليزية</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>اختر اللون والأيقونة</strong><span>اللون يظهر في واجهة POS لتمييز الفئة بصرياً</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>حدد خصائص الفئة</strong><span>قابل للتحضير / يحتوي إضافات / يقبل الملاحظات</span></div></li>
+                        <li><span class="snum">5</span><div class="sbody"><strong>اختر الطابعة المرتبطة</strong><span>الطلبات من هذه الفئة تُرسل تلقائياً لهذه الطابعة</span></div></li>
+                        <li><span class="snum">6</span><div class="sbody"><strong>احفظ وتحقق</strong><span>ستظهر الفئة فوراً في شريط فئات واجهة POS</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span>يمكن تغيير ترتيب الفئات بالسحب والإفلات — الترتيب يؤثر على القائمة الرقمية وواجهة POS.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 4-2: Items ─────────────────────── -->
+            <div class="doc-section" id="l-4-2">
+                <div class="doc-breadcrumb">📋 إنشاء القائمة &rsaquo; <b>إضافة الأصناف والمتغيرات</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إضافة الأصناف والمتغيرات والتسعير</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 09 · 9 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">📋 الفصل 4 · القائمة</span>
+                    <h2>إضافة الأصناف والمتغيرات</h2>
+                    <p>كل صنف يمكن أن يكون له متغيرات متعددة (حجم، نكهة…) بأسعار مختلفة. النظام يحدد السعر الأساسي تلقائياً من أرخص متغير.</p>
+                </div>
+                <div class="steps-block">
+                    <h3>إضافة صنف جديد</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>افتح الأصناف ← إضافة صنف</strong><span>اختر الفئة التي ينتمي لها هذا الصنف</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>أدخل الاسم والأسعار</strong><span>اسم بالعربية والفرنسية — السعر الأساسي والتكلفة</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>أضف المتغيرات (اختياري)</strong><span>مثال: "صغير 200دج / وسط 280دج / كبير 350دج"</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>أضف السمات المخصصة</strong><span>مثال: "بدون سكر / حليب نباتي / تسخين إضافي"</span></div></li>
+                        <li><span class="snum">5</span><div class="sbody"><strong>حدد مدى التوفر</strong><span>متاح / غير متاح / موسمي — يمكن تغييره في أي وقت</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span>إذا كان للصنف متغيرات، سيعرض النظام نافذة اختيار تلقائياً عند إضافته للطلب في POS.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 4-3: Media ─────────────────────── -->
+            <div class="doc-section" id="l-4-3">
+                <div class="doc-breadcrumb">📋 إنشاء القائمة &rsaquo; <b>إضافة الصور ومقاطع الفيديو</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إضافة الصور والفيديو للأصناف</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 10 · 5 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">📋 الفصل 4 · القائمة</span>
+                    <h2>إضافة الصور ومقاطع الفيديو</h2>
+                    <p>الصور والفيديو تجعل القائمة الرقمية أكثر جاذبية وتزيد من مبيعات الأصناف بشكل ملحوظ.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🖼️ مواصفات الصور</h4>
+                        <ul>
+                            <li>الصيغ: <span dir="ltr">.png · .gif · .jpeg · .jpg</span></li>
+                            <li>الحجم الأقصى: <strong>5 MB</strong> للصورة</li>
+                            <li>يمكن رفع عدة صور لنفس الصنف</li>
+                            <li>اختر صورة الغلاف من بين المرفوعات</li>
+                            <li>بدون صورة: يُعرض لون الفئة بديلاً</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>🎬 مواصفات الفيديو</h4>
+                        <ul>
+                            <li>الصيغة المدعومة: <span dir="ltr">.mp4</span> فقط</li>
+                            <li>الحجم الأقصى: <strong>40 MB</strong></li>
+                            <li>يُعرض في القائمة الرقمية كعرض تقديمي</li>
+                            <li>مثالي للأطباق الرئيسية والعروض الخاصة</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox ibox-info"><span class="ibox-ico">ℹ️</span><span>الصور والفيديو تُخزَّن محلياً وتُخدَّم عبر الشبكة الداخلية — لا حاجة لرفعها على الإنترنت.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 5-1: USB Printer ──────────────── -->
+            <div class="doc-section" id="l-5-1">
+                <div class="doc-breadcrumb">🖨️ إعداد الطابعات &rsaquo; <b>إعداد طابعة USB</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إعداد وتوصيل طابعة USB خطوة بخطوة</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 11 · 5 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🖨️ الفصل 5 · الطابعات</span>
+                    <h2>إعداد طابعة USB</h2>
+                    <p>الطابعات الحرارية عبر USB هي الأبسط في الإعداد — مناسبة لنقطة البيع الرئيسية (الكاشير).</p>
+                </div>
+                <div class="steps-block">
+                    <h3>خطوات الإعداد (USB)</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>وصّل الطابعة وثبّت تعريفها</strong><span>استخدم تعريف الشركة المصنّعة من القرص المرفق أو موقعها الرسمي</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>افتح لوحة التحكم ← الأجهزة والطابعات</strong><span><span dir="ltr">Control Panel → Devices and Printers</span></span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>كليك يمين على الطابعة ← خصائص الطابعة</strong><span><span dir="ltr">Printer Properties</span></span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>غيّر اسم الطابعة بالضبط إلى: <span dir="ltr">eatSmartly Printer</span></strong><span>الاسم يجب أن يكون مطابقاً تماماً — ثم اضغط Apply</span></div></li>
+                        <li><span class="snum">5</span><div class="sbody"><strong>انتقل لتبويب المشاركة (Sharing)</strong><span>فعّل "Share this printer" واكتب اسم المشاركة بالضبط: <span dir="ltr">eatSmartly Printer</span></span></div></li>
+                        <li><span class="snum">6</span><div class="sbody"><strong>اضغط Apply ثم OK</strong><span>في eatSmartly: الإعدادات ← الطابعات — ستظهر الطابعة جاهزة للاختبار</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span><strong>في وضع طابعة واحدة:</strong> تطبع نفس الطابعة كلاً من تذاكر المطبخ وفواتير العملاء.</span></div>
+                <div class="ibox ibox-warn"><span class="ibox-ico">⚠️</span><span>اسم الطابعة واسم المشاركة يجب أن يكونا <strong>eatSmartly Printer</strong> بالضبط (مع مراعاة الحروف الكبيرة والمسافات).</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 5-2: Network Printer ─────────── -->
+            <div class="doc-section" id="l-5-2">
+                <div class="doc-breadcrumb">🖨️ إعداد الطابعات &rsaquo; <b>إعداد طابعة الشبكة (IP)</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إعداد الطابعة الشبكية عبر IP</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 12 · 7 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🖨️ الفصل 5 · الطابعات</span>
+                    <h2>إعداد طابعة الشبكة (IP)</h2>
+                    <p>الطابعات الشبكية مثالية لطباعة تذاكر المطبخ عن بُعد — كل مطبخ يستقبل طلباته مباشرة.</p>
+                </div>
+                <div class="steps-block">
+                    <h3>خطوات الإعداد</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>اعرف عنوان IP الطابعة</strong><span>اطبع ورقة الإعدادات من زر الطابعة لمعرفة عنوان IP</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>تأكد من اتصال الشبكة</strong><span>يجب أن تكون الطابعة والخادم في نفس الشبكة المحلية</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>افتح إعدادات الطابعات ← إضافة</strong><span>اختر نوع الاتصال "شبكية / IP"</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>أدخل عنوان IP والمنفذ</strong><span>عنوان IP الطابعة — المنفذ الافتراضي 9100</span></div></li>
+                        <li><span class="snum">5</span><div class="sbody"><strong>اختبر الاتصال والطباعة</strong><span>اضغط "اختبار" — يجب أن تُطبع ورقة تأكيد</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-warn"><span class="ibox-ico">⚠️</span><span>خصّص عنواناً IP ثابتاً للطابعات من إعدادات الراوتر لتجنب تغيير العنوان عند إعادة التشغيل.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 5-3: Print Routing ────────────── -->
+            <div class="doc-section" id="l-5-3">
+                <div class="doc-breadcrumb">🖨️ إعداد الطابعات &rsaquo; <b>توجيه الطباعة للمطابخ</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>توجيه الطباعة الذكي للمطابخ</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 13 · 6 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🖨️ الفصل 5 · الطابعات</span>
+                    <h2>توجيه الطباعة للمطابخ</h2>
+                    <p>ربط كل فئة أصناف بطابعة محددة — عند إرسال الطلب، يذهب تلقائياً للمطبخ الصحيح.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🍽️ مثال عملي</h4>
+                        <ul>
+                            <li>فئة "المشروبات" ← طابعة البار</li>
+                            <li>فئة "الوجبات" ← طابعة المطبخ</li>
+                            <li>فئة "الحلويات" ← طابعة الحلويات</li>
+                            <li>الفاتورة ← طابعة الكاشير دائماً</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>🔄 إمكانيات الطباعة</h4>
+                        <ul>
+                            <li>إعادة طباعة أي طلب سابق</li>
+                            <li>إعادة طباعة تذكرة المطبخ</li>
+                            <li>وضع صامت بدون طابعات</li>
+                            <li>طباعة عربية كاملة للفواتير</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span>إذا لم تكن هناك طابعات، يمكن تشغيل النظام في "وضع بدون طابعة" — الطلبات تظهر رقمياً فقط.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 6-1: POS ───────────────────────── -->
+            <div class="doc-section" id="l-6-1">
+                <div class="doc-breadcrumb">🧾 التشغيل اليومي &rsaquo; <b>واجهة نقاط البيع POS</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>استخدام واجهة نقاط البيع يومياً</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 14 · 10 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🧾 الفصل 6 · التشغيل</span>
+                    <h2>واجهة نقاط البيع POS</h2>
+                    <p>واجهة سريعة وبديهية — يمكن للكاشير إنشاء طلب كامل وإنهاء الفاتورة في أقل من 30 ثانية.</p>
+                </div>
+                <div class="steps-block">
+                    <h3>إنشاء طلب جديد (تدفق الكاشير)</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>اختر الفئة من أعلى الشاشة</strong><span>الفئات تظهر كتبويبات — انقر للانتقال بين المشروبات والوجبات وغيرها</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>اختر الأصناف</strong><span>تظهر مع الاسم والصورة — كل نقرة تضيف الصنف لسلة الطلب (اليمين)</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>عدّل السلة</strong><span>زيادة/تقليل الكمية — حذف صنف — إضافة ملاحظة للطاهي (مثلاً: "بدون ملح" / "تسخين إضافي")</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>اختر المكان (اختياري)</strong><span>من القائمة المنسدلة: رقم الطاولة أو "طلب للخارج (Take Away)"</span></div></li>
+                        <li><span class="snum">5</span><div class="sbody"><strong>اضغط زر التأكيد المناسب:</strong><span><strong style="color:#1d4ed8">Chef + Client (أزرق)</strong> — إرسال للمطبخ + دفع فوري + طباعة الفاتورة<br><strong style="color:#b45309">Chef (أصفر)</strong> — إرسال للمطبخ + تأجيل الدفع (يُكمل لاحقاً من لوحة المدفوعات)<br><strong style="color:#dc2626">إلغاء (أحمر)</strong> — حذف الطلب الحالي</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span><strong>من الشريط العلوي:</strong> لوحة المدفوعات — سجل اليوم — طلب جديد — المصروفات — النسخ الاحتياطية</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 6-2: QR Menu ──────────────────── -->
+            <div class="doc-section" id="l-6-2">
+                <div class="doc-breadcrumb">🧾 التشغيل اليومي &rsaquo; <b>القائمة الرقمية QR</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إعداد القائمة الرقمية QR</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 15 · 7 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🧾 الفصل 6 · التشغيل</span>
+                    <h2>القائمة الرقمية QR</h2>
+                    <p>يمسح الزبون رمز QR بهاتفه، يتصفح القائمة، ويطلب مباشرة — بدون إنترنت ولا تطبيق.</p>
+                </div>
+                <div class="steps-block">
+                    <h3>إعداد رموز QR وتجربة الزبون</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>افتح إدارة الطاولات</strong><span>أضف جميع الطاولات مع أسمائها وأرقامها</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>اطبع ملصقات QR</strong><span>اضغط "طباعة رموز QR" — كل طاولة لها رمز فريد</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>الزبون يمسح الرمز</strong><span>بكاميرا الهاتف — لا حاجة لتطبيق خاص</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>الزبون يختار ويطلب</strong><span>يضيف ملاحظات للطاهي — يضغط "إرسال الطلب"</span></div></li>
+                        <li><span class="snum">5</span><div class="sbody"><strong>الكاشير يؤكد الطلب</strong><span>يصل فورياً مع رقم الطاولة — يُرسل للمطبخ تلقائياً</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-warn"><span class="ibox-ico">⚠️</span><span>تأكد أن هاتف الزبون متصل بنفس شبكة Wi-Fi الداخلية — القائمة الرقمية تعمل على الشبكة المحلية فقط.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 6-3: Tables ───────────────────── -->
+            <div class="doc-section" id="l-6-3">
+                <div class="doc-breadcrumb">🧾 التشغيل اليومي &rsaquo; <b>إدارة الطاولات</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إدارة الطاولات وحالتها اللحظية</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 16 · 5 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🧾 الفصل 6 · التشغيل</span>
+                    <h2>إدارة الطاولات</h2>
+                    <p>راقب حالة كل طاولة في الوقت الحقيقي — مشغولة، شاغرة، أو في انتظار الدفع.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>📋 إعداد الطاولات</h4>
+                        <ul>
+                            <li>اسم أو رقم لكل طاولة</li>
+                            <li>السعة (عدد الأشخاص)</li>
+                            <li>أيقونة أو رمز مخصص</li>
+                            <li>الطابق أو المنطقة</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>🔄 إدارة الطلبات</h4>
+                        <ul>
+                            <li>نقل طلب من طاولة لأخرى</li>
+                            <li>دمج طلبين في فاتورة واحدة</li>
+                            <li>تقسيم الفاتورة بين الزبائن</li>
+                            <li>بحث سريع عن طاولة</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 7-1: Dashboard ─────────────────── -->
+            <div class="doc-section" id="l-7-1">
+                <div class="doc-breadcrumb">📊 Dashboard &rsaquo; <b>لوحة التحكم الرئيسية</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>قراءة لوحة التحكم والمؤشرات</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 17 · 6 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">📊 الفصل 7 · التحليلات</span>
+                    <h2>لوحة التحكم الرئيسية</h2>
+                    <p>نظرة سريعة على أداء مطعمك اليوم — مبيعات، أرباح، الأصناف الأكثر طلباً، وأوقات الذروة.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>📈 ألواح المبيعات والأرباح</h4>
+                        <ul>
+                            <li>مبيعات اليوم / مبيعات الشهر</li>
+                            <li>أرباح اليوم / أرباح الشهر</li>
+                            <li>رسم بياني خطي: تطور المبيعات (N يوم — قابل للتعديل)</li>
+                            <li>تحديد فترة مخصصة (تاريخ البداية والنهاية)</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>🏆 الفئات والأصناف</h4>
+                        <ul>
+                            <li>مصادر المبيعات: مخطط دائري بالفئات</li>
+                            <li>أفضل 10 فئات مبيعاً (رسم بياني)</li>
+                            <li>أفضل 10 أصناف مبيعاً</li>
+                            <li>أعلى الفئات والأصناف إيراداً</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox ibox-info"><span class="ibox-ico">ℹ️</span><span>اللوحة تعرض بيانات الشهر الحالي افتراضياً — يمكن للمدير تغيير الفترة في أي وقت بالضغط على "تحقق".</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 7-2: Sales Reports ────────────── -->
+            <div class="doc-section" id="l-7-2">
+                <div class="doc-breadcrumb">📊 Dashboard &rsaquo; <b>تقارير المبيعات</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>قراءة وتحليل تقارير المبيعات</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 18 · 8 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">📊 الفصل 7 · التحليلات</span>
+                    <h2>تقارير المبيعات</h2>
+                    <p>تقارير مفصلة قابلة للتصفية حسب التاريخ، الطاولة، الفئة أو الصنف.</p>
+                </div>
+                <div class="steps-block">
+                    <h3>التقارير الأربعة المتاحة (للمدير فقط)</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>سجل الطلبات السابقة</strong><span>عرض كل طلبات اليوم أو أي تاريخ — فلترة حسب الطاولة أو الكود — إعادة طباعة تذكرة المطبخ أو فاتورة العميل — حذف صنف أو إلغاء طلب</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>تقرير الإيرادات مقابل المصروفات</strong><span>قائمة كل الأصناف المباعة (الكمية والمبلغ) + كل المصروفات المسجلة — النتيجة: إيرادات − مصروفات. زر "الصندوق النقدي" يحسب رصيد الكاش الفعلي</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>تقرير المبيعات بالفئة</strong><span>تحليل تفصيلي: فئة ← صنف ← متغير (مثلاً: L / XL / XXL) — الكميات والمبالغ — مخطط دائري لتوزيع المبيعات حسب المتغيرات</span></div></li>
+                        <li><span class="snum">4</span><div class="sbody"><strong>تقرير الأرباح (Earnings)</strong><span>لكل صنف: المبيعات − التكلفة = صافي الربح — يكشف الأصناف الأعلى ربحية والأصناف ذات الهامش المنخفض</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-warn"><span class="ibox-ico">⚠️</span><span>الكاشير والطاهي لا يملكان صلاحية الوصول لأي من هذه التقارير — متاحة للمدير فقط.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 7-3: Profits ──────────────────── -->
+            <div class="doc-section" id="l-7-3">
+                <div class="doc-breadcrumb">📊 Dashboard &rsaquo; <b>الأرباح والمصروفات</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>تتبع الأرباح والمصروفات اليومية</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 19 · 6 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">📊 الفصل 7 · التحليلات</span>
+                    <h2>الأرباح والمصروفات</h2>
+                    <p>تحكم كامل في التدفق النقدي — سجّل مصروفاتك اليومية واعرف صافي ربحك الحقيقي.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>💸 تسجيل المصروفات</h4>
+                        <ul>
+                            <li>نوع المصروف (يُعرَّف مسبقاً في الإعدادات)</li>
+                            <li>أمثلة: شراء بضائع، رواتب، وجبات الموظفين</li>
+                            <li>التاريخ والمبلغ والملاحظة</li>
+                            <li>خيار "من الصندوق النقدي" يخصم تلقائياً من الكاش</li>
+                            <li>المصروفات غير المعلّمة لا تؤثر في رصيد الكاش</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>📊 تقرير الأرباح الصافية</h4>
+                        <ul>
+                            <li>لكل صنف: الكمية — المبيعات — التكلفة — الربح</li>
+                            <li>إجمالي: مبيعات − تكلفة = صافي ربح الفترة</li>
+                            <li>يحدد الأصناف الأعلى هامشاً</li>
+                            <li>يساعد في تعديل الأسعار والترويج</li>
+                            <li>متاح للمدير فقط</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span>لإضافة أنواع المصروفات: الإعدادات ← أنواع المصروفات — يجب إنشاؤها أولاً قبل تسجيل أي مصروف.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 8-1: Food Court ────────────────── -->
+            <div class="doc-section" id="l-8-1">
+                <div class="doc-breadcrumb">🏪 أوضاع متقدمة &rsaquo; <b>وضع Food Court</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>إعداد وتشغيل وضع مجمع المطاعم</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 20 · 9 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🏪 الفصل 8 · متقدم</span>
+                    <h2>وضع مجمع المطاعم Food Court</h2>
+                    <p>أدر عدة مطاعم في نفس المجمع من نظام واحد — كل مطعم مستقل بقائمته وطابعاته وتقاريره.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🏪 استقلالية كل مطعم</h4>
+                        <ul>
+                            <li>قائمة طعام مستقلة</li>
+                            <li>طابعات وكاشيرين خاصة</li>
+                            <li>تقارير منفصلة</li>
+                            <li>إعدادات لغة وعملة مستقلة</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>🔗 تجربة موحدة للزبون</h4>
+                        <ul>
+                            <li>QR واحد للمجمع كله</li>
+                            <li>أو QR منفصل لكل مطعم</li>
+                            <li>طلب من أكثر من مطعم في نفس الوقت</li>
+                            <li>إشعارات جاهزية الطلب على الشاشة</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">💡</span><span><strong>مثالي لـ:</strong> المراكز التجارية، المطارات، المقاصف الجامعية، وقاعات الفعاليات.</span></div>
+                <div class="ibox ibox-info"><span class="ibox-ico">🌐</span><span>وضع Food Court يعمل <strong>100٪ بدون إنترنت</strong> عبر الشبكة المحلية فقط.</span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn primary" data-nav="1">التالي &#8592;</button>
+                </div>
+            </div>
+
+            <!-- ── LESSON 8-2: Backup & FAQ ─────────────── -->
+            <div class="doc-section" id="l-8-2">
+                <div class="doc-breadcrumb">🏪 أوضاع متقدمة &rsaquo; <b>النسخ الاحتياطي والأسئلة الشائعة</b></div>
+                <div class="doc-video">
+                    <div class="video-thumb">
+                        <div class="play-btn">▶</div>
+                        <h3>النسخ الاحتياطي والأسئلة الشائعة</h3>
+                        <p>الفيديو قيد الإنتاج — سيتاح قريباً</p>
+                    </div>
+                    <span class="video-badge">درس 21 · 5 دقائق</span>
+                </div>
+                <div class="section-head">
+                    <span class="section-tag">🏪 الفصل 8 · متقدم</span>
+                    <h2>النسخ الاحتياطي والأسئلة الشائعة</h2>
+                </div>
+                <div class="steps-block">
+                    <h3>النسخ الاحتياطي</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">1</span><div class="sbody"><strong>النسخ اليدوي</strong><span>الإعدادات ← قاعدة البيانات ← تصدير — احفظ في مجلد آمن أو USB</span></div></li>
+                        <li><span class="snum">2</span><div class="sbody"><strong>النسخ التلقائي</strong><span>فعّل "النسخ الاحتياطي التلقائي" واختر التوقيت والمسار</span></div></li>
+                        <li><span class="snum">3</span><div class="sbody"><strong>الاستعادة</strong><span>الإعدادات ← استعادة النسخ — اختر ملف النسخة الاحتياطية</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-warn"><span class="ibox-ico">⚠️</span><span>انسخ احتياطياً قبل أي تحديث للنظام. احتفظ بنسخة خارج الجهاز (USB أو سحابي).</span></div>
+                <div class="steps-block">
+                    <h3>أسئلة شائعة</h3>
+                    <ol class="step-list">
+                        <li><span class="snum">؟</span><div class="sbody"><strong>هل يعمل بدون إنترنت تماماً؟</strong><span>نعم، 100٪ — الإنترنت مطلوب فقط للتحديثات وللتواصل مع الدعم الفني.</span></div></li>
+                        <li><span class="snum">؟</span><div class="sbody"><strong>كم جهازاً يمكن ربطه؟</strong><span>لا يوجد حد — يعتمد على قوة الشبكة. 5-15 جهازاً تعمل بسلاسة.</span></div></li>
+                        <li><span class="snum">؟</span><div class="sbody"><strong>كيف أحصل على الدعم الفني؟</strong><span>الترخيص يشمل 6 أشهر دعم مجاني عبر الهاتف والواتساب والبريد الإلكتروني.</span></div></li>
+                        <li><span class="snum">؟</span><div class="sbody"><strong>هل يمكن الترقية من الباقة الأساسية؟</strong><span>نعم، تواصل مع فريق المبيعات لتفاصيل الترقية إلى باقة Food Court.</span></div></li>
+                    </ol>
+                </div>
+                <div class="ibox ibox-tip"><span class="ibox-ico">📞</span><span>للدعم الفني الفوري: <a href="index.html#contact" style="color:inherit;font-weight:700;">اتصل بنا من هنا</a></span></div>
+                <div class="doc-nav">
+                    <button class="nav-btn" data-nav="-1">&#8594; السابق</button>
+                    <button class="nav-btn" disabled>✅ انتهت الدورة</button>
+                </div>
+            </div>
+
+        </main><!-- /.doc-main -->
+    </div><!-- /.doc-layout -->
 </section>
 
 <footer>
@@ -332,17 +1274,53 @@
 </footer>
 
 <script>
-    // Smooth scroll — only for same-page anchor links (href starts with #)
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-            var href = this.getAttribute('href');
-            if (href.length > 1) {
-                e.preventDefault();
-                var target = document.querySelector(href);
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
+    const lessons  = Array.from(document.querySelectorAll('.doc-lesson'));
+    const sections = Array.from(document.querySelectorAll('.doc-section'));
+    let current    = 0;
+
+    function goTo(idx) {
+        if (idx < 0 || idx >= lessons.length) return;
+        current = idx;
+
+        sections.forEach(s => s.classList.remove('active'));
+        lessons.forEach(l  => l.classList.remove('active'));
+
+        const lesson  = lessons[idx];
+        const section = document.getElementById(lesson.dataset.target);
+        if (section) {
+            section.classList.add('active');
+            document.querySelector('.doc-main').scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        lesson.classList.add('active');
+
+        // Open parent chapter
+        const chap = lesson.closest('.doc-chapter');
+        if (chap && !chap.classList.contains('open')) chap.classList.add('open');
+
+        // Scroll sidebar to lesson
+        lesson.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+
+        // Update progress
+        const pct = Math.round(((idx + 1) / lessons.length) * 100);
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('progressLabel').textContent = 'الدرس ' + (idx + 1) + ' من ' + lessons.length;
+    }
+
+    // Chapter toggle
+    document.querySelectorAll('.chapter-header').forEach(h => {
+        h.addEventListener('click', () => h.parentElement.classList.toggle('open'));
     });
+
+    // Lesson click
+    lessons.forEach((l, i) => l.addEventListener('click', () => goTo(i)));
+
+    // Prev/Next nav buttons
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('[data-nav]');
+        if (btn) goTo(current + parseInt(btn.dataset.nav));
+    });
+
+    goTo(0);
 </script>
 </body>
 </html>
