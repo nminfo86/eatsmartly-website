@@ -7,8 +7,6 @@
     <link rel="icon" type="image/png" href="images/eatSmartly_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-   
-    </style>
 </head>
 <body class="doc-page">
 <header>
@@ -33,6 +31,9 @@
         </ul>
     </nav>
     <a href="index.html#download" class="btn">حمل النسخة التجريبية</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
 </header>
 
 <!-- ══ Page Hero ════════════════════════════════════════ -->
@@ -1154,6 +1155,26 @@
 </footer>
 
 <script>
+    // Hamburger menu
+    (function () {
+        var toggle = document.getElementById('menuToggle');
+        var nav = toggle && toggle.closest('header').querySelector('nav');
+        if (toggle && nav) {
+            toggle.addEventListener('click', function () {
+                var open = nav.classList.toggle('open');
+                toggle.classList.toggle('open', open);
+                toggle.setAttribute('aria-expanded', open);
+            });
+            nav.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    nav.classList.remove('open');
+                    toggle.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+    })();
+
     const lessons  = Array.from(document.querySelectorAll('.doc-lesson'));
     const sections = Array.from(document.querySelectorAll('.doc-section'));
     let current    = 0;

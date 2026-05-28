@@ -1413,116 +1413,214 @@ body.doc-page { background: #f4f6f9; }
 .nav-btn.primary:hover { background: #166534; }
 .nav-btn:disabled { opacity: .4; pointer-events: none; }
 
+/* ── Hamburger / Mobile Nav ─────────────────────────────── */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 6px 4px;
+    z-index: 1100;
+    flex-shrink: 0;
+}
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: var(--text-color);
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
 /* ── Responsive ────────────────────────────────────────── */
 @media (max-width: 1024px) {
     .doc-wrapper {
         grid-template-columns: 220px 1fr;
         gap: 30px;
     }
+    .gallery-item { width: 480px; }
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .feature-detail-content { gap: 40px; }
 }
 
 @media (max-width: 768px) {
+    /* ── Header / Nav ─── */
     header {
-        padding: 15px 20px;
+        padding: 14px 20px;
+        position: relative;
     }
+    .menu-toggle { display: flex; }
+    header > .btn { display: none; }
 
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.32s ease-out;
+        z-index: 999;
+    }
+    nav.open { max-height: 380px; }
     nav ul {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0 14px;
     }
-
-    #hero h1 {
-        font-size: 32px;
+    nav a {
+        padding: 12px 24px;
+        font-size: 15px;
+        border-bottom: 1px solid #f3f4f6;
+        display: block;
     }
+    nav a:hover { padding-right: 30px; }
 
-    #hero p {
-        font-size: 16px;
-    }
-
+    /* ── Hero ─── */
+    #hero { padding: 80px 20px 60px; }
+    #hero h1 { font-size: 30px; }
+    #hero p  { font-size: 16px; }
     .hero-actions {
         flex-direction: column;
         align-items: stretch;
     }
+    .hero-actions .btn { width: 100%; text-align: center; }
 
-    .hero-actions .btn {
-        width: 100%;
-    }
-
-    .feature-img {
-        height: 200px;
-    }
-
+    /* ── Features ─── */
+    .feature-img { height: 200px; }
     .features-grid,
-    .pricing-grid {
-        grid-template-columns: 1fr;
-    }
+    .pricing-grid { grid-template-columns: 1fr; }
 
+    /* ── Feature Detail ─── */
     .feature-detail-content {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+    .feature-detail.alt .feature-detail-content { direction: rtl; }
+    .feature-text h2 { font-size: 26px; }
+    .feature-text p  { font-size: 16px; }
 
-    .feature-detail.alt .feature-detail-content {
-        direction: rtl;
-    }
+    /* ── Gallery ─── */
+    .gallery-item { width: 88vw; }
+    .gallery-item img { height: 260px; }
 
-    .feature-text h2 {
-        font-size: 28px;
-    }
-
-    .gallery-item {
-        width: 90vw;
-    }
-
+    /* ── CTA Banner ─── */
+    #cta-banner { padding: 50px 20px; }
     .cta-banner-inner {
         flex-direction: column;
         text-align: center;
     }
+    .cta-banner-text { text-align: center; }
+    .cta-banner-text h2 { font-size: 24px; }
 
-    .cta-banner-text {
-        text-align: center;
-    }
+    /* ── Pricing ─── */
+    .pricing-card { padding: 30px 16px; }
 
-    .cta-banner-text h2 {
-        font-size: 24px;
-    }
+    /* ── Page heroes ─── */
+    .page-hero { padding: 60px 20px; }
+    .page-hero h1 { font-size: 28px; }
+    .page-hero p  { font-size: 15px; }
+    .doc-page-hero { padding: 36px 20px 28px; }
+    .doc-page-hero h1 { font-size: 26px; }
+    .doc-hero-meta { gap: 14px; }
 
-    .doc-wrapper {
-        grid-template-columns: 1fr;
-    }
+    /* ── Section headings ─── */
+    h2 { font-size: 28px; margin-bottom: 36px; }
 
-    .doc-sidebar {
-        position: static;
-    }
+    /* ── Doc page ─── */
+    .doc-wrapper { grid-template-columns: 1fr; }
+    .doc-sidebar { position: static; }
 
+    /* ── Scenarios ─── */
     .scenario-block {
         grid-template-columns: 1fr;
+        padding: 28px 22px;
     }
-
-    .scenario-icon {
-        text-align: center;
-    }
-
-    .tech-req-grid {
-        grid-template-columns: 1fr;
-    }
-
+    .scenario-icon { text-align: center; }
+    .tech-req-grid { grid-template-columns: 1fr; }
     .workflow-step:not(:last-child)::before {
-        left: 19px;
+        right: 19px;
+        left: auto;
     }
 
-    .page-hero h1 {
-        font-size: 30px;
-    }
-
+    /* ── Changelog ─── */
     .changelog-header {
         flex-direction: column;
         align-items: flex-start;
     }
+
+    /* ── Contact form ─── */
+    form { padding: 0 4px; }
 }
 
 @media (max-width: 860px) {
     .doc-layout { grid-template-columns: 1fr; }
-    .doc-sidebar { position: static; height: auto; }
+    .doc-sidebar {
+        position: static;
+        height: auto;
+        border-left: none;
+        border-bottom: 1px solid #e4e7ec;
+    }
     .doc-main { padding: 20px 16px; }
     .info-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    header { padding: 12px 16px; }
+    .logo { font-size: 22px; }
+    .logo img { height: 40px; }
+
+    #hero { padding: 70px 16px 50px; }
+    #hero h1 { font-size: 24px; line-height: 1.3; }
+    #hero p  { font-size: 15px; }
+
+    section { padding: 60px 16px; }
+
+    .page-hero { padding: 48px 16px; }
+    .page-hero h1 { font-size: 22px; }
+    .page-hero p  { font-size: 14px; }
+
+    .doc-page-hero h1 { font-size: 20px; }
+    .doc-page-hero p  { font-size: 14px; }
+    .doc-hero-meta { flex-direction: column; gap: 8px; align-items: center; }
+
+    h2 { font-size: 22px; margin-bottom: 26px; }
+
+    .badge-content h2 { font-size: 22px; }
+    .badge-content p  { font-size: 15px; }
+
+    .feature-card h3 { font-size: 18px; }
+    .feature-text h2 { font-size: 20px; }
+    .feature-text p  { font-size: 14px; }
+    .feature-text ul li { font-size: 14px; }
+
+    .price { font-size: 30px; }
+
+    .scenario-block { padding: 18px 14px; }
+    .scenario-body h3 { font-size: 19px; }
+    .scenario-icon { font-size: 48px; }
+
+    .gallery-item { width: 95vw; }
+    .gallery-item img { height: 200px; }
+    .gallery-caption h3 { font-size: 16px; }
+
+    .btn { padding: 12px 26px; font-size: 14px; }
+
+    .cta-banner-text h2 { font-size: 20px; }
+
+    .doc-main { padding: 16px 12px; }
+    .section-head h2 { font-size: 20px; }
+    .steps-block { padding: 16px; }
+
+    footer { padding: 20px 16px; }
 }
