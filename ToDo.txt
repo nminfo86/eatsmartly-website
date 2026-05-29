@@ -1,0 +1,11 @@
+Home :
+1- finish features details sliders images 
+2- remove gallery section
+3- 
+Scenarios page:
+1- Change section width to near max width of the page
+2- Change the image of the scenarios to be more related to the content
+
+Documentation page:
+1- improve to User friendly UI for mobile
+2- add search bar to search for specific topics in the documentation
