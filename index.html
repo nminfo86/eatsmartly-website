@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,717 +9,798 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-<header>
-    <a href="index.html" class="logo">
-        <img src="images/eatSmartly_logo.png" alt="eatSmartly Logo">
-        <span>eatSmartly</span>
-    </a>
-    <nav>
-        <ul>
-            <li>
-                <a href="index.html" class="active-page">الرئيسية</a>
-            </li>
-            <li>
-                <a href="scenarios.html">أوضاع التشغيل</a>
-            </li>
-            <li>
-                <a href="documentation.html">دليل الاستخدام</a>
-            </li>
-            <li>
-                <a href="#contact">اتصل بنا</a>
-            </li>
-        </ul>
-    </nav>
-    <a href="#download" class="btn">حمل النسخة التجريبية</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="القائمة" aria-expanded="false">
-        <span></span><span></span><span></span>
-    </button>
-</header>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/eatSmartly_logo.png" alt="eatSmartly Logo">
+            <span>eatSmartly</span>
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html" class="active-page">الرئيسية</a>
+                </li>
+                <li>
+                    <a href="scenarios.html">أوضاع التشغيل</a>
+                </li>
+                <li>
+                    <a href="documentation.html">دليل الاستخدام</a>
+                </li>
+                <li>
+                    <a href="#contact">اتصل بنا</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="#download" class="btn">حمل النسخة التجريبية</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="القائمة" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
 
-<!-- ══ Hero Section ══════════════════════════════════════ -->
-<section id="hero">
-    <div class="hero-food-icons" aria-hidden="true">
-        <span style="font-size:70px; top:8%;  left:4%;  animation-delay:0s;">🍽️</span>
-        <span style="font-size:52px; top:18%; left:82%; animation-delay:1.2s;">🥄</span>
-        <span style="font-size:64px; top:55%; left:6%;  animation-delay:2.4s;">🍴</span>
-        <span style="font-size:48px; top:72%; left:88%; animation-delay:0.8s;">🥗</span>
-        <span style="font-size:60px; top:80%; left:30%; animation-delay:3.5s;">🍜</span>
-        <span style="font-size:50px; top:10%; left:55%; animation-delay:1.8s;">🥘</span>
-        <span style="font-size:55px; top:40%; left:92%; animation-delay:0.4s;">🍔</span>
-        <span style="font-size:45px; top:62%; left:50%; animation-delay:2.9s;">🧆</span>
-        <span style="font-size:58px; top:30%; left:14%; animation-delay:1.5s;">🥙</span>
-        <span style="font-size:44px; top:85%; left:70%; animation-delay:3.1s;">🍕</span>
-    </div>
-    <div class="container">
-        <h1>eatSmartly — نظام إدارة المطاعم القوي</h1>
-        <p style="font-size: 22px; margin-top: 20px;">
-            من المقاهي الصغيرة إلى ساحات المطاعم، <span dir="ltr">eatSmartly</span>
-            يتوسع معك ليناسب جميع احتياجاتك.
-        </p>
-        <div class="hero-actions">
-            <a href="#download" class="btn">جرّب النظام الآن</a>
-            <a href="#pricing" class="btn btn-outline">اكتشف باقة الأسعار</a>
+    <!-- ══ Hero Section ══════════════════════════════════════ -->
+    <section id="hero">
+        <div class="hero-food-icons" aria-hidden="true">
+            <span style="font-size:70px; top:8%;  left:4%;  animation-delay:0s;">🍽️</span>
+            <span style="font-size:52px; top:18%; left:82%; animation-delay:1.2s;">🥄</span>
+            <span style="font-size:64px; top:55%; left:6%;  animation-delay:2.4s;">🍴</span>
+            <span style="font-size:48px; top:72%; left:88%; animation-delay:0.8s;">🥗</span>
+            <span style="font-size:60px; top:80%; left:30%; animation-delay:3.5s;">🍜</span>
+            <span style="font-size:50px; top:10%; left:55%; animation-delay:1.8s;">🥘</span>
+            <span style="font-size:55px; top:40%; left:92%; animation-delay:0.4s;">🍔</span>
+            <span style="font-size:45px; top:62%; left:50%; animation-delay:2.9s;">🧆</span>
+            <span style="font-size:58px; top:30%; left:14%; animation-delay:1.5s;">🥙</span>
+            <span style="font-size:44px; top:85%; left:70%; animation-delay:3.1s;">🍕</span>
         </div>
-    </div>
-    <div class="hero-image">
-        <img src="images/hero_image.png" alt="eatSmartly Dashboard"
-            onerror="this.parentElement.innerHTML='<div style=\'padding:100px; background:#f0f0f0; text-align:center; color:#999; border-radius:8px;\'>📊<br/><br/>صورة لوحة التحكم الرئيسية<br/><small>قم بإضافة: hero.png</small></div>'">
-    </div>
-</section>
-
-<!-- ══ QR Menu Detail ═════════════════════════════════════ -->
-<section class="feature-detail" id="qr-menu-detail">
-    <div class="feature-detail-content">
-        <div class="feature-image-slider">
-            <div class="slider-viewport">
-            <div class="slider-track">
-                <div class="slide">
-                    <img src="images/ordere_UI.png" alt="واجهة الدفع"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f4f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23999\'%3E📱%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="slide">
-                    <img src="images/mobile-menu.png" alt="قائمة الموبايل"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23e8f4f0\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E🔲%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="slide">
-                    <img src="images/qr-customer-view.png" alt="عرض الزبون للقائمة"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0eef8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E📋%3C/text%3E%3C/svg%3E'">
-                </div>
-            </div>
-            </div><!-- /.slider-viewport -->
-            <div class="slider-dots">
-                <button class="slider-dot active" aria-label="الشريحة 1"></button>
-                <button class="slider-dot" aria-label="الشريحة 2"></button>
-                <button class="slider-dot" aria-label="الشريحة 3"></button>
+        <div class="container">
+            <h1>eatSmartly — نظام إدارة المطاعم القوي</h1>
+            <p style="font-size: 22px; margin-top: 20px;">
+                من المقاهي الصغيرة إلى ساحات المطاعم، <span dir="ltr">eatSmartly</span>
+                يتوسع معك ليناسب جميع احتياجاتك.
+            </p>
+            <div class="hero-actions">
+                <a href="#download" class="btn">جرّب النظام الآن</a>
+                <a href="#pricing" class="btn btn-outline">اكتشف باقة الأسعار</a>
             </div>
         </div>
-        <div class="feature-text">
-            <h2>القائمة الرقمية عبر مسح رمز <span dir="ltr">QR</span> ونظام طلبات الزبائن</h2>
-            <p>تُمكّن القائمة الرقمية عبر رمز <span dir="ltr">QR</span> الزبائنَ من استعراض الأطباق وتقديم طلباتهم مباشرة من هواتفهم أو من الشاشات الداخلية للمطعم، دون الحاجة لأي اتصال بالإنترنت.</p>
-            <p>كل طاولة لها رمز <span dir="ltr">QR</span> خاص — يتلقى النادل إشعاراً فورياً بالطلب مع رقم الطاولة، مما يُسرّع الخدمة ويرفع رضا الزبائن.</p>
+        <div class="hero-image">
+            <img src="images/hero_image.png" alt="eatSmartly Dashboard"
+                onerror="this.parentElement.innerHTML='<div style=\'padding:100px; background:#f0f0f0; text-align:center; color:#999; border-radius:8px;\'>📊<br/><br/>صورة لوحة التحكم الرئيسية<br/><small>قم بإضافة: hero.png</small></div>'">
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ══ Food Court Detail ══════════════════════════════════ -->
-<section class="feature-detail alt" id="foodcourt-detail">
-    <div class="feature-detail-content">
-        <div class="feature-image-slider">
-            <div class="slider-viewport">
-            <div class="slider-track">
-                <div class="slide">
-                    <img src="images/foodcourt-feature.png" alt="ساحة المطاعم"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f4f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23999\'%3E🏪%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="slide">
-                    <img src="images/multi-restaurant.png" alt="المطاعم المتعددة"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f4f0e8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E🍽️%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="slide">
-                    <img src="images/gallery/kitchen-display.png" alt="شاشة المطبخ"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23eef4e8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E👨‍🍳%3C/text%3E%3C/svg%3E'">
-                </div>
-            </div>
-            </div><!-- /.slider-viewport -->
-            <div class="slider-dots">
-                <button class="slider-dot active" aria-label="الشريحة 1"></button>
-                <button class="slider-dot" aria-label="الشريحة 2"></button>
-                <button class="slider-dot" aria-label="الشريحة 3"></button>
-            </div>
-        </div>
-        <div class="feature-text">
-            <h2>نظام المطاعم المتعددة مع <span dir="ltr">eatSmartly</span></h2>
-            <p>يقدّم <span dir="ltr">eatSmartly</span> الحل الأمثل لإدارة مجمعات الطعام، حيث يتم توجيه كل طلب تلقائيًا إلى المطبخ الصحيح ومتابعته في الوقت الحقيقي من لوحة تحكم مركزية واحدة.</p>
-            <p>مثالي للمراكز التجارية والمطارات والمقاصف، ويعمل <strong>100٪ دون إنترنت</strong> عبر الشبكة المحلية فقط.</p>
-            <a href="scenarios.html" class="btn" style="margin-top: 24px; display:inline-block;">
-                اكتشف أوضاع التشغيل &larr;
-            </a>
-        </div>
-    </div>
-</section>
+    <!-- ══ Ordere & payement Detail ═════════════════════════════════════ -->
+    <section class="feature-detail" id="order-payment-detail">
+        <div class="feature-detail-content">
+            <div class="feature-image-slider" data-manual="true">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <img src="images/features/order-checkout/order.png" alt="واجهة الطلب">
+                        </div>
+                        <div class="slide">
+                            <img src="images/features/order-checkout/checkout.png" alt="شاشة الدفع">
+                        </div>
 
-<!-- ══ Printers Detail ════════════════════════════════════ -->
-<section class="feature-detail" id="printers-detail">
-    <div class="feature-detail-content">
-        <div class="feature-image-slider">
-            <div class="slider-viewport">
-            <div class="slider-track">
-                <div class="slide">
-                    <img src="images/printers-feature.png" alt="نظام الطابعات"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f4f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23999\'%3E🖨️%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="slide">
-                    <img src="images/receipt-print.png" alt="طباعة الفاتورة"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f4f0f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E🧾%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="slide">
-                    <img src="images/kitchen-ticket.png" alt="تذكرة المطبخ"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f8f4\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E📄%3C/text%3E%3C/svg%3E'">
-                </div>
+                    </div>
+                </div><!-- /.slider-viewport -->
             </div>
-            </div><!-- /.slider-viewport -->
-            <div class="slider-dots">
-                <button class="slider-dot active" aria-label="الشريحة 1"></button>
-                <button class="slider-dot" aria-label="الشريحة 2"></button>
-                <button class="slider-dot" aria-label="الشريحة 3"></button>
+            <div class="slider-controls">
+                <button class="slider-prev" aria-label="الصورة السابقة">&#10094;</button>
+                <button class="slider-next" aria-label="الصورة التالية">&#10095;</button>
+            </div>
+            <div class="feature-text">
+                <h2>طلبات أسرع. دفع أذكى. زبائن أسعد.</h2>
+                <p>تخيّل كاشيراً <span dir="ltr">Caissier</span> لا يخطئ، لا يتأخر، ولا يُضيّع طلباً واحداً — هذا بالضبط
+                    ما تحصل عليه مع eatSmartly. شاشة الطلب والدفع مصمّمة لتحويل كل لحظة في خط الخدمة إلى ربح حقيقي:
+                    اضغط، اختر، أرسل للمطبخ — كل ذلك في ثوانٍ معدودة.</p>
+                <p>سواء دفع الزبون فوراً أو أبقيت الحساب مفتوحاً لوقت لاحق، النظام يتكيّف مع أسلوبك. لا ضغط، لا فوضى، لا
+                    طلبات ضائعة. فقط خدمة سلسة تُبقي مطبخك يعمل وزبائنك راضين.</p>
+                <!-- <p>كل شيء تحت السيطرة من شاشة واحدة — الطلبات الحالية، سجل اليوم، المصروفات، والنسخ الاحتياطية. أقل وقتاً في الإدارة، وأكثر تركيزاً على ما يهمّ: تقديم تجربة لا تُنسى لكل زبون.</p> -->
             </div>
         </div>
-        <div class="feature-text">
-            <h2>الطابعات المتعددة وتذاكر المطبخ</h2>
-            <p>يدعم <span dir="ltr">eatSmartly</span> نظام طباعة متكامل يشمل طابعات الفواتير الحرارية <span dir="ltr">(ESC/POS)</span> وطابعات تذاكر المطابخ، عبر <span dir="ltr">USB</span> أو الشبكة.</p>
-            <p>كل مطبخ يستقبل فقط الأصناف التي يحضّرها — توجيه ذكي تلقائي يُحسّن الكفاءة ويُقلّل الأخطاء بشكل ملحوظ.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- ══ Multi-Language Detail ══════════════════════════════ -->
-<section class="feature-detail alt" id="multilang-detail">
-    <div class="feature-detail-content">
-        <div class="feature-image-slider">
-            <div class="slider-viewport">
-            <div class="slider-track">
-                <div class="slide">
-                    <img src="images/multilang-feature.png" alt="تعدد اللغات"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f4f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23999\'%3E🌍%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="slide">
-                    <img src="images/gallery/dashboard.png" alt="لوحة التحكم"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23e8f0f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E📊%3C/text%3E%3C/svg%3E'">
-                </div>
-                <div class="slide">
-                    <img src="images/company-settings.png" alt="إعدادات الشركة"
-                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f4f0e8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E⚙️%3C/text%3E%3C/svg%3E'">
-                </div>
+    <!-- ══ Menu Management Detail ══════════════════════════════════ -->
+    <section class="feature-detail alt" id="menu-management-detail">
+        <div class="feature-detail-content">
+            <div class="feature-image-slider" data-manual="true">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <img src="images/features/menu/category_list.png" alt="قائمة الفئات">
+                        </div>
+                        <div class="slide">
+                            <img src="images/features/menu/category.png" alt="شاشة الفئة">
+                        </div>
+                        <div class="slide">
+                            <img src="images/features/menu/article.png" alt="شاشة الطبق">
+                        </div>
+                        <div class="slide">
+                            <img src="images/features/menu/attributes_price.png" alt="شاشة السمات والأسعار">
+                        </div>
+                    </div>
+                </div><!-- /.slider-viewport -->
             </div>
-            </div><!-- /.slider-viewport -->
-            <div class="slider-dots">
-                <button class="slider-dot active" aria-label="الشريحة 1"></button>
-                <button class="slider-dot" aria-label="الشريحة 2"></button>
-                <button class="slider-dot" aria-label="الشريحة 3"></button>
+            <div class="slider-controls">
+                <button class="slider-prev" aria-label="الصورة السابقة">&#10094;</button>
+                <button class="slider-next" aria-label="الصورة التالية">&#10095;</button>
             </div>
-        </div>
-        <div class="feature-text">
-            <h2>متعدد اللغات ومتعدد العملات</h2>
-            <p>يدعم النظام العربية (بنمط <span dir="ltr">RTL</span>)، الفرنسية، والإنجليزية، مع ضبط كامل للعملة المحلية والفواصل وأنماط التنسيق من مكان واحد.</p>
-            <p>نظام مصمم خصيصًا للسوق الجزائري، مع مرونة تامة في اللغات والعملات لتناسب أي بيئة عمل.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ══ UI Screenshots Gallery ════════════════════════════ -->
-<section id="ui-gallery">
-    <div class="container">
-        <h2>شاهد واجهات النظام</h2>
-        <p style="margin-bottom: 40px; color: #666; font-size: 18px;">اسحب أفقياً لاستكشاف جميع واجهات النظام</p>
-    </div>
-    <div class="gallery-container">
-        <div class="gallery-scroll">
-            <div class="gallery-item">
-                <img src="images/gallery/pos-interface.png" alt="نظام نقاط البيع"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'%3E%3Crect fill=\'%23f5f7fa\' width=\'600\' height=\'400\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'64\' fill=\'%23999\'%3E🧾%3C/text%3E%3C/svg%3E'">
-                <div class="gallery-caption">
-                    <h3>نظام نقاط البيع (POS)</h3>
-                    <p>واجهة سريعة وسهلة لاستقبال الطلبات</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/gallery/menu-management.png" alt="إدارة القوائم"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'%3E%3Crect fill=\'%23f5f7fa\' width=\'600\' height=\'400\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'64\' fill=\'%23999\'%3E📋%3C/text%3E%3C/svg%3E'">
-                <div class="gallery-caption">
-                    <h3>إدارة القوائم</h3>
-                    <p>تحكم كامل بالفئات والأصناف والأسعار</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/gallery/dashboard.png" alt="لوحة التحكم"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'%3E%3Crect fill=\'%23f5f7fa\' width=\'600\' height=\'400\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'64\' fill=\'%23999\'%3E📊%3C/text%3E%3C/svg%3E'">
-                <div class="gallery-caption">
-                    <h3>لوحة التحكم</h3>
-                    <p>إحصائيات شاملة عن مبيعاتك</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/gallery/qr-menu-mobile.png" alt="القائمة الرقمية"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'%3E%3Crect fill=\'%23f5f7fa\' width=\'600\' height=\'400\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'64\' fill=\'%23999\'%3E📱%3C/text%3E%3C/svg%3E'">
-                <div class="gallery-caption">
-                    <h3>القائمة الرقمية للزبائن</h3>
-                    <p>تجربة طلب سلسة عبر الموبايل</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/gallery/reports.png" alt="التقارير"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'%3E%3Crect fill=\'%23f5f7fa\' width=\'600\' height=\'400\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'64\' fill=\'%23999\'%3E📈%3C/text%3E%3C/svg%3E'">
-                <div class="gallery-caption">
-                    <h3>التقارير والتحليلات</h3>
-                    <p>تقارير مفصلة لاتخاذ القرارات</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="images/gallery/kitchen-display.png" alt="شاشة المطبخ"
-                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'%3E%3Crect fill=\'%23f5f7fa\' width=\'600\' height=\'400\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'64\' fill=\'%23999\'%3E👨‍🍳%3C/text%3E%3C/svg%3E'">
-                <div class="gallery-caption">
-                    <h3>شاشة المطبخ</h3>
-                    <p>عرض الطلبات للمطبخ بشكل منظم</p>
-                </div>
+            <div class="feature-text">
+                <h2>قائمتك منظّمة. أصنافك واضحة. وأسعارك دقيقة.</h2>
+                <p>تخيّل قائمة طعام بدون فوضى ولا تكرار — مع <span dir="ltr">eatSmartly</span> تُنشئ فئاتك، تلوّنها، ترتّبها، وتتحكم في توفّرها بضغطة واحدة. من البيتزا إلى المشروبات إلى الحلويات: كل شيء في مكانه، جاهز للعرض في الكاشير وفي القائمة الرقمية.</p>
+                <p>لديك بيتزا بثلاثة أحجام؟ لا حاجة لإنشاء ثلاثة أصناف منفصلة. مع نظام <strong>السمات والمتغيرات</strong>، تُعرّف الحجم مرة واحدة وتضبط سعر كل قيمة داخل الصنف — قائمة نظيفة، بدون تكرار، وإدارة أسرع بكثير.</p>
+                <a href="documentation.html" class="btn" style="margin-top: 24px; display:inline-block;">
+                    اقرأ دليل الاستخدام &larr;
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ══ Algeria Market Badge ══════════════════════════════ -->
-<section id="algeria-badge">
-    <div class="badge-content">
-        <h2>نظام عالمي بمواصفات جزائرية <span dir="ltr"> Dz </span></h2>
-        <p>
-              تم تصميم <span dir="ltr">eatSmartly</span> ليتكيف مع التشغيل الواقعي وحل جميع المشاكل والتحديات اليومية في المطاعم الجزائرية، مع مراعاة المعايير العالمية في هذا المجال.
-        </p>
-        <p style="margin-top: 10px;">
-            يوفر سرعة في استقبال الطلبات،
-            طباعة متعددة للمطابخ، لوحات معلومات تحليلية، وإدارة دقيقة وشاملة للقوائم في نظام واحد متكامل.
-        </p>
-    </div>
-</section>
+    <!-- ══ QR Menu Detail ═════════════════════════════════════ -->
+    <section class="feature-detail" id="qr-menu-detail">
+        <div class="feature-detail-content">
+            <div class="feature-image-slider" data-manual="true">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <img src="images/ordere_UI.png" alt="واجهة الدفع"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f4f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23999\'%3E📱%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide">
+                            <img src="images/mobile-menu.png" alt="قائمة الموبايل"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23e8f4f0\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E🔲%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide">
+                            <img src="images/qr-customer-view.png" alt="عرض الزبون للقائمة"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0eef8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E📋%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+                </div><!-- /.slider-viewport -->
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev" aria-label="الصورة السابقة">&#10094;</button>
+                <button class="slider-next" aria-label="الصورة التالية">&#10095;</button>
+            </div>
+            <div class="feature-text">
+                <h2>القائمة الرقمية عبر مسح رمز <span dir="ltr">QR</span> ونظام طلبات الزبائن</h2>
+                <p>تُمكّن القائمة الرقمية عبر رمز <span dir="ltr">QR</span> الزبائنَ من استعراض الأطباق وتقديم طلباتهم
+                    مباشرة من هواتفهم أو من الشاشات الداخلية للمطعم، دون الحاجة لأي اتصال بالإنترنت.</p>
+                <p>كل طاولة لها رمز <span dir="ltr">QR</span> خاص — يتلقى النادل إشعاراً فورياً بالطلب مع رقم الطاولة،
+                    مما يُسرّع الخدمة ويرفع رضا الزبائن.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ Food Court Detail ══════════════════════════════════ -->
+    <section class="feature-detail alt" id="foodcourt-detail">
+        <div class="feature-detail-content">
+            <div class="feature-image-slider" data-manual="true">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <img src="images/foodcourt-feature.png" alt="ساحة المطاعم"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f4f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23999\'%3E🏪%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide">
+                            <img src="images/multi-restaurant.png" alt="المطاعم المتعددة"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f4f0e8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E🍽️%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide">
+                            <img src="images/gallery/kitchen-display.png" alt="شاشة المطبخ"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23eef4e8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E👨‍🍳%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+                </div><!-- /.slider-viewport -->
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev" aria-label="الصورة السابقة">&#10094;</button>
+                <button class="slider-next" aria-label="الصورة التالية">&#10095;</button>
+            </div>
+            <div class="feature-text">
+                <h2>نظام المطاعم المتعددة مع <span dir="ltr">eatSmartly</span></h2>
+                <p>يقدّم <span dir="ltr">eatSmartly</span> الحل الأمثل لإدارة مجمعات الطعام، حيث يتم توجيه كل طلب
+                    تلقائيًا إلى المطبخ الصحيح ومتابعته في الوقت الحقيقي من لوحة تحكم مركزية واحدة.</p>
+                <p>مثالي للمراكز التجارية والمطارات والمقاصف، ويعمل <strong>100٪ دون إنترنت</strong> عبر الشبكة المحلية
+                    فقط.</p>
+                <a href="scenarios.html" class="btn" style="margin-top: 24px; display:inline-block;">
+                    اكتشف أوضاع التشغيل &larr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ Printers Detail ════════════════════════════════════ -->
+    <section class="feature-detail" id="printers-detail">
+        <div class="feature-detail-content">
+            <div class="feature-image-slider" data-manual="true">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <img src="images/printers-feature.png" alt="نظام الطابعات"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f4f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23999\'%3E🖨️%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide">
+                            <img src="images/receipt-print.png" alt="طباعة الفاتورة"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f4f0f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E🧾%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide">
+                            <img src="images/kitchen-ticket.png" alt="تذكرة المطبخ"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f8f4\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E📄%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+                </div><!-- /.slider-viewport -->
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev" aria-label="الصورة السابقة">&#10094;</button>
+                <button class="slider-next" aria-label="الصورة التالية">&#10095;</button>
+            </div>
+            <div class="feature-text">
+                <h2>الطابعات المتعددة وتذاكر المطبخ</h2>
+                <p>يدعم <span dir="ltr">eatSmartly</span> نظام طباعة متكامل يشمل طابعات الفواتير الحرارية <span
+                        dir="ltr">(ESC/POS)</span> وطابعات تذاكر المطابخ، عبر <span dir="ltr">USB</span> أو الشبكة.</p>
+                <p>كل مطبخ يستقبل فقط الأصناف التي يحضّرها — توجيه ذكي تلقائي يُحسّن الكفاءة ويُقلّل الأخطاء بشكل ملحوظ.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ Multi-Language Detail ══════════════════════════════ -->
+    <section class="feature-detail alt" id="multilang-detail">
+        <div class="feature-detail-content">
+            <div class="feature-image-slider" data-manual="true">
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <img src="images/multilang-feature.png" alt="تعدد اللغات"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f0f4f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23999\'%3E🌍%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide">
+                            <img src="images/gallery/dashboard.png" alt="لوحة التحكم"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23e8f0f8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E📊%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="slide">
+                            <img src="images/company-settings.png" alt="إعدادات الشركة"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'460\'%3E%3Crect fill=\'%23f4f0e8\' width=\'600\' height=\'460\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Arial\' font-size=\'80\' fill=\'%23888\'%3E⚙️%3C/text%3E%3C/svg%3E'">
+                        </div>
+                    </div>
+                </div><!-- /.slider-viewport -->
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev" aria-label="الصورة السابقة">&#10094;</button>
+                <button class="slider-next" aria-label="الصورة التالية">&#10095;</button>
+            </div>
+            <div class="feature-text">
+                <h2>متعدد اللغات ومتعدد العملات</h2>
+                <p>يدعم النظام العربية (بنمط <span dir="ltr">RTL</span>)، الفرنسية، والإنجليزية، مع ضبط كامل للعملة
+                    المحلية والفواصل وأنماط التنسيق من مكان واحد.</p>
+                <p>نظام مصمم خصيصًا للسوق الجزائري، مع مرونة تامة في اللغات والعملات لتناسب أي بيئة عمل.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ Algeria Market Badge ══════════════════════════════ -->
+    <section id="algeria-badge">
+        <div class="badge-content">
+            <h2>نظام عالمي بمواصفات جزائرية <span dir="ltr"> Dz </span></h2>
+            <p>
+                تم تصميم <span dir="ltr">eatSmartly</span> ليتكيف مع التشغيل الواقعي وحل جميع المشاكل والتحديات اليومية
+                في المطاعم الجزائرية، مع مراعاة المعايير العالمية في هذا المجال.
+            </p>
+            <p style="margin-top: 10px;">
+                يوفر سرعة في استقبال الطلبات،
+                طباعة متعددة للمطابخ، لوحات معلومات تحليلية، وإدارة دقيقة وشاملة للقوائم في نظام واحد متكامل.
+            </p>
+        </div>
+    </section>
 
 
 
-<!-- ══ Features Section ═══════════════════════════════════ -->
-<section id="features">
-    <div class="container">
-        <h2>اكتشف قوة نظام <span dir="ltr">eatSmartly</span></h2>
-        <div class="features-grid">
+    <!-- ══ Features Section ═══════════════════════════════════ -->
+    <section id="features">
+        <div class="container">
+            <h2>اكتشف قوة نظام <span dir="ltr">eatSmartly</span></h2>
+            <div class="features-grid">
 
-            <!-- 1 — القوائم والفئات -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/categories.jpg" alt="Menu Categories"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>📋</div>'">
+                <!-- 1 — القوائم والفئات -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/categories.jpg" alt="Menu Categories"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>📋</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>القوائم والفئات</h3>
+                        <ul>
+                            <li>إنشاء الفئات وتعديلها وحذفها بسهولة</li>
+                            <li>اسم الفئة، ترتيبها، اللون، ومدى التوفر</li>
+                            <li>صور غلاف جذّابة لكل فئة</li>
+                            <li>خصائص: قابل للتحضير، يحتوي على إضافات، يقبل الإضافات</li>
+                            <li>سمات مخصصة لكل فئة (الحجم، السعة، وغيرها)</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="feature-content">
-                    <h3>القوائم والفئات</h3>
+
+                <!-- 2 — قائمة الطعام الرقمية -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/mobile-menu.png" alt="Digital QR Menu"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>📱</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>قائمة الطعام الرقمية <span dir="ltr">(QR)</span></h3>
+                        <ul>
+                            <li>قائمة تفاعلية عبر مسح رمز <span dir="ltr">QR</span></li>
+                            <li>عرض صور ومقاطع فيديو متعددة لكل طبق</li>
+                            <li>إرسال ملاحظات للطاهي (قليل الملح، مطهو جيدًا…)</li>
+                            <li>طلب ذاتي مباشر من الهاتف النقال</li>
+                            <li>الطلب عبر اللوحات الذكية من طرف النادل</li>
+                            <li>تأكيد الطلب من قبل النادل</li>
+                            <li>واجهة مخصصة للطهاة لتحضير الطلبات</li>
+                            <li>تتبع حالة الطلب عبر الإشعارات</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3 — الطلبات والطاولات -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/order-checkout.png" alt="Orders and Tables"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🧾</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>🧾 الطلبات والطاولات</h3>
+                        <ul>
+                            <li>إنشاء الطلبات بسرعة: الكمية، السعر الفردي، المجموع الفرعي، الملاحظات</li>
+                            <li>حساب الإجماليات تلقائيًا عند الإضافة أو التعديل أو الحذف</li>
+                            <li>رموز وملاحظات لمتابعة مراحل الطلبات الفرعية</li>
+                            <li>إدارة الطاولات: الأسماء، الرموز، مدى التوفر، والبحث السريع</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4 — الأصناف والمتغيرات -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/menu-items.png" alt="Items and Variants"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🍽️</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>الأصناف والمتغيرات</h3>
+                        <ul>
+                            <li>إضافة وتعديل وحذف الأطباق بسهولة</li>
+                            <li>تفاصيل كاملة: الاسم، السعر، التكلفة، التوفر، الفئة</li>
+                            <li>متغيرات حسب الحجم، المقاس، الذوق، والسمات المخصصة</li>
+                            <li>تحديد السعر الأساسي تلقائيًا من أرخص متغير</li>
+                            <li>ربط المكملات بالأصناف والطلبات الفرعية</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5 — المستخدمون والأدوار -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/users-roles.png" alt="Users Roles Permissions"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>👥</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>المستخدمون والأدوار والصلاحيات</h3>
+                        <ul>
+                            <li>أدوار متعددة: المدير، الطاهي، أمين الصندوق، النادل، المشرف العام</li>
+                            <li>تحكم دقيق في صلاحيات الوصول حسب كل دور</li>
+                            <li>ربط المستخدمين بالشركة والطابعات</li>
+                            <li>تتبع تسجيلات الدخول والمحاولات</li>
+                            <li>تخصيص الطابعات للطهاة أو أمناء الصندوق حسب المهام</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 6 — بيانات الشركة وسلامة المعلومات -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/company-settings.png" alt="Company Data Settings"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🏢</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>بيانات الشركة وسلامة المعلومات</h3>
+                        <ul>
+                            <li>معلومات الشركة: الاسم، العنوان، رقم الهاتف، وغيرها</li>
+                            <li>إعدادات تذاكر الطهاة وإيصالات الزبائن</li>
+                            <li>ضبط اللغة والعملة من مكان واحد</li>
+                            <li>قواعد قاعدة البيانات تحافظ على دقة الأسعار والمجموعات تلقائيًا</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 7 — المدفوعات والنقد -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/payments-cash.png" alt="Payments and Cash"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>💰</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>المدفوعات والنقد</h3>
+                        <ul>
+                            <li>تحديد الطلبات كمدفوعة وإدراجها في إجمالي المبيعات</li>
+                            <li>تسجيل المصروفات مع تحديد نوعها</li>
+                            <li>الإشارة إلى المصروفات المدفوعة من الصندوق النقدي</li>
+                            <li>مقارنة مباشرة بين المبيعات والمصروفات مع إظهار الفارق</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 8 — الطباعة -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/printers-feature.png" alt="Printing System"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🖨️</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>الطباعة (المطبخ والكاشير)</h3>
+                        <ul>
+                            <li>يدعم التشغيل في وضع بدون طابعة</li>
+                            <li>طابعات <span dir="ltr">ESC/POS</span> عبر <span dir="ltr">USB</span> أو <span
+                                    dir="ltr">IP</span></li>
+                            <li>توجيه الطباعة للكاشير أو المطبخ حسب المستخدم أو الطابعة</li>
+                            <li>طباعة تقارير المبيعات بتنسيقات متعددة اللغات</li>
+                            <li>طباعة أسعار الأصناف حسب المتغيرات</li>
+                            <li>دعم الطباعة بالعربية للفواتير والملصقات</li>
+                            <li>إعادة طباعة أوامر الطهاة والطلبات في أي وقت</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 9 — التعدد اللغوي وتجربة المستخدم -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/multilang-feature.png" alt="Multi-Language UX"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🌍</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>التعدد اللغوي وتجربة المستخدم</h3>
+                        <ul>
+                            <li>واجهة بالعربية مع دعم كامل لاتجاه <span dir="ltr">RTL</span></li>
+                            <li>دعم الفرنسية والإنجليزية إضافة للعربية</li>
+                            <li>جداول تفاعلية متجاوبة بالبحث، الفرز، والتقسيم إلى صفحات</li>
+                            <li>أدوات اختيار تواريخ سهلة الاستخدام (يوم/شهر/سنة أو مخصصة)</li>
+                            <li>ضبط العملة المحلية والفواصل وأنماط التنسيق</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 10 — التقارير والتحليلات -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/analytics-reports.png" alt="Analytics Reports"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>📈</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>التقارير والتحليلات</h3>
+                        <ul>
+                            <li>عرض الطلبات السابقة مع فلاتر التاريخ والطاولة</li>
+                            <li>مقارنة المبيعات بالمصروفات (يومي، شهري، سنوي، أو مخصص)</li>
+                            <li>تحليل المبيعات: الفئة ← الصنف ← الخاصية</li>
+                            <li>الأرباح: الإيرادات، التكلفة، وصافي الربح</li>
+                            <li>أكثر الأصناف والفئات مبيعًا مع رسوم بيانية تفاعلية</li>
+                            <li>إجماليات مباشرة، فلاتر سريعة، وطباعة عند الطلب</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 11 — نظام المطاعم المتعددة -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/multi-restaurant.png" alt="Food Court"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🏪</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>نظام المطاعم المتعددة <span dir="ltr">(Food Court)</span></h3>
+                        <ul>
+                            <li>تشغيل عدة مطاعم ضمن بيئة موحدة</li>
+                            <li>لكل مطعم قائمته وطابعاته وحسابات موظفيه</li>
+                            <li>وصول الزبائن عبر رمز <span dir="ltr">QR</span> واحد أو رموز منفصلة لكل مطعم</li>
+                            <li>توجيه ذكي للطلبات إلى المطبخ الخاص بكل مطعم</li>
+                            <li>إشعارات عبر الشاشات عند جاهزية الطلب</li>
+                            <li>يعمل <strong>100٪ بدون إنترنت</strong> عبر الشبكة المحلية</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 12 — الإشعارات -->
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="images/notifications.png" alt="Notifications"
+                            onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🔔</div>'">
+                    </div>
+                    <div class="feature-content">
+                        <h3>الإشعارات الفورية</h3>
+                        <ul>
+                            <li>تنبيهات فورية للطهاة عند وصول طلب جديد</li>
+                            <li>إشعارات للنادل عند استلام طلبات جديدة</li>
+                            <li>عرض الطلبات الجاهزة على شاشات كبيرة</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CTA Banner ═════════════════════════════════════════ -->
+    <section id="cta-banner">
+        <div class="cta-banner-inner">
+            <div class="cta-banner-text">
+                <h2>عندما تفكر في فتح مطعم أو مقهى،<br>فكر أولاً في <span dir="ltr">eatSmartly</span>!</h2>
+            </div>
+            <div class="cta-banner-side">
+                <p>نحن الخيار الأول والموثوق لأصحاب المطاعم والمقاهي في الجزائر.<br>نظام محلي، دعم محلي، وفهم كامل
+                    لاحتياجاتك.</p>
+                <p class="cta-details">الترخيص: مدى الحياة &nbsp;•&nbsp; الدعم: مجاني لمدة 3 أشهر</p>
+                <a href="#download" class="btn">جرّبه الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ Pricing Section ════════════════════════════════════ -->
+    <section id="pricing">
+        <div class="container">
+            <h2>خطط الأسعار</h2>
+            <p style="margin-bottom: 50px; color: #666; font-size: 18px;">
+                تراخيص مدى الحياة مع دعم مجاني طويل الأمد
+            </p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>الباقة الأساسية</h3>
+                    <p>للمطاعم والمقاهي الصغيرة والمتوسطة</p>
+                    <div class="price">25,000 دج</div>
                     <ul>
-                        <li>إنشاء الفئات وتعديلها وحذفها بسهولة</li>
-                        <li>اسم الفئة، ترتيبها، اللون، ومدى التوفر</li>
-                        <li>صور غلاف جذّابة لكل فئة</li>
-                        <li>خصائص: قابل للتحضير، يحتوي على إضافات، يقبل الإضافات</li>
-                        <li>سمات مخصصة لكل فئة (الحجم، السعة، وغيرها)</li>
+                        <li>✅ ترخيص مدى الحياة (دفعة واحدة)</li>
+                        <li>✅ دعم فني مجاني لمدة 3 أشهر</li>
+                        <li>✅ إدارة القوائم والأصناف</li>
+                        <li>✅ نظام نقاط البيع <span dir="ltr">POS</span></li>
+                        <li>✅ قائمة رقمية <span dir="ltr">QR</span></li>
+                        <li>✅ طباعة الفواتير (طابعة واحدة)</li>
+                        <li>✅ تقارير المبيعات اليومية</li>
+                        <li>✅ عمل بدون إنترنت <span dir="ltr">(Offline)</span></li>
                     </ul>
+                    <a href="#contact" class="btn">اشترك الآن</a>
                 </div>
-            </div>
-
-            <!-- 2 — قائمة الطعام الرقمية -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/mobile-menu.png" alt="Digital QR Menu"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>📱</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>قائمة الطعام الرقمية <span dir="ltr">(QR)</span></h3>
+                <div class="pricing-card">
+                    <h3 style="color: var(--accent);">باقة ساحات المطاعم</h3>
+                    <p>للمجمعات الغذائية وساحات الطعام الكبيرة</p>
+                    <div class="price">35,000 دج <span style="font-size:16px; color:#777;">/ للمطعم</span></div>
                     <ul>
-                        <li>قائمة تفاعلية عبر مسح رمز <span dir="ltr">QR</span></li>
-                        <li>عرض صور ومقاطع فيديو متعددة لكل طبق</li>
-                        <li>إرسال ملاحظات للطاهي (قليل الملح، مطهو جيدًا…)</li>
-                        <li>طلب ذاتي مباشر من الهاتف النقال</li>
-                        <li>الطلب عبر اللوحات الذكية من طرف النادل</li>
-                        <li>تأكيد الطلب من قبل النادل</li>
-                        <li>واجهة مخصصة للطهاة لتحضير الطلبات</li>
-                        <li>تتبع حالة الطلب عبر الإشعارات</li>
+                        <li>✅ ترخيص مدى الحياة (دفعة واحدة)</li>
+                        <li>✅ دعم فني مجاني لمدة 3 أشهر</li>
+                        <li>✅ <strong>نظام المطاعم المتعددة <span dir="ltr">(Food Court)</span></strong></li>
+                        <li>✅ توجيه ذكي للطلبات حسب المطبخ</li>
+                        <li>✅ طباعة متعددة للمطابخ</li>
+                        <li>✅ إدارة مركزية لجميع المطاعم</li>
+                        <li>✅ تقارير منفصلة وإجمالية</li>
+                        <li>✅ مثالي للمولات والمطارات</li>
                     </ul>
+                    <a href="#contact" class="btn btn-accent">اشترك الآن</a>
                 </div>
             </div>
-
-            <!-- 3 — الطلبات والطاولات -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/order-checkout.png" alt="Orders and Tables"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🧾</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>🧾 الطلبات والطاولات</h3>
-                    <ul>
-                        <li>إنشاء الطلبات بسرعة: الكمية، السعر الفردي، المجموع الفرعي، الملاحظات</li>
-                        <li>حساب الإجماليات تلقائيًا عند الإضافة أو التعديل أو الحذف</li>
-                        <li>رموز وملاحظات لمتابعة مراحل الطلبات الفرعية</li>
-                        <li>إدارة الطاولات: الأسماء، الرموز، مدى التوفر، والبحث السريع</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 4 — الأصناف والمتغيرات -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/menu-items.png" alt="Items and Variants"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🍽️</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>الأصناف والمتغيرات</h3>
-                    <ul>
-                        <li>إضافة وتعديل وحذف الأطباق بسهولة</li>
-                        <li>تفاصيل كاملة: الاسم، السعر، التكلفة، التوفر، الفئة</li>
-                        <li>متغيرات حسب الحجم، المقاس، الذوق، والسمات المخصصة</li>
-                        <li>تحديد السعر الأساسي تلقائيًا من أرخص متغير</li>
-                        <li>ربط المكملات بالأصناف والطلبات الفرعية</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 5 — المستخدمون والأدوار -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/users-roles.png" alt="Users Roles Permissions"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>👥</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>المستخدمون والأدوار والصلاحيات</h3>
-                    <ul>
-                        <li>أدوار متعددة: المدير، الطاهي، أمين الصندوق، النادل، المشرف العام</li>
-                        <li>تحكم دقيق في صلاحيات الوصول حسب كل دور</li>
-                        <li>ربط المستخدمين بالشركة والطابعات</li>
-                        <li>تتبع تسجيلات الدخول والمحاولات</li>
-                        <li>تخصيص الطابعات للطهاة أو أمناء الصندوق حسب المهام</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 6 — بيانات الشركة وسلامة المعلومات -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/company-settings.png" alt="Company Data Settings"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🏢</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>بيانات الشركة وسلامة المعلومات</h3>
-                    <ul>
-                        <li>معلومات الشركة: الاسم، العنوان، رقم الهاتف، وغيرها</li>
-                        <li>إعدادات تذاكر الطهاة وإيصالات الزبائن</li>
-                        <li>ضبط اللغة والعملة من مكان واحد</li>
-                        <li>قواعد قاعدة البيانات تحافظ على دقة الأسعار والمجموعات تلقائيًا</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 7 — المدفوعات والنقد -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/payments-cash.png" alt="Payments and Cash"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>💰</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>المدفوعات والنقد</h3>
-                    <ul>
-                        <li>تحديد الطلبات كمدفوعة وإدراجها في إجمالي المبيعات</li>
-                        <li>تسجيل المصروفات مع تحديد نوعها</li>
-                        <li>الإشارة إلى المصروفات المدفوعة من الصندوق النقدي</li>
-                        <li>مقارنة مباشرة بين المبيعات والمصروفات مع إظهار الفارق</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 8 — الطباعة -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/printers-feature.png" alt="Printing System"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🖨️</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>الطباعة (المطبخ والكاشير)</h3>
-                    <ul>
-                        <li>يدعم التشغيل في وضع بدون طابعة</li>
-                        <li>طابعات <span dir="ltr">ESC/POS</span> عبر <span dir="ltr">USB</span> أو <span dir="ltr">IP</span></li>
-                        <li>توجيه الطباعة للكاشير أو المطبخ حسب المستخدم أو الطابعة</li>
-                        <li>طباعة تقارير المبيعات بتنسيقات متعددة اللغات</li>
-                        <li>طباعة أسعار الأصناف حسب المتغيرات</li>
-                        <li>دعم الطباعة بالعربية للفواتير والملصقات</li>
-                        <li>إعادة طباعة أوامر الطهاة والطلبات في أي وقت</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 9 — التعدد اللغوي وتجربة المستخدم -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/multilang-feature.png" alt="Multi-Language UX"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🌍</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>التعدد اللغوي وتجربة المستخدم</h3>
-                    <ul>
-                        <li>واجهة بالعربية مع دعم كامل لاتجاه <span dir="ltr">RTL</span></li>
-                        <li>دعم الفرنسية والإنجليزية إضافة للعربية</li>
-                        <li>جداول تفاعلية متجاوبة بالبحث، الفرز، والتقسيم إلى صفحات</li>
-                        <li>أدوات اختيار تواريخ سهلة الاستخدام (يوم/شهر/سنة أو مخصصة)</li>
-                        <li>ضبط العملة المحلية والفواصل وأنماط التنسيق</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 10 — التقارير والتحليلات -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/analytics-reports.png" alt="Analytics Reports"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>📈</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>التقارير والتحليلات</h3>
-                    <ul>
-                        <li>عرض الطلبات السابقة مع فلاتر التاريخ والطاولة</li>
-                        <li>مقارنة المبيعات بالمصروفات (يومي، شهري، سنوي، أو مخصص)</li>
-                        <li>تحليل المبيعات: الفئة ← الصنف ← الخاصية</li>
-                        <li>الأرباح: الإيرادات، التكلفة، وصافي الربح</li>
-                        <li>أكثر الأصناف والفئات مبيعًا مع رسوم بيانية تفاعلية</li>
-                        <li>إجماليات مباشرة، فلاتر سريعة، وطباعة عند الطلب</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 11 — نظام المطاعم المتعددة -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/multi-restaurant.png" alt="Food Court"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🏪</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>نظام المطاعم المتعددة <span dir="ltr">(Food Court)</span></h3>
-                    <ul>
-                        <li>تشغيل عدة مطاعم ضمن بيئة موحدة</li>
-                        <li>لكل مطعم قائمته وطابعاته وحسابات موظفيه</li>
-                        <li>وصول الزبائن عبر رمز <span dir="ltr">QR</span> واحد أو رموز منفصلة لكل مطعم</li>
-                        <li>توجيه ذكي للطلبات إلى المطبخ الخاص بكل مطعم</li>
-                        <li>إشعارات عبر الشاشات عند جاهزية الطلب</li>
-                        <li>يعمل <strong>100٪ بدون إنترنت</strong> عبر الشبكة المحلية</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 12 — الإشعارات -->
-            <div class="feature-card">
-                <div class="feature-img">
-                    <img src="images/notifications.png" alt="Notifications"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:60px; text-align:center; color:#999; font-size:48px;\'>🔔</div>'">
-                </div>
-                <div class="feature-content">
-                    <h3>الإشعارات الفورية</h3>
-                    <ul>
-                        <li>تنبيهات فورية للطهاة عند وصول طلب جديد</li>
-                        <li>إشعارات للنادل عند استلام طلبات جديدة</li>
-                        <li>عرض الطلبات الجاهزة على شاشات كبيرة</li>
-                    </ul>
-                </div>
-            </div>
-
+            <p
+                style="margin-top: 50px; font-size: 16px; color: #777; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <strong>ملاحظة:</strong> جميع التراخيص هي دفعة واحدة فقط، بدون رسوم شهرية أو سنوية.
+                بعد انتهاء فترة الدعم المجاني، يمكنك تجديد الدعم الفني بأسعار رمزية (اختياري).
+            </p>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ══ CTA Banner ═════════════════════════════════════════ -->
-<section id="cta-banner">
-    <div class="cta-banner-inner">
-        <div class="cta-banner-text">
-            <h2>عندما تفكر في فتح مطعم أو مقهى،<br>فكر أولاً في <span dir="ltr">eatSmartly</span>!</h2>
-        </div>
-        <div class="cta-banner-side">
-            <p>نحن الخيار الأول والموثوق لأصحاب المطاعم والمقاهي في الجزائر.<br>نظام محلي، دعم محلي، وفهم كامل لاحتياجاتك.</p>
-            <p class="cta-details">الترخيص: مدى الحياة &nbsp;•&nbsp; الدعم: مجاني لمدة 3 أشهر</p>
-            <a href="#download" class="btn">جرّبه الآن</a>
-        </div>
-    </div>
-</section>
-
-<!-- ══ Pricing Section ════════════════════════════════════ -->
-<section id="pricing">
-    <div class="container">
-        <h2>خطط الأسعار</h2>
-        <p style="margin-bottom: 50px; color: #666; font-size: 18px;">
-            تراخيص مدى الحياة مع دعم مجاني طويل الأمد
-        </p>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>الباقة الأساسية</h3>
-                <p>للمطاعم والمقاهي الصغيرة والمتوسطة</p>
-                <div class="price">25,000 دج</div>
-                <ul>
-                    <li>✅ ترخيص مدى الحياة (دفعة واحدة)</li>
-                    <li>✅ دعم فني مجاني لمدة 3 أشهر</li>
-                    <li>✅ إدارة القوائم والأصناف</li>
-                    <li>✅ نظام نقاط البيع <span dir="ltr">POS</span></li>
-                    <li>✅ قائمة رقمية <span dir="ltr">QR</span></li>
-                    <li>✅ طباعة الفواتير (طابعة واحدة)</li>
-                    <li>✅ تقارير المبيعات اليومية</li>
-                    <li>✅ عمل بدون إنترنت <span dir="ltr">(Offline)</span></li>
-                </ul>
-                <a href="#contact" class="btn">اشترك الآن</a>
-            </div>
-            <div class="pricing-card">
-                <h3 style="color: var(--accent);">باقة ساحات المطاعم</h3>
-                <p>للمجمعات الغذائية وساحات الطعام الكبيرة</p>
-                <div class="price">35,000 دج <span style="font-size:16px; color:#777;">/ للمطعم</span></div>
-                <ul>
-                    <li>✅ ترخيص مدى الحياة (دفعة واحدة)</li>
-                    <li>✅ دعم فني مجاني لمدة 3 أشهر</li>
-                    <li>✅ <strong>نظام المطاعم المتعددة <span dir="ltr">(Food Court)</span></strong></li>
-                    <li>✅ توجيه ذكي للطلبات حسب المطبخ</li>
-                    <li>✅ طباعة متعددة للمطابخ</li>
-                    <li>✅ إدارة مركزية لجميع المطاعم</li>
-                    <li>✅ تقارير منفصلة وإجمالية</li>
-                    <li>✅ مثالي للمولات والمطارات</li>
-                </ul>
-                <a href="#contact" class="btn btn-accent">اشترك الآن</a>
+    <!-- ══ Video Tutorials ════════════════════════════════════ -->
+    <section id="tutorials">
+        <div class="container">
+            <h2>شروحات الفيديو</h2>
+            <p style="margin-bottom: 30px; color: #666;">تعرف على كيفية إعداد واستخدام النظام بكل سهولة.</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="شرح نظام eatSmartly" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
         </div>
-        <p style="margin-top: 50px; font-size: 16px; color: #777; max-width: 800px; margin-left: auto; margin-right: auto;">
-            <strong>ملاحظة:</strong> جميع التراخيص هي دفعة واحدة فقط، بدون رسوم شهرية أو سنوية.
-            بعد انتهاء فترة الدعم المجاني، يمكنك تجديد الدعم الفني بأسعار رمزية (اختياري).
-        </p>
-    </div>
-</section>
+    </section>
 
-<!-- ══ Video Tutorials ════════════════════════════════════ -->
-<section id="tutorials">
-    <div class="container">
-        <h2>شروحات الفيديو</h2>
-        <p style="margin-bottom: 30px; color: #666;">تعرف على كيفية إعداد واستخدام النظام بكل سهولة.</p>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="شرح نظام eatSmartly"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+    <!-- ══ Contact Section ════════════════════════════════════ -->
+    <section id="contact">
+        <div class="container">
+            <h2>تواصل معنا</h2>
+            <p style="margin-bottom: 30px; color: #666;">هل لديك استفسار أو ترغب في طلب النظام؟ فريقنا جاهز للرد عليك.
+            </p>
+            <form id="contactForm">
+                <input type="text" placeholder="الاسم الكامل" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <input type="tel" placeholder="رقم الهاتف">
+                <textarea placeholder="اكتب رسالتك أو استفسارك هنا..." required></textarea>
+                <button type="submit" class="btn">إرسال الرسالة</button>
+            </form>
         </div>
+    </section>
+
+    <!-- ══ Image Lightbox Modal ═════════════════════════════ -->
+    <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true"
+        aria-label="عرض الصورة بحجم أكبر">
+        <button class="lightbox-close" id="lightboxClose" aria-label="إغلاق">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
     </div>
-</section>
 
-<!-- ══ Contact Section ════════════════════════════════════ -->
-<section id="contact">
-    <div class="container">
-        <h2>تواصل معنا</h2>
-        <p style="margin-bottom: 30px; color: #666;">هل لديك استفسار أو ترغب في طلب النظام؟ فريقنا جاهز للرد عليك.</p>
-        <form id="contactForm">
-            <input type="text"  placeholder="الاسم الكامل" required>
-            <input type="email" placeholder="البريد الإلكتروني" required>
-            <input type="tel"   placeholder="رقم الهاتف">
-            <textarea placeholder="اكتب رسالتك أو استفسارك هنا..." required></textarea>
-            <button type="submit" class="btn">إرسال الرسالة</button>
-        </form>
-    </div>
-</section>
-
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
-        this.reset();
-    });
-</script>
-
-<footer>
-    <p>جميع الحقوق محفوظة &copy; 2026 — <span dir="ltr">eatSmartly</span></p>
-</footer>
-
-<script>
-    // Hamburger menu
-    (function () {
-        var toggle = document.getElementById('menuToggle');
-        var nav = toggle && toggle.closest('header').querySelector('nav');
-        if (toggle && nav) {
-            toggle.addEventListener('click', function () {
-                var open = nav.classList.toggle('open');
-                toggle.classList.toggle('open', open);
-                toggle.setAttribute('aria-expanded', open);
-            });
-            nav.querySelectorAll('a').forEach(function (a) {
-                a.addEventListener('click', function () {
-                    nav.classList.remove('open');
-                    toggle.classList.remove('open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
-    })();
-
-    // Smooth scroll — only for same-page anchor links (href starts with #)
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-        anchor.addEventListener('click', function (e) {
-            var href = this.getAttribute('href');
-            if (href.length > 1) {
-                e.preventDefault();
-                var target = document.querySelector(href);
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            }
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.');
+            this.reset();
         });
-    });
+    </script>
 
-    // Feature Image Sliders — swipe / drag to navigate
-    (function () {
-        document.querySelectorAll('.feature-image-slider').forEach(function (slider) {
-            var track   = slider.querySelector('.slider-track');
-            var slides  = slider.querySelectorAll('.slide');
-            var dots    = slider.querySelectorAll('.slider-dot');
-            var total   = slides.length;
-            var current = 0;
-            var autoTimer;
-            var dragStartX  = 0;
-            var isDragging  = false;
-            var THRESHOLD   = 50;
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 — <span dir="ltr">eatSmartly</span></p>
+    </footer>
 
-            if (total <= 1) return;
+    <script>
+        // Hamburger menu
+        (function () {
+            var toggle = document.getElementById('menuToggle');
+            var nav = toggle && toggle.closest('header').querySelector('nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function () {
+                    var open = nav.classList.toggle('open');
+                    toggle.classList.toggle('open', open);
+                    toggle.setAttribute('aria-expanded', open);
+                });
+                nav.querySelectorAll('a').forEach(function (a) {
+                    a.addEventListener('click', function () {
+                        nav.classList.remove('open');
+                        toggle.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+        })();
 
-            function goTo(idx) {
-                current = (idx % total + total) % total;
-                track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        // Smooth scroll — only for same-page anchor links (href starts with #)
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                var href = this.getAttribute('href');
+                if (href.length > 1) {
+                    e.preventDefault();
+                    var target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Feature Image Sliders — swipe / drag to navigate
+        (function () {
+            document.querySelectorAll('.feature-image-slider').forEach(function (slider) {
+                var track = slider.querySelector('.slider-track');
+                var slides = slider.querySelectorAll('.slide');
+                var dots = slider.querySelectorAll('.slider-dot');
+                var total = slides.length;
+                var current = 0;
+                var autoTimer;
+                var dragStartX = 0;
+                var isDragging = false;
+                var THRESHOLD = 50;
+                var isManual = slider.dataset.manual === 'true';
+
+                if (total <= 1) return;
+
+                function goTo(idx) {
+                    current = (idx % total + total) % total;
+                    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+                    dots.forEach(function (d, i) {
+                        d.classList.toggle('active', i === current);
+                    });
+                }
+
                 dots.forEach(function (d, i) {
-                    d.classList.toggle('active', i === current);
+                    d.addEventListener('click', function () {
+                        goTo(i);
+                        if (!isManual) resetAuto();
+                    });
                 });
+
+                function startAuto() {
+                    autoTimer = setInterval(function () { goTo(current + 1); }, 4500);
+                }
+                function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+                /* ── Prev / Next buttons (manual mode) ── */
+                var container = slider.parentElement;
+                var prevBtn = container ? container.querySelector('.slider-prev') : null;
+                var nextBtn = container ? container.querySelector('.slider-next') : null;
+                if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+                if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+                /* ── Touch swipe ── */
+                slider.addEventListener('touchstart', function (e) {
+                    dragStartX = e.touches[0].clientX;
+                    if (!isManual) clearInterval(autoTimer);
+                }, { passive: true });
+
+                slider.addEventListener('touchend', function (e) {
+                    var diff = dragStartX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > THRESHOLD) {
+                        goTo(diff > 0 ? current + 1 : current - 1);
+                    }
+                    if (!isManual) startAuto();
+                }, { passive: true });
+
+                /* ── Mouse drag (desktop) ── */
+                slider.addEventListener('mousedown', function (e) {
+                    dragStartX = e.clientX;
+                    isDragging = true;
+                    if (!isManual) clearInterval(autoTimer);
+                    e.preventDefault();
+                });
+
+                slider.addEventListener('mouseup', function (e) {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    var diff = dragStartX - e.clientX;
+                    if (Math.abs(diff) > THRESHOLD) {
+                        goTo(diff > 0 ? current + 1 : current - 1);
+                    }
+                    if (!isManual) startAuto();
+                });
+
+                slider.addEventListener('mouseleave', function () {
+                    if (isDragging) { isDragging = false; if (!isManual) startAuto(); }
+                });
+
+                goTo(0);
+                if (!isManual) startAuto();
+            });
+        })();
+
+        // ── Image Lightbox ─────────────────────────────────────
+        (function () {
+            var overlay = document.getElementById('lightboxOverlay');
+            var lightImg = document.getElementById('lightboxImg');
+            var closeBtn = document.getElementById('lightboxClose');
+            if (!overlay) return;
+
+            function openLightbox(src, alt) {
+                lightImg.src = src;
+                lightImg.alt = alt || '';
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
 
-            dots.forEach(function (d, i) {
-                d.addEventListener('click', function () { goTo(i); resetAuto(); });
-            });
-
-            function startAuto() {
-                autoTimer = setInterval(function () { goTo(current + 1); }, 4500);
+            function closeLightbox() {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                // Clear src after transition
+                setTimeout(function () { lightImg.src = ''; }, 250);
             }
-            function resetAuto() { clearInterval(autoTimer); startAuto(); }
 
-            /* ── Touch swipe ── */
-            slider.addEventListener('touchstart', function (e) {
-                dragStartX = e.touches[0].clientX;
-                clearInterval(autoTimer);
-            }, { passive: true });
-
-            slider.addEventListener('touchend', function (e) {
-                var diff = dragStartX - e.changedTouches[0].clientX;
-                if (Math.abs(diff) > THRESHOLD) {
-                    goTo(diff > 0 ? current + 1 : current - 1);
-                }
-                startAuto();
-            }, { passive: true });
-
-            /* ── Mouse drag (desktop) ── */
-            slider.addEventListener('mousedown', function (e) {
-                dragStartX = e.clientX;
-                isDragging = true;
-                clearInterval(autoTimer);
-                e.preventDefault();
+            // Wire up every slider image inside feature-detail sections
+            document.querySelectorAll('.feature-detail .slide img').forEach(function (img) {
+                var pointerDownX = 0;
+                img.addEventListener('pointerdown', function (e) {
+                    pointerDownX = e.clientX;
+                });
+                img.addEventListener('click', function (e) {
+                    // Ignore if the pointer moved more than 6px — treat as a drag
+                    if (Math.abs(e.clientX - pointerDownX) > 6) return;
+                    e.stopPropagation();
+                    openLightbox(this.currentSrc || this.src, this.alt);
+                });
             });
 
-            slider.addEventListener('mouseup', function (e) {
-                if (!isDragging) return;
-                isDragging = false;
-                var diff = dragStartX - e.clientX;
-                if (Math.abs(diff) > THRESHOLD) {
-                    goTo(diff > 0 ? current + 1 : current - 1);
-                }
-                startAuto();
+            // Close on backdrop click (not on the image itself)
+            overlay.addEventListener('click', function (e) {
+                if (e.target !== lightImg) closeLightbox();
             });
 
-            slider.addEventListener('mouseleave', function () {
-                if (isDragging) { isDragging = false; startAuto(); }
-            });
+            closeBtn.addEventListener('click', closeLightbox);
 
-            goTo(0);
-            startAuto();
-        });
-    })();
-</script>
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
+            });
+        })();
+    </script>
 </body>
+
 </html>
