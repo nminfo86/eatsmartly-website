@@ -1714,6 +1714,9 @@ body.doc-page { background: #f4f6f9; }
         gap: 30px;
     }
     .feature-detail.alt .feature-detail-content { direction: rtl; }
+    .feature-detail-content .feature-text { order: -1; }
+    .feature-detail-content .feature-image-slider { order: 0; }
+    .feature-detail-content .slider-controls { order: 1; }
     .feature-text h2 { font-size: 26px; }
     .feature-text p  { font-size: 16px; }
     .slider-track .slide img { height: 260px; }
