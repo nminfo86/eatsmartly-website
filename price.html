@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eatSmartly | خطط الأسعار والاشتراك</title>
+    <link rel="icon" type="image/png" href="images/eatSmartly_logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ── Page Hero ─────────────────────────────────────── */
+        .price-hero {
+            background: linear-gradient(135deg, #0b7a61 0%, #0a5c4a 60%, #084a3c 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .price-hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .price-hero p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* ── Pricing Cards ─────────────────────────────────── */
+        #pricing-page {
+            padding: 70px 20px;
+            background: var(--secondary-color);
+        }
+
+        #pricing-page .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #pricing-page h2 {
+            margin-bottom: 12px;
+        }
+
+        #pricing-page .section-sub {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        /* Three-column grid */
+        .pricing-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: start;
+            margin-bottom: 60px;
+        }
+
+        .plan-card {
+            background: #fff;
+            border: 2px solid #eee;
+            border-radius: 18px;
+            padding: 36px 28px 32px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        /* Highlighted (recommended) card */
+        .plan-card.featured {
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 32px rgba(11, 122, 97, 0.18);
+            transform: translateY(-8px);
+        }
+
+        .plan-card.featured:hover {
+            transform: translateY(-14px);
+        }
+
+        .badge-recommended {
+            position: absolute;
+            top: -16px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 5px 20px;
+            border-radius: 20px;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+        }
+
+        .plan-icon {
+            font-size: 42px;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .plan-card h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .plan-card h3.accent {
+            color: var(--accent);
+        }
+
+        .plan-audience {
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        .plan-price {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 16px 0;
+        }
+
+        .plan-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        .plan-divider {
+            border: none;
+            border-top: 1px solid #eee;
+            margin: 18px 0;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            flex: 1;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 15px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features .fi {
+            flex-shrink: 0;
+            font-style: normal;
+            font-size: 16px;
+            margin-top: 1px;
+        }
+
+        .plan-features .fi.ok { color: #0b7a61; }
+        .plan-features .fi.no { color: #bbb; }
+        .plan-features .fi.opt { color: #e67e22; }
+
+        .plan-note {
+            background: #fffbf0;
+            border-right: 4px solid #e67e22;
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 13.5px;
+            color: #6b4d00;
+            margin-bottom: 20px;
+        }
+
+        .plan-cta {
+            text-align: center;
+        }
+
+        .plan-cta .btn {
+            width: 100%;
+            text-align: center;
+            padding: 14px 20px;
+        }
+
+        /* ── Comparison Table ──────────────────────────────── */
+        #comparison {
+            background: #fff;
+            padding: 70px 20px;
+        }
+
+        #comparison .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        #comparison h2 {
+            margin-bottom: 12px;
+        }
+
+        #comparison .section-sub {
+            color: #666;
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+        .compare-table-wrap {
+            overflow-x: auto;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 16px 20px;
+            border: 1px solid #e8e8e8;
+            vertical-align: middle;
+        }
+
+        .compare-table thead th {
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .compare-table thead th:first-child {
+            background: #084a3c;
+            text-align: right;
+        }
+
+        .compare-table thead th.col-featured {
+            background: #085e4a;
+            position: relative;
+        }
+
+        .compare-table thead th.col-featured::after {
+            content: '⭐ موصى به';
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            opacity: 0.85;
+            margin-top: 3px;
+        }
+
+        .compare-table tbody tr:nth-child(even) {
+            background: #f8faf9;
+        }
+
+        .compare-table tbody tr:hover {
+            background: #edf6f3;
+        }
+
+        .compare-table td:first-child {
+            text-align: right;
+            font-weight: 700;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        .compare-table td.col-featured {
+            background: rgba(11, 122, 97, 0.05);
+            font-weight: 700;
+        }
+
+        .check { color: #0b7a61; font-size: 18px; }
+        .cross { color: #ccc; font-size: 18px; }
+        .opt-txt { color: #e67e22; font-size: 13.5px; }
+
+        /* ── FAQ / Notes ───────────────────────────────────── */
+        #pricing-notes {
+            padding: 60px 20px;
+            background: var(--secondary-color);
+        }
+
+        #pricing-notes .container {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        #pricing-notes h2 {
+            margin-bottom: 30px;
+        }
+
+        .note-box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 18px;
+            border-right: 5px solid var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: right;
+        }
+
+        .note-box h4 {
+            color: var(--primary-color);
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .note-box p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ── Responsive ────────────────────────────────────── */
+        @media (max-width: 768px) {
+            .price-hero h1 { font-size: 28px; }
+            .price-hero p  { font-size: 16px; }
+            .pricing-grid-3 { grid-template-columns: 1fr; }
+            .plan-card.featured { transform: none; }
+            .compare-table th,
+            .compare-table td { padding: 10px 10px; font-size: 13px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/eatSmartly_logo.png" alt="eatSmartly Logo">
+            <span>eatSmartly</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="scenarios.html">أوضاع التشغيل</a></li>
+                <li><a href="documentation.html">دليل الاستخدام</a></li>
+                <li><a href="price.html" class="active-page">الأسعار</a></li>
+                <li><a href="index.html#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <a href="index.html#contact" class="btn">تواصل معنا</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="القائمة" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- ══ Page Hero ═══════════════════════════════════════ -->
+    <div class="price-hero">
+        <h1>خطط الاشتراك المتاحة</h1>
+        <p>ترخيص مدى الحياة — دفعة واحدة بدون رسوم شهرية أو سنوية</p>
+    </div>
+
+    <!-- ══ Pricing Cards ════════════════════════════════════ -->
+    <section id="pricing-page">
+        <div class="container">
+            <h2>اختر الباقة المناسبة لك</h2>
+            <p class="section-sub">جميع الباقات تمنحك نظام <span dir="ltr">eatSmartly</span> الكامل مع كل ميزاته — الفرق فقط في مستوى الخدمة المرافقة.</p>
+
+            <div class="pricing-grid-3">
+
+                <!-- ── 1. Basic Plan ─────────────────────── -->
+                <div class="plan-card">
+                    <span class="plan-icon">🛠️</span>
+                    <h3>الباقة الأساسية</h3>
+                    <p class="plan-audience">للمطاعم الصغيرة ومحلات الوجبات السريعة التي تملك خبرة تقنية بسيطة وتفضل الاعتماد على نفسها.</p>
+                    <div class="plan-price">15,000 <span>دج</span></div>
+                    <hr class="plan-divider">
+                    <ul class="plan-features">
+                        <li><i class="fi ok">✅</i> ترخيص مدى الحياة (دفعة واحدة)</li>
+                        <li><i class="fi ok">✅</i> جميع ميزات النظام الأساسية</li>
+                        <li><i class="fi ok">✅</i> دعم ذاتي مجاني على مدار الساعة (الموقع، دليل الاستخدام، الأسئلة الشائعة)</li>
+                        <li><i class="fi no">—</i> التثبيت والإعداد: تثبيت ذاتي</li>
+                        <li><i class="fi no">—</i> دعم فني مباشر: غير مشمول</li>
+                        <li><i class="fi no">—</i> إدخال قائمة الطعام: غير مشمول</li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a href="index.html#contact" class="btn btn-outline" style="color: var(--primary-color); background: transparent; border: 2px solid var(--primary-color); box-shadow: none;">اشترك الآن</a>
+                    </div>
+                </div>
+
+                <!-- ── 2. Regular Plan (Featured) ────────── -->
+                <div class="plan-card featured">
+                    <span class="badge-recommended">⭐ الخيار الموصى به</span>
+                    <span class="plan-icon">🚀</span>
+                    <h3>الباقة العادية</h3>
+                    <p class="plan-audience">للمطاعم التي تحتاج إلى مساعدة تقنية لضمان انطلاقة صحيحة وسريعة للنظام.</p>
+                    <div class="plan-price">25,000 <span>دج</span></div>
+                    <hr class="plan-divider">
+                    <ul class="plan-features">
+                        <li><i class="fi ok">✅</i> ترخيص مدى الحياة (دفعة واحدة)</li>
+                        <li><i class="fi ok">✅</i> جميع ميزات النظام</li>
+                        <li><i class="fi ok">✅</i> مساعدة كاملة في التثبيت والإعداد على أجهزتك</li>
+                        <li><i class="fi ok">✅</i> دعم فني مباشر لمدة <strong>3 أشهر</strong> (إجابة على الاستفسارات وحل المشاكل التقنية)</li>
+                        <li><i class="fi ok">✅</i> دعم ذاتي دائم (الموقع، دليل الاستخدام، الأسئلة الشائعة)</li>
+                        <li><i class="fi no">—</i> إدخال قائمة الطعام: غير مشمول</li>
+                    </ul>
+                    <div class="plan-note">
+                        💡 خدمة إضافية: إعداد وإدخال قائمة الطعام (المنيو) متوفرة لمن يرغب بسعر <strong>3,500 دج</strong>
+                    </div>
+                    <div class="plan-cta">
+                        <a href="index.html#contact" class="btn">اشترك الآن</a>
+                    </div>
+                </div>
+
+                <!-- ── 3. Food Court Plan ─────────────────── -->
+                <div class="plan-card">
+                    <span class="plan-icon">🏢</span>
+                    <h3 class="accent">باقة قاعات الطعام</h3>
+                    <p class="plan-audience">للمجمعات الغذائية والمطارات والمراكز التجارية التي تتطلب إدارة متقدمة ومتعددة المطابخ.</p>
+                    <div class="plan-price">35,000 <span>دج / للمطعم</span></div>
+                    <hr class="plan-divider">
+                    <ul class="plan-features">
+                        <li><i class="fi ok">✅</i> ترخيص مدى الحياة (دفعة واحدة)</li>
+                        <li><i class="fi ok">✅</i> <strong>نظام المطاعم المتعددة <span dir="ltr">(Food Court)</span></strong></li>
+                        <li><i class="fi ok">✅</i> نقاط بيع متعددة <span dir="ltr">(Multi-POS)</span> عبر الشبكة المحلية</li>
+                        <li><i class="fi ok">✅</i> توجيه ذكي للطلبات إلى أقسام المطبخ المختلفة</li>
+                        <li><i class="fi ok">✅</i> إعداد الشبكة المحلية وتكوين الطابعات المتعددة</li>
+                        <li><i class="fi ok">✅</i> إدخال قائمة الطعام <strong>مشمول مجاناً</strong> (لمرة واحدة)</li>
+                        <li><i class="fi ok">✅</i> دعم فني ممتد <strong>6 أشهر</strong> مع أولوية عالية في الرد</li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a href="index.html#contact" class="btn btn-accent">تواصل معنا</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p style="font-size: 15px; color: #888; text-align: center; max-width: 800px; margin: 0 auto;">
+                <strong>ملاحظة:</strong> جميع التراخيص هي دفعة واحدة فقط، بدون رسوم شهرية أو سنوية.
+                بعد انتهاء فترة الدعم الفني المباشر، يمكنك تجديده بأسعار رمزية (اختياري).
+            </p>
+        </div>
+    </section>
+
+    <!-- ══ Comparison Table ═════════════════════════════════ -->
+    <section id="comparison">
+        <div class="container">
+            <h2>جدول المقارنة السريع</h2>
+            <p class="section-sub">نظرة شاملة على ما تحصل عليه في كل باقة</p>
+            <div class="compare-table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>الميزة</th>
+                            <th>الأساسية</th>
+                            <th class="col-featured">العادية</th>
+                            <th>قاعات الطعام</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>نظام <span dir="ltr">eatSmartly</span> الكامل</td>
+                            <td><span class="check">✅</span></td>
+                            <td class="col-featured"><span class="check">✅</span></td>
+                            <td><span class="check">✅</span></td>
+                        </tr>
+                        <tr>
+                            <td>التثبيت على الأجهزة</td>
+                            <td><span class="cross">—</span><br><span class="opt-txt">تثبيت ذاتي</span></td>
+                            <td class="col-featured"><span class="check">✅</span> مشمول</td>
+                            <td><span class="check">✅</span> مشمول + الشبكة</td>
+                        </tr>
+                        <tr>
+                            <td>الدعم الفني المباشر</td>
+                            <td><span class="cross">—</span><br><span class="opt-txt">وثائق فقط</span></td>
+                            <td class="col-featured"><span class="check">✅</span> 3 أشهر</td>
+                            <td><span class="check">✅</span> 6 أشهر + أولوية</td>
+                        </tr>
+                        <tr>
+                            <td>الدعم الذاتي (الموقع، الدليل، الأسئلة الشائعة)</td>
+                            <td><span class="check">✅</span> دائم</td>
+                            <td class="col-featured"><span class="check">✅</span> دائم</td>
+                            <td><span class="check">✅</span> دائم</td>
+                        </tr>
+                        <tr>
+                            <td>نظام المطاعم المتعددة <span dir="ltr">(Food Court)</span></td>
+                            <td><span class="cross">—</span></td>
+                            <td class="col-featured"><span class="cross">—</span></td>
+                            <td><span class="check">✅</span></td>
+                        </tr>
+                        <tr>
+                            <td>نقاط بيع متعددة <span dir="ltr">(Multi-POS)</span></td>
+                            <td>جهاز واحد</td>
+                            <td class="col-featured">جهاز واحد</td>
+                            <td><span class="check">✅</span> أجهزة متعددة</td>
+                        </tr>
+                        <tr>
+                            <td>إدخال قائمة الطعام (المنيو)</td>
+                            <td><span class="cross">—</span><br><span class="opt-txt">العميل يقوم بذلك</span></td>
+                            <td class="col-featured"><span class="opt-txt">إضافي: 3,500 دج</span></td>
+                            <td><span class="check">✅</span> مشمول مجاناً</td>
+                        </tr>
+                        <tr>
+                            <td>القائمة الرقمية <span dir="ltr">QR</span></td>
+                            <td><span class="check">✅</span></td>
+                            <td class="col-featured"><span class="check">✅</span></td>
+                            <td><span class="check">✅</span></td>
+                        </tr>
+                        <tr>
+                            <td>عمل بدون إنترنت <span dir="ltr">(Offline)</span></td>
+                            <td><span class="check">✅</span></td>
+                            <td class="col-featured"><span class="check">✅</span></td>
+                            <td><span class="check">✅</span></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:800; color: var(--primary-color);">السعر</td>
+                            <td style="font-weight:800;">15,000 دج</td>
+                            <td class="col-featured" style="font-weight:800; color: var(--primary-color);">25,000 دج</td>
+                            <td style="font-weight:800;">35,000 دج / للمطعم</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ Notes & FAQ ══════════════════════════════════════ -->
+    <section id="pricing-notes">
+        <div class="container">
+            <h2>أسئلة شائعة</h2>
+
+            <div class="note-box">
+                <h4>💳 هل هناك رسوم شهرية أو سنوية؟</h4>
+                <p>لا، جميع الباقات تُدفع مرة واحدة فقط وتمنحك ترخيصاً مدى الحياة. لا رسوم خفية ولا اشتراكات متكررة.</p>
+            </div>
+
+            <div class="note-box">
+                <h4>🔄 ماذا يحدث بعد انتهاء فترة الدعم الفني؟</h4>
+                <p>النظام يستمر في العمل بشكل كامل بعد انتهاء فترة الدعم. يمكنك الاعتماد على الدعم الذاتي الدائم (دليل الاستخدام والموقع)، أو تجديد الدعم الفني المباشر بأسعار رمزية (اختياري).</p>
+            </div>
+
+            <div class="note-box">
+                <h4>🍕 هل يمكنني إضافة خدمة إدخال قائمة الطعام لاحقاً؟</h4>
+                <p>بالطبع، خدمة إعداد وإدخال قائمة الطعام (المنيو) متاحة كخدمة إضافية لأصحاب الباقة العادية بسعر <strong>3,500 دج</strong> في أي وقت تشاء.</p>
+            </div>
+
+            <div class="note-box">
+                <h4>🏢 هل الباقة الأساسية والعادية تدعمان طابعات متعددة؟</h4>
+                <p>كلا الباقتين تدعمان طابعة واحدة للكاشير والمطبخ معاً. الطابعات المتعددة لأقسام المطبخ المختلفة متوفرة حصرياً في باقة قاعات الطعام.</p>
+            </div>
+
+            <div class="note-box">
+                <h4>📞 كيف أتواصل لطلب النظام؟</h4>
+                <p>تواصل معنا مباشرة عبر نموذج الاتصال أو تواصل مع فريقنا — سنحدد معك الباقة الأنسب لحجم مطعمك واحتياجاتك.</p>
+            </div>
+
+            <div style="text-align:center; margin-top: 40px;">
+                <a href="index.html#contact" class="btn">تواصل معنا الآن &larr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 — <span dir="ltr">eatSmartly</span></p>
+    </footer>
+
+    <script>
+        // Hamburger menu
+        (function () {
+            var toggle = document.getElementById('menuToggle');
+            var nav = toggle && toggle.closest('header').querySelector('nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function () {
+                    var open = nav.classList.toggle('open');
+                    toggle.classList.toggle('open', open);
+                    toggle.setAttribute('aria-expanded', open);
+                });
+                nav.querySelectorAll('a').forEach(function (a) {
+                    a.addEventListener('click', function () {
+                        nav.classList.remove('open');
+                        toggle.classList.remove('open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>
