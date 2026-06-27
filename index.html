@@ -590,7 +590,16 @@
                 var THRESHOLD = 50;
                 var isManual = slider.dataset.manual === 'true';
 
-                if (total <= 1) return;
+                if (total <= 1) {
+                    var container = slider.parentElement;
+                    if (container) {
+                        var pb = container.querySelector('.slider-prev');
+                        var nb = container.querySelector('.slider-next');
+                        if (pb) pb.style.display = 'none';
+                        if (nb) nb.style.display = 'none';
+                    }
+                    return;
+                }
 
                 function goTo(idx) {
                     current = (idx % total + total) % total;
