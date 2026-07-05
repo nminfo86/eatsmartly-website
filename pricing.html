@@ -1,10 +1,70 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar-DZ" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eatSmartly | خطط الأسعار والاشتراك</title>
+    <title>eatSmartly | خطط الأسعار — Tarifs & Abonnements Algérie</title>
+
+    <!-- ══ SEO Core ══════════════════════════════════════════════════════ -->
+    <meta name="description" content="أسعار eatSmartly لإدارة المطاعم والمقاهي في الجزائر — خطط مرنة بالدينار الجزائري. Tarifs eatSmartly pour restaurants et cafés en Algérie — abonnements flexibles en DZD.">
+    <meta name="keywords" content="أسعار برنامج مطعم الجزائر, اشتراك نظام مطعم, خطط أسعار إدارة مطعم, tarif logiciel restaurant Algérie, abonnement gestion café Algérie, prix système caisse restaurant DZD, eatSmartly prix">
+    <meta name="author" content="eatSmartly">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b7a61">
+
+    <!-- ══ Geo Targeting — Algeria ════════════════════════════════════════ -->
+    <meta name="geo.region" content="DZ">
+    <meta name="geo.country" content="Algeria">
+    <meta name="geo.placename" content="Algérie / الجزائر">
+    <meta name="language" content="ar, fr">
+
+    <!-- ══ Canonical & Hreflang ══════════════════════════════════════════ -->
+    <link rel="canonical" href="https://eatsmartly-app.netlify.app/pricing.html">
+    <link rel="alternate" hreflang="ar-DZ" href="https://eatsmartly-app.netlify.app/pricing.html">
+    <link rel="alternate" hreflang="fr-DZ" href="https://eatsmartly-app.netlify.app/fr/tarifs.html">
+    <link rel="alternate" hreflang="x-default" href="https://eatsmartly-app.netlify.app/pricing.html">
+
+    <!-- ══ Open Graph ════════════════════════════════════════════════════ -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="eatSmartly">
+    <meta property="og:locale" content="ar_DZ">
+    <meta property="og:locale:alternate" content="fr_DZ">
+    <meta property="og:url" content="https://eatsmartly-app.netlify.app/pricing.html">
+    <meta property="og:title" content="eatSmartly — خطط الأسعار للمطاعم في الجزائر | Tarifs Restaurants Algérie">
+    <meta property="og:description" content="اختر الخطة المناسبة لمطعمك أو مقهاك في الجزائر. Choisissez le plan adapté à votre restaurant ou café en Algérie.">
+    <meta property="og:image" content="https://eatsmartly-app.netlify.app/images/eatSmartly_logo.png">
+
+    <!-- ══ Twitter Card ══════════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="eatSmartly — خطط الأسعار | Tarifs Algérie">
+    <meta name="twitter:description" content="أسعار مرنة لإدارة المطاعم في الجزائر. Tarifs flexibles pour restaurants en Algérie.">
+    <meta name="twitter:image" content="https://eatsmartly-app.netlify.app/images/eatSmartly_logo.png">
+
+    <!-- ══ Schema.org — Product Pricing ═════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "خطط أسعار eatSmartly — Tarifs eatSmartly",
+      "url": "https://eatsmartly-app.netlify.app/pricing.html",
+      "description": "خطط أسعار نظام إدارة المطاعم والمقاهي eatSmartly في الجزائر. Tarifs du logiciel de gestion restaurant eatSmartly en Algérie.",
+      "inLanguage": ["ar", "fr"],
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "eatSmartly",
+        "url": "https://eatsmartly-app.netlify.app"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "الرئيسية — Accueil", "item": "https://eatsmartly-app.netlify.app/"},
+          {"@type": "ListItem", "position": 2, "name": "خطط الأسعار — Tarifs", "item": "https://eatsmartly-app.netlify.app/pricing.html"}
+        ]
+      }
+    }
+    </script>
+
     <link rel="icon" type="image/png" href="images/eatSmartly_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -179,9 +239,17 @@
             margin-top: 1px;
         }
 
-        .plan-features .fi.ok { color: #0b7a61; }
-        .plan-features .fi.no { color: #bbb; }
-        .plan-features .fi.opt { color: #e67e22; }
+        .plan-features .fi.ok {
+            color: #0b7a61;
+        }
+
+        .plan-features .fi.no {
+            color: #bbb;
+        }
+
+        .plan-features .fi.opt {
+            color: #e67e22;
+        }
 
         .plan-note {
             background: #fffbf0;
@@ -209,7 +277,7 @@
         /* ── Comparison Table ──────────────────────────────── */
         #comparison {
             background: #fff;
-            padding: 70px 20px;
+            padding: 20px 20px;
         }
 
         #comparison .container {
@@ -291,9 +359,20 @@
             font-weight: 700;
         }
 
-        .check { color: #0b7a61; font-size: 18px; }
-        .cross { color: #ccc; font-size: 18px; }
-        .opt-txt { color: #e67e22; font-size: 13.5px; }
+        .check {
+            color: #0b7a61;
+            font-size: 18px;
+        }
+
+        .cross {
+            color: #ccc;
+            font-size: 18px;
+        }
+
+        .opt-txt {
+            color: #e67e22;
+            font-size: 13.5px;
+        }
 
         /* ── FAQ / Notes ───────────────────────────────────── */
         #pricing-notes {
@@ -316,7 +395,7 @@
             padding: 24px 28px;
             margin-bottom: 18px;
             border-right: 5px solid var(--primary-color);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             text-align: right;
         }
 
@@ -334,12 +413,28 @@
 
         /* ── Responsive ────────────────────────────────────── */
         @media (max-width: 768px) {
-            .price-hero h1 { font-size: 28px; }
-            .price-hero p  { font-size: 16px; }
-            .pricing-grid-3 { grid-template-columns: 1fr; }
-            .plan-card.featured { transform: none; }
+            .price-hero h1 {
+                font-size: 28px;
+            }
+
+            .price-hero p {
+                font-size: 16px;
+                display: none;
+            }
+
+            .pricing-grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-card.featured {
+                transform: none;
+            }
+
             .compare-table th,
-            .compare-table td { padding: 10px 10px; font-size: 13px; }
+            .compare-table td {
+                padding: 10px 10px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -358,7 +453,7 @@
                     <a href="pricing.html">خطط الأسعار</a>
                 </li>
                 <li><a href="documentation.html">دليل الاستخدام</a></li>
-                
+
                 <li><a href="index.html#contact">اتصل بنا</a></li>
             </ul>
         </nav>
@@ -377,8 +472,8 @@
     <!-- ══ Pricing Cards ════════════════════════════════════ -->
     <section id="pricing-page">
         <div class="container">
-            <h2>اختر الباقة المناسبة لك</h2>
-            <p class="section-sub">جميع الباقات تمنحك نظام <span dir="ltr">eatSmartly</span> الكامل مع كل ميزاته — الفرق فقط في مستوى الخدمة المرافقة.</p>
+            <p class="section-sub">جميع الباقات تمنحك نظام <span dir="ltr">eatSmartly</span> الكامل مع كل ميزاته — الفرق
+                فقط في مستوى الخدمة المرافقة.</p>
 
             <div class="pricing-grid-3">
 
@@ -386,22 +481,35 @@
                 <div class="plan-card">
                     <span class="plan-icon">🛠️</span>
                     <h3>الباقة الأساسية</h3>
-                    <p class="plan-audience">للمطاعم الصغيرة ومحلات الوجبات السريعة التي تملك خبرة تقنية بسيطة وتفضل الاعتماد على نفسها.</p>
+                    <p class="plan-audience">للمطاعم الصغيرة ومحلات الوجبات السريعة التي تملك خبرة تقنية بسيطة وتفضل
+                        الاعتماد على نفسها.</p>
                     <div class="plan-price">15,000 <span>دج</span></div>
                     <hr class="plan-divider">
                     <ul class="plan-features">
                         <li><i class="fi ok">✅</i> ترخيص مدى الحياة (دفعة واحدة)</li>
-                        <li><i class="fi ok">✅</i>جميع ميزات النظام الأساسية (إدارة القوائم والأصناف، الطلبات والدفع، التقارير، الإعدادات، المستخدمين، إلخ)</li>
-                        <li><i class="fi ok">✅</i>طابعتين على الأكثر : طابعة للفواتير و طابعة للمطبخ أو طابعة واحدة لكليهما</li>
-                        <li><i class="fi ok">✅</i> دعم ذاتي مجاني على مدار الساعة (الموقع، دليل الاستخدام، الأسئلة الشائعة)</li>
-                        <li><i class="fi no">—</i>  التثبيت والإعداد: تثبيت ذاتي من خلال الدروس و الفيديوهات المتوفرة</li>
+                        <li><i class="fi ok">✅</i>جميع ميزات النظام الأساسية (إدارة القوائم والأصناف، الطلبات والدفع،
+                            التقارير، الإعدادات، المستخدمين، إلخ)</li>
+                        <li><i class="fi ok">✅</i>طابعتين على الأكثر : طابعة للفواتير و طابعة للمطبخ أو طابعة واحدة
+                            لكليهما</li>
+                        <li><i class="fi ok">✅</i> دعم ذاتي مجاني على مدار الساعة (الموقع، دليل الاستخدام، الأسئلة
+                            الشائعة)</li>
+                        <li><i class="fi no">—</i> التثبيت والإعداد: تثبيت ذاتي من طرف الزبون باستعمال الدروس و
+                            الفيديوهات المتوفرة</li>
                     </ul>
-                     <div class="plan-note">
+                    <div class="plan-note">
                         💡 خدمة إعداد وإدخال قائمة الطعام (المنيو) متوفرة بسعر <strong>3,500 دج</strong>
                     </div>
                     <div class="plan-cta">
-                        <a href="index.html#contact" class="btn btn-outline" style="color: var(--primary-color); background: transparent; border: 2px solid var(--primary-color); box-shadow: none;">اشترك الآن</a>
-                        <a href="scenarios.html#1st-scenario" class="btn btn-outline" style="color: #888; background: transparent; border: 2px solid #ddd; box-shadow: none; margin-top: 10px;">أنظر الى السيناريو 1</a>
+                        <!-- <a href="index.html#contact" class="btn btn-outline" style="color: var(--primary-color); background: transparent; border: 2px solid var(--primary-color); box-shadow: none;">اشترك الآن</a> -->
+                        <!-- Button for Basic Package -->
+                        <a href="https://wa.me/213561698716?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%A3%D8%B3%D8%A7%D8%B3%D9%8A%D8%A9"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="color: var(--primary-color); background: transparent; border: 2px solid var(--primary-color); box-shadow: none;">
+                            اشترك الآن
+                        </a>
+                        <a href="scenarios.html#1st-scenario" class="btn btn-outline"
+                            style="color: #888; background: transparent; border: 2px solid #ddd; box-shadow: none; margin-top: 10px;">أنظر
+                            الى
+                            السيناريو 1</a>
                     </div>
                 </div>
 
@@ -415,21 +523,29 @@
                     <hr class="plan-divider">
                     <ul class="plan-features">
                         <li><i class="fi ok">✅</i> ترخيص مدى الحياة (دفعة واحدة)</li>
-                        <li><i class="fi ok">✅</i>جميع ميزات النظام الأساسية (إدارة القوائم والأصناف، الطلبات والدفع، التقارير، الإعدادات، المستخدمين، إلخ)</li>
+                        <li><i class="fi ok">✅</i>جميع ميزات النظام الأساسية (إدارة القوائم والأصناف، الطلبات والدفع،
+                            التقارير، الإعدادات، المستخدمين، إلخ)</li>
                         <li><i class="fi ok">✅</i>طابعات سلكية او لا سلكية بعدد غير محدود حسب الحاجة</li>
                         <li><i class="fi ok">✅</i>قائمة طعام رقمية عبر ال QRCODE</li>
                         <li><i class="fi ok">✅</i>تنبيهات على التلفاز</li>
                         <li><i class="fi ok">✅</i>خاصية استعمال تطبيق الهاتف المحمول من طرف النادل لأخذ الطلبيات</li>
                         <li><i class="fi ok">✅</i> مساعدة كاملة في التثبيت والإعداد على أجهزتك</li>
-                        <li><i class="fi ok">✅</i> دعم فني مباشر لمدة <strong>3 أشهر</strong> (إجابة على الاستفسارات وحل المشاكل التقنية)</li>
+                        <li><i class="fi ok">✅</i> دعم فني مباشر لمدة <strong>3 أشهر</strong> (إجابة على الاستفسارات وحل
+                            المشاكل التقنية)</li>
                         <li><i class="fi ok">✅</i> دعم ذاتي دائم (الموقع، دليل الاستخدام، الأسئلة الشائعة)</li>
                     </ul>
                     <div class="plan-note">
                         💡 خدمة إعداد وإدخال قائمة الطعام (المنيو) متوفرة بسعر <strong>3,500 دج</strong>
                     </div>
                     <div class="plan-cta">
-                        <a href="index.html#contact" class="btn">اشترك الآن</a>
-                        <a href="scenarios.html#2nd-scenario" class="btn btn-outline" style="color: #888; background: transparent; border: 2px solid #ddd; box-shadow: none; margin-top: 10px;">أنظر الى السيناريو 2 أو 3</a>
+                        <!-- <a href="index.html#contact" class="btn">اشترك الآن</a> -->
+                        <!-- Button for Standard Package -->
+                        <a href="https://wa.me/213561698716?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A8%D8%A7%D9%82%D8%A9%20%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%8A%D8%A9"
+                            target="_blank" rel="noopener noreferrer" class="btn">
+                            اشترك الآن
+                        </a>
+                        <a href="scenarios.html#2nd-scenario" class="btn btn-outline"
+                            style="color: #888; background: transparent; border: 2px solid #ddd; box-shadow: none; margin-top: 10px;">أنظر                الى السيناريو 2 أو 3</a>
                     </div>
                 </div>
 
@@ -437,21 +553,32 @@
                 <div class="plan-card">
                     <span class="plan-icon">🏢</span>
                     <h3 class="accent">باقة ساحة المطاعم <br>Food court</h3>
-                    <p class="plan-audience">لمجمعات المطاعم الموجودة في المولات ،المطارات والمراكز التجارية التي تتطلب إدارة متقدمة ومتعددة المطابخ.</p>
+                    <p class="plan-audience">لمجمعات المطاعم الموجودة في المولات ،المطارات والمراكز التجارية التي تتطلب
+                        إدارة متقدمة ومتعددة المطابخ.</p>
                     <div class="plan-price">40,000 <span>دج / للمطعم</span></div>
                     <hr class="plan-divider">
                     <ul class="plan-features">
                         <li><i class="fi ok">✅</i> ترخيص مدى الحياة (دفعة واحدة)</li>
-                        <li><i class="fi ok">✅</i> <strong>نظام ساحة المطاعم المتعددة <span dir="ltr">(Food Court)</span></strong></li>
-                        <li><i class="fi ok">✅</i>كل مطعم يحصل على جميع ميزات النظام الأساسية (إدارة القوائم والأصناف، الطلبات والدفع، التقارير، الإعدادات، المستخدمين، إلخ)</li>
-                        <li><i class="fi ok">✅</i> يمكن للزبائن تصفح جميع قوائم الطعام المتاحة في الساحة عبر مسح او الطلب مباشرة من خلال هاتفهم الذكي عبر مسح QRCODE او شاشات اللمس الموجودة في الساحة</li>
+                        <li><i class="fi ok">✅</i> <strong>نظام ساحة المطاعم المتعددة <span dir="ltr">(Food
+                                    Court)</span></strong></li>
+                        <li><i class="fi ok">✅</i>كل مطعم يحصل على جميع ميزات النظام الأساسية (إدارة القوائم والأصناف،
+                            الطلبات والدفع، التقارير، الإعدادات، المستخدمين، إلخ)</li>
+                        <li><i class="fi ok">✅</i> يمكن للزبائن تصفح جميع قوائم الطعام المتاحة في الساحة عبر مسح او
+                            الطلب مباشرة من خلال هاتفهم الذكي عبر مسح QRCODE او شاشات اللمس الموجودة في الساحة</li>
                         <li><i class="fi ok">✅</i> توجيه ذكي للطلبات إلى جميع المطاعم المختلفة</li>
                         <li><i class="fi ok">✅</i> إدخال قائمة الطعام <strong>مشمول مجاناً</strong> (لمرة واحدة)</li>
                         <li><i class="fi ok">✅</i> دعم فني ممتد <strong>6 أشهر</strong> مع أولوية عالية في الرد</li>
                     </ul>
                     <div class="plan-cta">
-                        <a href="index.html#contact" class="btn btn-accent">تواصل معنا</a>
-                        <a href="scenarios.html#4th-scenario" class="btn btn-outline" style="color: #888; background: transparent; border: 2px solid #ddd; box-shadow: none; margin-top: 10px;">أنظر الى السيناريو 4</a>
+                        <!-- <a href="index.html#contact" class="btn btn-accent">تواصل معنا</a> -->
+                        <!-- Button for Food Court Package -->
+                        <a href="https://wa.me/213561698716?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D8%A8%D8%A7%D9%82%D8%A9%20%D8%B3%D8%A7%D8%AD%D8%A9%20%D8%A7%D9%84%D9%85%D8%B7%D8%A7%D8%B9%D9%85"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+                            تواصل معنا
+                        </a>
+                        <a href="scenarios.html#4th-scenario" class="btn btn-outline"
+                            style="color: #888; background: transparent; border: 2px solid #ddd; box-shadow: none; margin-top: 10px;">أنظر
+                            الى السيناريو 4</a>
                     </div>
                 </div>
 
@@ -489,7 +616,8 @@
                         <tr>
                             <td>الطابعات المدعومة</td>
                             <td>طابعتان كحد أقصى<br><span class="opt-txt">(فواتير + مطبخ)</span></td>
-                            <td class="col-featured"><span class="check">✅</span> عدد غير محدود<br><span class="opt-txt">(سلكية ولا سلكية)</span></td>
+                            <td class="col-featured"><span class="check">✅</span> عدد غير محدود<br><span
+                                    class="opt-txt">(سلكية ولا سلكية)</span></td>
                             <td><span class="check">✅</span> عدد غير محدود</td>
                         </tr>
                         <tr>
@@ -530,7 +658,8 @@
                         </tr>
                         <tr>
                             <td>التثبيت والإعداد</td>
-                            <td><span class="cross">—</span><br><span class="opt-txt">تثبيت ذاتي</span></td>
+                            <td><span class="cross">—</span><br><span class="opt-txt">تثبيت ذاتي من طرف الزبون</span>
+                            </td>
                             <td class="col-featured"><span class="check">✅</span> مشمول</td>
                             <td><span class="check">✅</span> مشمول + الشبكة</td>
                         </tr>
@@ -555,7 +684,8 @@
                         <tr>
                             <td style="font-weight:800; color: var(--primary-color);">السعر</td>
                             <td style="font-weight:800;">15,000 دج</td>
-                            <td class="col-featured" style="font-weight:800; color: var(--primary-color);">25,000 دج</td>
+                            <td class="col-featured" style="font-weight:800; color: var(--primary-color);">25,000 دج
+                            </td>
                             <td style="font-weight:800;">40,000 دج / للمطعم</td>
                         </tr>
                     </tbody>
@@ -576,22 +706,26 @@
 
             <div class="note-box">
                 <h4>🔄 ماذا يحدث بعد انتهاء فترة الدعم الفني؟</h4>
-                <p>النظام يستمر في العمل بشكل كامل بعد انتهاء فترة الدعم. يمكنك الاعتماد على الدعم الذاتي الدائم (دليل الاستخدام والموقع)، أو تجديد الدعم الفني المباشر بأسعار رمزية (اختياري).</p>
+                <p>النظام يستمر في العمل بشكل كامل بعد انتهاء فترة الدعم. يمكنك الاعتماد على الدعم الذاتي الدائم (دليل
+                    الاستخدام والموقع)، أو تجديد الدعم الفني المباشر بأسعار رمزية (اختياري).</p>
             </div>
 
             <div class="note-box">
                 <h4>🍕 هل يمكنني إضافة خدمة إدخال قائمة الطعام لاحقاً؟</h4>
-                <p>بالطبع، خدمة إعداد وإدخال قائمة الطعام (المنيو) متاحة كخدمة إضافية لأصحاب الباقة العادية بسعر <strong>3,500 دج</strong> في أي وقت تشاء.</p>
+                <p>بالطبع، خدمة إعداد وإدخال قائمة الطعام (المنيو) متاحة كخدمة إضافية لأصحاب الباقة العادية بسعر
+                    <strong>3,500 دج</strong> في أي وقت تشاء.</p>
             </div>
 
             <div class="note-box">
                 <h4>🏢 هل الباقة الأساسية والعادية تدعمان طابعات متعددة؟</h4>
-                <p>كلا الباقتين تدعمان طابعة واحدة للكاشير والمطبخ معاً. الطابعات المتعددة لأقسام المطبخ المختلفة متوفرة حصرياً في باقة قاعات الطعام.</p>
+                <p>كلا الباقتين تدعمان طابعة واحدة للامين الصندوق  والمطبخ معاً. الطابعات المتعددة لأقسام المطبخ المختلفة متوفرة
+                    حصرياً في باقة قاعات الطعام.</p>
             </div>
 
             <div class="note-box">
                 <h4>📞 كيف أتواصل لطلب النظام؟</h4>
-                <p>تواصل معنا مباشرة عبر نموذج الاتصال أو تواصل مع فريقنا — سنحدد معك الباقة الأنسب لحجم مطعمك واحتياجاتك.</p>
+                <p>تواصل معنا مباشرة عبر نموذج الاتصال أو تواصل مع فريقنا — سنحدد معك الباقة الأنسب لحجم مطعمك
+                    واحتياجاتك.</p>
             </div>
 
             <div style="text-align:center; margin-top: 40px;">
