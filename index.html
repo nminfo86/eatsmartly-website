@@ -145,7 +145,7 @@
                 تم تصميمه ليتكيف مع التشغيل الواقعي للمطاعم والمقاهي. 
             </p>
             <div class="hero-actions">
-                <a href="#download" class="btn">جرّب النظام الآن</a>
+                <a href="#" id="demoTriggerBtn" class="btn" aria-haspopup="dialog">جرّب النظام الآن</a>
                 <a href="pricing.html" class="btn btn-outline">اكتشف باقة الأسعار</a>
             </div>
         </div>
@@ -649,12 +649,145 @@
         </div>
     </section>
 
+    <!-- ══ Demo Access Modal ════════════════════════════════ -->
+    <div class="demo-modal-overlay" id="demoModalOverlay" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
+        <div class="demo-modal">
+            <button class="demo-modal-close" id="demoModalClose" aria-label="إغلاق">&times;</button>
+
+            <div class="demo-modal-header">
+                <h2 id="demoModalTitle">🚀 جرّب eatSmartly الآن</h2>
+                <p>اكتشف كل أدوار النظام بنفسك — اختر الدور الذي يناسبك واستخدم بيانات الدخول أدناه</p>
+            </div>
+
+            <!-- How to access -->
+            <div class="demo-steps">
+                <strong>كيفية الدخول:</strong><br>
+                ١. افتح الرابط بالضغط على زر «انتقل إلى النظام» أدناه<br>
+                ٢. من القائمة اختر <strong>Connexion</strong><br>
+                ٣. أدخل اسم المستخدم وكلمة المرور الخاصة بالدور الذي تريد تجربته
+            </div>
+
+            <!-- Role cards -->
+            <div class="demo-roles-grid">
+
+                <!-- Admin -->
+                <div class="demo-role-card">
+                    <div class="role-title">⚙️ المسؤول — Administration</div>
+                    <div class="role-desc">يتحكم في كامل النظام، عادةً صاحب المطعم أو المقهى</div>
+                    <div class="demo-cred-row">
+                        <span class="cred-label">المستخدم</span>
+                        <span class="cred-val">admin</span>
+                    </div>
+                    <div class="demo-cred-row">
+                        <span class="cred-label">كلمة السر</span>
+                        <span class="cred-val">c123</span>
+                    </div>
+                </div>
+
+                <!-- Caisse -->
+                <div class="demo-role-card">
+                    <div class="role-title">🧾 أمين الصندوق — Caissier</div>
+                    <div class="role-desc">يسجّل الطلبات ويستقبل المدفوعات من الزبائن</div>
+                    <div class="demo-cred-row">
+                        <span class="cred-label">المستخدم</span>
+                        <span class="cred-val">caisse</span>
+                    </div>
+                    <div class="demo-cred-row">
+                        <span class="cred-label">كلمة السر</span>
+                        <span class="cred-val">123</span>
+                    </div>
+                </div>
+
+                <!-- Serveur -->
+                <div class="demo-role-card">
+                    <div class="role-title">🙋 النادل — Serveur</div>
+                    <div class="role-desc">يؤكد طلبات الزبائن أو يأخذها بنفسه من الطاولات</div>
+                    <div class="demo-cred-row">
+                        <span class="cred-label">المستخدم</span>
+                        <span class="cred-val">serveur</span>
+                    </div>
+                    <div class="demo-cred-row">
+                        <span class="cred-label">كلمة السر</span>
+                        <span class="cred-val">123</span>
+                    </div>
+                </div>
+
+                <!-- Chef -->
+                <div class="demo-role-card">
+                    <div class="role-title">👨‍🍳 الطاهي — Chef</div>
+                    <div class="role-desc">واجهة مخصصة للمطبخ: يعرض الطلبات ويُعلم حين تجهّز</div>
+                    <div class="demo-cred-row">
+                        <span class="cred-label">المستخدم</span>
+                        <span class="cred-val">chef-all</span>
+                    </div>
+                    <div class="demo-cred-row">
+                        <span class="cred-label">كلمة السر</span>
+                        <span class="cred-val">123</span>
+                    </div>
+                </div>
+
+            </div><!-- /.demo-roles-grid -->
+
+            <!-- Doc note -->
+            <p class="demo-modal-doc-note">
+                لمزيد من التفاصيل حول طريقة التجربة، راجع
+                <a href="documentation.html#l-1-2" target="_blank">دليل الاستخدام ←</a>
+            </p>
+
+            <!-- CTA button -->
+            <div class="demo-modal-footer">
+                <a href="http://eatsmartly.bouhezila.com" target="_blank" rel="noopener noreferrer" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    انتقل إلى النظام
+                </a>
+            </div>
+
+        </div><!-- /.demo-modal -->
+    </div><!-- /.demo-modal-overlay -->
+
     <!-- ══ Image Lightbox Modal ═════════════════════════════ -->
     <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true"
         aria-label="عرض الصورة بحجم أكبر">
         <button class="lightbox-close" id="lightboxClose" aria-label="إغلاق">&times;</button>
         <img class="lightbox-img" id="lightboxImg" src="" alt="">
     </div>
+
+    <script>
+        // Demo Access Modal
+        (function () {
+            var overlay = document.getElementById('demoModalOverlay');
+            var closeBtn = document.getElementById('demoModalClose');
+            var triggerBtn = document.getElementById('demoTriggerBtn');
+            if (!overlay || !triggerBtn) return;
+
+            function openModal() {
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            triggerBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                openModal();
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeModal();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+            });
+        })();
+    </script>
 
     <script>
         // Read More toggle for feature-detail sections
