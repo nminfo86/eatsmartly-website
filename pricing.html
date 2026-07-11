@@ -67,7 +67,7 @@
 
     <link rel="icon" type="image/png" href="images/eatSmartly_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+     <link rel="stylesheet" href="css/styles.css?v=<?= filemtime('css/styles.css') ?>">
     <style>
         /* ── Page Hero ─────────────────────────────────────── */
         .price-hero {
@@ -435,6 +435,12 @@
                 padding: 10px 10px;
                 font-size: 13px;
             }
+        }
+         @media (max-width: 480px) {
+            #pricing-page .section-sub {
+                display: none;
+            }
+
         }
     </style>
 </head>
