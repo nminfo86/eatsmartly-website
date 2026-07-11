@@ -91,7 +91,7 @@
 
     <link rel="icon" type="image/png" href="images/eatSmartly_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+     <link rel="stylesheet" href="css/styles.css?v=<?= filemtime('css/styles.css') ?>">
 </head>
 
 <body>
@@ -140,12 +140,12 @@
             <span style="font-size:44px; top:85%; left:70%; animation-delay:3.1s;">🍕</span>
         </div>
         <div class="container">
-            <h1>eatSmartly — نظام إدارة المطاعم والمقاهي القوي</h1>
+            <h1>eatSmartly — نظام إدارة المطاعم والمقاهي الأفضل</h1>
             <p style="font-size: 22px; margin-top: 20px;">
                 تم تصميمه ليتكيف مع التشغيل الواقعي للمطاعم والمقاهي. 
             </p>
             <div class="hero-actions">
-                <a href="#" id="demoTriggerBtn" class="btn" aria-haspopup="dialog">جرّب النظام الآن</a>
+                <a href="#" class="btn demo-trigger-btn" aria-haspopup="dialog">جرّب النظام الآن</a>
                 <a href="pricing.html" class="btn btn-outline">اكتشف باقة الأسعار</a>
             </div>
         </div>
@@ -365,7 +365,7 @@
                 <p>نحن الخيار الأول والموثوق لأصحاب المطاعم والمقاهي في الجزائر.<br>نظام محلي، دعم محلي، وفهم كامل
                     لاحتياجاتك.</p>
                 <p class="cta-details">الترخيص: مدى الحياة &nbsp;•&nbsp; الدعم: مجاني لمدة 3 أشهر</p>
-                <a href="#download" class="btn">جرّبه الآن</a>
+                <a href="#" class="btn demo-trigger-btn" aria-haspopup="dialog">جرّبه الآن</a>
             </div>
         </div>
     </section>
@@ -450,7 +450,7 @@
                     <h2>ميزات <span dir="ltr">eatSmartly</span></h2>
                     <p>كل ما يحتاجه مطعمك أو مقهاك من أدوات قوية وذكية — في نظام واحد متكامل يعمل بالكامل بدون إنترنت.
                     </p>
-                    <a href="#download" class="btn">جرّب النظام مجانًا</a>
+                    <a href="#" class="btn demo-trigger-btn" aria-haspopup="dialog">جرّب النظام مجانًا</a>
                     <a href="pricing.html" class="ext-more-link">تصفّح خطط الأسعار &larr;</a>
                 </div>
 
@@ -468,7 +468,7 @@
                     <div class="ext-card">
                         <span class="ext-icon"><img src="images/dz.png" alt="الجزائر" 
                             style="width:36px;height:27px;vertical-align:middle;border-radius:3px;border:2px solid;"></span>
-                        <strong>دعم محلي جزائري عبر واتساب</strong>
+                        <strong>دعم محلي جزائري</strong>
                         <p>فريق دعم جزائري يردّ عليك مباشرةً عبر واتساب — يفهم سياقك ويحلّ مشكلتك بسرعة.</p>
                     </div>
 
@@ -656,7 +656,6 @@
 
             <div class="demo-modal-header">
                 <h2 id="demoModalTitle">🚀 جرّب eatSmartly الآن</h2>
-                <p>اكتشف كل أدوار النظام بنفسك — اختر الدور الذي يناسبك واستخدم بيانات الدخول أدناه</p>
             </div>
 
             <!-- How to access -->
@@ -675,11 +674,11 @@
                     <div class="role-title">⚙️ المسؤول — Administration</div>
                     <div class="role-desc">يتحكم في كامل النظام، عادةً صاحب المطعم أو المقهى</div>
                     <div class="demo-cred-row">
-                        <span class="cred-label">المستخدم</span>
+                        <span class="cred-label">اسم المستخدم :</span>
                         <span class="cred-val">admin</span>
                     </div>
                     <div class="demo-cred-row">
-                        <span class="cred-label">كلمة السر</span>
+                        <span class="cred-label">كلمة المرور :</span>
                         <span class="cred-val">c123</span>
                     </div>
                 </div>
@@ -689,11 +688,11 @@
                     <div class="role-title">🧾 أمين الصندوق — Caissier</div>
                     <div class="role-desc">يسجّل الطلبات ويستقبل المدفوعات من الزبائن</div>
                     <div class="demo-cred-row">
-                        <span class="cred-label">المستخدم</span>
+                        <span class="cred-label">اسم المستخدم :</span>
                         <span class="cred-val">caisse</span>
                     </div>
                     <div class="demo-cred-row">
-                        <span class="cred-label">كلمة السر</span>
+                        <span class="cred-label">كلمة المرور :</span>
                         <span class="cred-val">123</span>
                     </div>
                 </div>
@@ -703,11 +702,11 @@
                     <div class="role-title">🙋 النادل — Serveur</div>
                     <div class="role-desc">يؤكد طلبات الزبائن أو يأخذها بنفسه من الطاولات</div>
                     <div class="demo-cred-row">
-                        <span class="cred-label">المستخدم</span>
+                        <span class="cred-label">اسم المستخدم :</span>
                         <span class="cred-val">serveur</span>
                     </div>
                     <div class="demo-cred-row">
-                        <span class="cred-label">كلمة السر</span>
+                        <span class="cred-label">كلمة المرور :</span>
                         <span class="cred-val">123</span>
                     </div>
                 </div>
@@ -717,11 +716,11 @@
                     <div class="role-title">👨‍🍳 الطاهي — Chef</div>
                     <div class="role-desc">واجهة مخصصة للمطبخ: يعرض الطلبات ويُعلم حين تجهّز</div>
                     <div class="demo-cred-row">
-                        <span class="cred-label">المستخدم</span>
+                        <span class="cred-label">اسم المستخدم :</span>
                         <span class="cred-val">chef-all</span>
                     </div>
                     <div class="demo-cred-row">
-                        <span class="cred-label">كلمة السر</span>
+                        <span class="cred-label">كلمة المرور :</span>
                         <span class="cred-val">123</span>
                     </div>
                 </div>
@@ -759,8 +758,11 @@
         (function () {
             var overlay = document.getElementById('demoModalOverlay');
             var closeBtn = document.getElementById('demoModalClose');
-            var triggerBtn = document.getElementById('demoTriggerBtn');
-            if (!overlay || !triggerBtn) return;
+
+            // Select ALL buttons with the new class instead of an ID
+             var triggerBtns = document.querySelectorAll('.demo-trigger-btn');
+
+            if (!overlay || triggerBtns.length === 0) return;
 
             function openModal() {
                 overlay.classList.add('active');
@@ -772,9 +774,12 @@
                 document.body.style.overflow = '';
             }
 
-            triggerBtn.addEventListener('click', function (e) {
+            // Loop through each button and attach the click event listener
+            triggerBtns.forEach(function(btn) {
+                btn.addEventListener('click', function (e) {
                 e.preventDefault();
-                openModal();
+                 openModal();
+                });
             });
 
             closeBtn.addEventListener('click', closeModal);
