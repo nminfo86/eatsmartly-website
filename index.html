@@ -824,6 +824,8 @@
             }
 
             var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // starts with 0, +, or a digit (e.g. 213671017715) and has at least 10 digits total
+            var phoneRe = /^\+?\d{10,}$/;
 
             document.getElementById('contactForm').addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -845,6 +847,9 @@
                 }
                 if (!phone) {
                     showError('cf-phone', 'الرجاء إدخال رقم الهاتف');
+                    valid = false;
+                } else if (!phoneRe.test(phone.replace(/[\s-]/g, ''))) {
+                    showError('cf-phone', 'رقم الهاتف غير صحيح (10 أرقام على الأقل، يبدأ بـ 0 أو + أو رمز الدولة)');
                     valid = false;
                 }
                 if (!message) {
